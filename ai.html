@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahoron AI - Your SSC Study Assistant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+  <style>
+    /* Modern Dark Theme */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+    .logo {
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+    nav ul li a {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      position: relative;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      color: #667eea;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #ffffff;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(26, 26, 26, 0.95) 100%);
+      backdrop-filter: blur(20px);
+      z-index: 1002;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: left 0.3s ease;
+    }
+    .mobile-menu.active {
+      left: 0;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      text-align: center;
+    }
+    .mobile-menu ul li {
+      margin: 20px 0;
+    }
+    .mobile-menu ul li a {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .mobile-menu ul li a:hover {
+      color: #667eea;
+      transform: scale(1.1);
+    }
+    .mobile-menu ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+    .mobile-menu ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* AI Chat Section */
+    .ai-chat {
+      padding: 140px 0 80px;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+    }
+    .chat-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+    .chat-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    .chat-header h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .chat-header p {
+      opacity: 0.9;
+      font-size: 1rem;
+    }
+    .chat-messages {
+      height: 500px;
+      overflow-y: auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .message {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .message.user {
+      justify-content: flex-end;
+    }
+    .message.bot {
+      justify-content: flex-start;
+    }
+    .message-content {
+      max-width: 70%;
+      padding: 12px 16px;
+      border-radius: 18px;
+      position: relative;
+    }
+    .message.user .message-content {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      margin-left: 20px;
+    }
+    .message.bot .message-content {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      margin-right: 20px;
+    }
+    .message.bot .message-content::before {
+      content: '🤖';
+      position: absolute;
+      left: -25px;
+      top: 12px;
+      font-size: 1.2rem;
+    }
+    .message.user .message-content::after {
+      content: '👤';
+      position: absolute;
+      right: -25px;
+      top: 12px;
+      font-size: 1.2rem;
+    }
+    .chat-input {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .input-group {
+      display: flex;
+      gap: 10px;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+    .chat-input input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .chat-input button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .chat-input button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Typing Indicator */
+    .typing {
+      display: none;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    .typing::before {
+      content: '🤖 Ahoron AI is typing...';
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      padding: 60px 0 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+    .social-links {
+      margin-bottom: 30px;
+    }
+    .social-links a {
+      color: #667eea;
+      font-size: 2rem;
+      margin: 0 20px;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: translateY(-5px);
+      color: #764ba2;
+    }
+    footer p {
+      opacity: 0.8;
+      font-size: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      nav ul {
+        display: none;
+      }
+      .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 20px;
+      }
+      .chat-messages {
+        height: 400px;
+      }
+      .input-group {
+        flex-direction: column;
+      }
+      .chat-input button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container container">
+      <div class="logo">Ahoron</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="notices.html">Notices</a></li>
+          <li><a href="https://raiyan-coding.github.io/monthly-exam-demo/MonthlyQuizExam/" target="_blank">MCQ Exam</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="instructors.html">Teachers</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+      <li><a href="notices.html" onclick="toggleMenu()">Notices</a></li>
+      <li><a href="https://raiyan-coding.github.io/monthly-exam-demo/MonthlyQuizExam/" target="_blank" onclick="toggleMenu()">MCQ Exam</a></li>
+      <li><a href="courses.html" onclick="toggleMenu()">Courses</a></li>
+      <li><a href="instructors.html" onclick="toggleMenu()">Teachers</a></li>
+      <li><a href="community.html" onclick="toggleMenu()">Community</a></li>
+      <li><a href="about.html" onclick="toggleMenu()">About Us</a></li>
+      <li><a href="ai.html" onclick="toggleMenu()">Ahoron AI</a></li>
+    </ul>
+  </div>
+
+  <section class="ai-chat">
+    <div class="container">
+      <div class="chat-container">
+        <div class="chat-header">
+          <h1>🤖 Ahoron AI</h1>
+          <p>Your intelligent SSC study assistant</p>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot">
+            <div class="message-content">
+              Hello! I'm Ahoron AI, your personal SSC study assistant. How can I help you today? You can ask me about SSC subjects, study tips, exam preparation, or anything related to your studies!
+            </div>
+          </div>
+        </div>
+        <div class="typing" id="typingIndicator"></div>
+        <div class="chat-input">
+          <div class="input-group">
+            <input type="text" id="userInput" placeholder="Ask me anything about SSC..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <p>&copy; 2024 Ahoron. All rights reserved. | Empowering SSC Students Worldwide</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    }
+
+    // Make toggleMenu global
+    window.toggleMenu = toggleMenu;
+
+    // AI Chatbot Logic with Gemini
+    const chatMessages = document.getElementById('chatMessages');
+    const userInput = document.getElementById('userInput');
+    const typingIndicator = document.getElementById('typingIndicator');
+
+    // Import Gemini AI
+    import { GoogleGenerativeAI } from '@google/generative-ai';
+
+    // Initialize Gemini AI
+    const genAI = new GoogleGenerativeAI('AIzaSyBHZ-_Z0RyNOUZrP5ZK7om6qvV_Fd5YjOU');
+    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+
+    // Chat history for context
+    let chatHistory = [];
+
+    function addMessage(content, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+      messageDiv.innerHTML = `<div class="message-content">${content}</div>`;
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function showTyping() {
+      typingIndicator.style.display = 'block';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function hideTyping() {
+      typingIndicator.style.display = 'none';
+    }
+
+    async function getGeminiResponse(message) {
+      try {
+        // Create a system prompt for SSC study assistant
+        const systemPrompt = `You are Ahoron AI, an intelligent SSC (Secondary School Certificate) study assistant in Bangladesh. You help students with:
+
+- SSC subjects: Bangla, English, Mathematics, Physics, Chemistry, Biology, ICT, Religion, Social Science, Higher Mathematics
+- Study tips and exam preparation strategies
+- Time management and motivation
+- Career guidance related to SSC
+- General educational advice
+
+Always be helpful, encouraging, and provide accurate information. Keep responses concise but informative. If asked about non-SSC topics, gently redirect to SSC-related subjects.
+
+Current conversation history:
+${chatHistory.map(msg => `${msg.role}: ${msg.content}`).join('\n')}
+
+User: ${message}`;
+
+        const result = await model.generateContent(systemPrompt);
+        const response = await result.response;
+        return response.text();
+      } catch (error) {
+        console.error('Gemini API Error:', error);
+        return 'Sorry, I\'m having trouble connecting right now. Please try again in a moment.';
+      }
+    }
+
+    async function sendMessage() {
+      const message = userInput.value.trim();
+      if (message === '') return;
+
+      // Add user message to chat
+      addMessage(message, true);
+      userInput.value = '';
+
+      // Add to history
+      chatHistory.push({ role: 'user', content: message });
+
+      // Keep only last 10 messages for context
+      if (chatHistory.length > 10) {
+        chatHistory = chatHistory.slice(-10);
+      }
+
+      showTyping();
+
+      try {
+        const response = await getGeminiResponse(message);
+
+        hideTyping();
+
+        // Add bot response to chat
+        addMessage(response);
+
+        // Add to history
+        chatHistory.push({ role: 'assistant', content: response });
+      } catch (error) {
+        hideTyping();
+        addMessage('Sorry, I encountered an error. Please try again.');
+      }
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
+    }
+
+    // Make functions global
+    window.sendMessage = sendMessage;
+    window.handleKeyPress = handleKeyPress;
+
+    // Initial focus on input
+    window.addEventListener('load', () => {
+      userInput.focus();
+    });
+  </script>
+</body>
+</html>

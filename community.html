@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community - Ahoron</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Modern Dark Theme */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+    .logo {
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+    nav ul li a {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    nav ul li a:hover {
+      color: #667eea;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #ffffff;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(26, 26, 26, 0.95) 100%);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: left 0.3s ease;
+    }
+    .mobile-menu.active {
+      left: 0;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      text-align: center;
+    }
+    .mobile-menu ul li {
+      margin: 20px 0;
+    }
+    .mobile-menu ul li a {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .mobile-menu ul li a:hover {
+      color: #667eea;
+      transform: scale(1.1);
+    }
+    .mobile-menu ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+    .mobile-menu ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 140px 0 80px;
+      text-align: center;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 60%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+    }
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      z-index: 1;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 40px;
+      opacity: 0.8;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Community Section */
+    .community {
+      padding: 100px 0;
+      background: #0a0a0a;
+    }
+    .community h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+    }
+    .community-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .community-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+      border-color: rgba(102, 126, 234, 0.3);
+    }
+    .community-icon {
+      font-size: 3.5rem;
+      color: #667eea;
+      margin-bottom: 24px;
+    }
+    .community-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+    .community-desc {
+      opacity: 0.8;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Discussion Section */
+    .discussions {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+    .discussions h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .discussion-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .discussion-item {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .discussion-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.1);
+      border-color: rgba(102, 126, 234, 0.2);
+    }
+    .discussion-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .discussion-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-right: 16px;
+    }
+    .discussion-info h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #667eea;
+    }
+    .discussion-info p {
+      opacity: 0.7;
+      font-size: 0.875rem;
+    }
+    .discussion-content {
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      padding: 60px 0 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+    .social-links {
+      margin-bottom: 30px;
+    }
+    .social-links a {
+      color: #667eea;
+      font-size: 2rem;
+      margin: 0 20px;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: translateY(-5px);
+      color: #764ba2;
+    }
+    footer p {
+      opacity: 0.8;
+      font-size: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      nav ul {
+        display: none;
+      }
+      .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 20px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .hero p {
+        font-size: 1.125rem;
+      }
+      .community-grid {
+        grid-template-columns: 1fr;
+      }
+      .discussion-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .discussion-avatar {
+        margin-right: 0;
+        margin-bottom: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container container">
+      <div class="logo">Ahoron</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="notices.html">Notices</a></li>
+          <li><a href="https://raiyan-coding.github.io/monthly-exam-demo/MonthlyQuizExam/" target="_blank">MCQ Exam</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="instructors.html">Teachers</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+      <li><a href="notices.html" onclick="toggleMenu()">Notices</a></li>
+      <li><a href="https://raiyan-coding.github.io/monthly-exam-demo/MonthlyQuizExam/" target="_blank" onclick="toggleMenu()">MCQ Exam</a></li>
+      <li><a href="courses.html" onclick="toggleMenu()">Courses</a></li>
+      <li><a href="instructors.html" onclick="toggleMenu()">Teachers</a></li>
+      <li><a href="community.html" onclick="toggleMenu()">Community</a></li>
+      <li><a href="about.html" onclick="toggleMenu()">About Us</a></li>
+      <li><a href="ai.html" onclick="toggleMenu()">Ahoron AI</a></li>
+    </ul>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Join Our Community</h1>
+      <p>Connect with fellow SSC students, share study resources, and grow together in your academic journey</p>
+    </div>
+  </section>
+
+  <section class="community">
+    <div class="container">
+      <h2>Community Features</h2>
+      <div class="community-grid">
+        <div class="community-card">
+          <i class="fas fa-users community-icon"></i>
+          <h3 class="community-title">Study Groups</h3>
+          <p class="community-desc">Form study groups with students preparing for the same subjects and share knowledge collaboratively</p>
+        </div>
+        <div class="community-card">
+          <i class="fas fa-question-circle community-icon"></i>
+          <h3 class="community-title">Doubt Clearing</h3>
+          <p class="community-desc">Get your academic doubts resolved by peers and mentors in real-time discussions</p>
+        </div>
+        <div class="community-card">
+          <i class="fas fa-book-open community-icon"></i>
+          <h3 class="community-title">Resource Sharing</h3>
+          <p class="community-desc">Share and access study materials, notes, and practice questions from the community</p>
+        </div>
+        <div class="community-card">
+          <i class="fas fa-trophy community-icon"></i>
+          <h3 class="community-title">Leaderboards</h3>
+          <p class="community-desc">Compete with fellow students and track your progress on community leaderboards</p>
+        </div>
+        <div class="community-card">
+          <i class="fas fa-calendar-alt community-icon"></i>
+          <h3 class="community-title">Study Events</h3>
+          <p class="community-desc">Participate in virtual study sessions, webinars, and interactive learning events</p>
+        </div>
+        <div class="community-card">
+          <i class="fas fa-heart community-icon"></i>
+          <h3 class="community-title">Motivation Hub</h3>
+          <p class="community-desc">Stay motivated with success stories, tips, and encouragement from the Ahoron community</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="discussions">
+    <div class="container">
+      <h2>Recent Discussions</h2>
+      <div class="discussion-list">
+        <div class="discussion-item">
+          <div class="discussion-header">
+            <div class="discussion-avatar">👨‍🎓</div>
+            <div class="discussion-info">
+              <h4>Mathematics Study Group</h4>
+              <p>2 hours ago • 15 members</p>
+            </div>
+          </div>
+          <p class="discussion-content">Anyone interested in forming a calculus study group? We can meet virtually twice a week to solve problems together and discuss difficult concepts.</p>
+        </div>
+        <div class="discussion-item">
+          <div class="discussion-header">
+            <div class="discussion-avatar">👩‍🔬</div>
+            <div class="discussion-info">
+              <h4>Physics Problem Help</h4>
+              <p>5 hours ago • 8 replies</p>
+            </div>
+          </div>
+          <p class="discussion-content">Stuck on projectile motion problems. Can someone explain the concept of maximum range and the formula derivation? Sharing my attempts below.</p>
+        </div>
+        <div class="discussion-item">
+          <div class="discussion-header">
+            <div class="discussion-avatar">📚</div>
+            <div class="discussion-info">
+              <h4>SSC 2025 Preparation Tips</h4>
+              <p>1 day ago • 23 replies</p>
+            </div>
+          </div>
+          <p class="discussion-content">What are your strategies for the upcoming SSC exams? Let's share study plans, time management tips, and resources that have helped us succeed.</p>
+        </div>
+        <div class="discussion-item">
+          <div class="discussion-header">
+            <div class="discussion-avatar">🎯</div>
+            <div class="discussion-info">
+              <h4>Mock Test Results Discussion</h4>
+              <p>2 days ago • 12 replies</p>
+            </div>
+          </div>
+          <p class="discussion-content">Just completed the latest mock test. My score improved by 15 points! What were your results? Let's discuss the difficult questions and learn from each other.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <p>&copy; 2024 Ahoron. All rights reserved. | Empowering SSC Students Worldwide</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

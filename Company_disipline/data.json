@@ -1,0 +1,522 @@
+[
+  {
+    "week": "Week 01",
+    "dateRange": "Jan 01 - Jan 07",
+    "active": true,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 02",
+    "dateRange": "Jan 08 - Jan 14",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 03",
+    "dateRange": "Jan 15 - Jan 21",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 04",
+    "dateRange": "Jan 22 - Jan 28",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 05",
+    "dateRange": "Jan 29 - Feb 04",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 06",
+    "dateRange": "Feb 05 - Feb 11",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 07",
+    "dateRange": "Feb 12 - Feb 18",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 08",
+    "dateRange": "Feb 19 - Feb 25",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 09",
+    "dateRange": "Feb 26 - Mar 04",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 10",
+    "dateRange": "Mar 05 - Mar 11",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 11",
+    "dateRange": "Mar 12 - Mar 18",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 12",
+    "dateRange": "Mar 19 - Mar 25",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 13",
+    "dateRange": "Mar 26 - Apr 01",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 14",
+    "dateRange": "Apr 02 - Apr 08",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 15",
+    "dateRange": "Apr 09 - Apr 15",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 16",
+    "dateRange": "Apr 16 - Apr 22",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 17",
+    "dateRange": "Apr 23 - Apr 29",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 18",
+    "dateRange": "Apr 30 - May 06",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 19",
+    "dateRange": "May 07 - May 13",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 20",
+    "dateRange": "May 14 - May 20",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 21",
+    "dateRange": "May 21 - May 27",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 22",
+    "dateRange": "May 28 - Jun 03",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 23",
+    "dateRange": "Jun 04 - Jun 10",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 24",
+    "dateRange": "Jun 11 - Jun 17",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 25",
+    "dateRange": "Jun 18 - Jun 24",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 26",
+    "dateRange": "Jun 25 - Jul 01",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 27",
+    "dateRange": "Jul 02 - Jul 08",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 28",
+    "dateRange": "Jul 09 - Jul 15",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 29",
+    "dateRange": "Jul 16 - Jul 22",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 30",
+    "dateRange": "Jul 23 - Jul 29",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 31",
+    "dateRange": "Jul 30 - Aug 05",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 32",
+    "dateRange": "Aug 06 - Aug 12",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 33",
+    "dateRange": "Aug 13 - Aug 19",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 34",
+    "dateRange": "Aug 20 - Aug 26",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 35",
+    "dateRange": "Aug 27 - Sep 02",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 36",
+    "dateRange": "Sep 03 - Sep 09",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 37",
+    "dateRange": "Sep 10 - Sep 16",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 38",
+    "dateRange": "Sep 17 - Sep 23",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 39",
+    "dateRange": "Sep 24 - Sep 30",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 40",
+    "dateRange": "Oct 01 - Oct 07",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 41",
+    "dateRange": "Oct 08 - Oct 14",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 42",
+    "dateRange": "Oct 15 - Oct 21",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 43",
+    "dateRange": "Oct 22 - Oct 28",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 44",
+    "dateRange": "Oct 29 - Nov 04",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 45",
+    "dateRange": "Nov 05 - Nov 11",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 46",
+    "dateRange": "Nov 12 - Nov 18",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 47",
+    "dateRange": "Nov 19 - Nov 25",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 48",
+    "dateRange": "Nov 26 - Dec 02",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 49",
+    "dateRange": "Dec 03 - Dec 09",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 50",
+    "dateRange": "Dec 10 - Dec 16",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 51",
+    "dateRange": "Dec 17 - Dec 23",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  },
+  {
+    "week": "Week 52",
+    "dateRange": "Dec 24 - Dec 31",
+    "active": false,
+    "tasks": [
+      { "name": "Task 01", "rating": 0 },
+      { "name": "Task 02", "rating": 0 },
+      { "name": "Task 03", "rating": 0 }
+    ]
+  }
+]

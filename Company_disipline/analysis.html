@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Analysis | Ahoron Web</title>
+    <style>
+        body { background: #020617; color: #f8fafc; font-family: sans-serif; padding: 50px; }
+        .analysis-card { background: #0f172a; padding: 40px; border-radius: 20px; border: 1px solid #1e293b; max-width: 900px; margin: 0 auto; }
+        h1 { color: #38bdf8; border-bottom: 2px solid #38bdf8; padding-bottom: 10px; }
+        .metric-row { display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #334155; }
+        .label { color: #94a3b8; font-weight: bold; }
+        .val { color: #fbbf24; font-size: 1.2rem; font-weight: 900; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #94a3b8; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← BACK TO DASHBOARD</a>
+    <div class="analysis-card">
+        <h1>Company Strategic Analysis</h1>
+        <div id="analysis-content"></div>
+    </div>
+
+    <script>
+        async function runAnalysis() {
+            const res = await fetch('data.json');
+            const data = (await res.json()).filter(w => w.active);
+            const content = document.getElementById('analysis-content');
+
+            let bestWeek = { name: "N/A", pct: 0 };
+            let totalPct = 0;
+            let totalTasks = 0;
+
+            data.forEach(w => {
+                const sum = w.tasks.reduce((s, t) => s + t.rating, 0);
+                const pct = (sum / (w.tasks.length * 10)) * 100;
+                totalPct += pct;
+                totalTasks += w.tasks.length;
+                if (pct > bestWeek.pct) bestWeek = { name: w.week, pct: pct.toFixed(1) };
+            });
+
+            const avg = (totalPct / data.length).toFixed(1);
+
+            content.innerHTML = `
+                <div class="metric-row"><span class="label">Historical Success Rate (Avg %)</span><span class="val">${avg}%</span></div>
+                <div class="metric-row"><span class="label">Top Performance Record</span><span class="val">${bestWeek.name} (${bestWeek.pct}%)</span></div>
+                <div class="metric-row"><span class="label">Total Tasks Logged</span><span class="val">${totalTasks}</span></div>
+                <div class="metric-row"><span class="label">Operational Consistency</span><span class="val">${avg > 70 ? 'HIGH' : 'STABLE'}</span></div>
+            `;
+        }
+        runAnalysis();
+    </script>
+</body>
+</html>

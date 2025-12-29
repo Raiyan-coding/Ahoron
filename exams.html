@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ahoron — Exams & Mock Tests</title>
+  <link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Ahoron logo" class="logo" />
+        <span>Ahoron</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="exams.html">Exams</a>
+        <a href="learn.html">Learn</a>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+      <li><a href="exams.html" onclick="toggleMenu()">Exams</a></li>
+      <li><a href="learn.html" onclick="toggleMenu()">Learn</a></li>
+    </ul>
+  </div>
+
+  <main class="container">
+    <h1>Mock Tests</h1>
+    <p class="lead">Try our mock tests to evaluate your progress.</p>
+
+    <ul class="mock-list">
+      <li><a class="mock" href="https://forms.gle/placeholder-mock1" target="_blank">Mock Test 1 — Mathematics</a></li>
+      <li><a class="mock" href="https://forms.gle/placeholder-mock2" target="_blank">Mock Test 2 — English</a></li>
+      <li><a class="mock" href="https://forms.gle/placeholder-mock3" target="_blank">Mock Test 3 — Science</a></li>
+    </ul>
+
+    <p class="note">Want forms embedded or named differently? Provide links and I’ll update these.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Ahoron.</small>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
