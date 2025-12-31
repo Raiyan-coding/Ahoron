@@ -1,12 +1,26 @@
-- [x] Update navigation to: home, notices, mcq exam, courses, teachers, community, about us
-- [x] Create dark Gen Z themed CSS with neon accents and modern design
-- [x] Add continuous spinning slider for course banners after header
-- [x] Implement stats section with animated counters (videos published, courses count, student count)
-- [x] Create containers for courses, products, community, exam center, MCQ exam (link MCQ to external URL)
-- [x] Add "Our Courses" section with course cards
-- [x] Add "Why Ahoron" section
-- [x] Update team section to include teachers and company positions
-- [x] Add testimonials section "What students say about Ahoron"
-- [x] Update contact section
-- [x] Ensure all sections are attractive and engaging for Gen Z audience
-- [x] Test responsiveness and functionality
+# MonthlyQuizExam Update Tasks
+
+## Core Changes
+- [ ] Update EXAM_HOUR_DHAKA from 21 to 20 (8 PM)
+- [ ] Set duration to 30 minutes for all subjects
+- [ ] Add boardMap for subject to board mapping
+- [ ] Add boardSetName generation logic
+- [ ] Modify init() to show board widget after exam ends
+- [ ] Update startExamTimer() to handle board timer (8:30 PM to 11 PM)
+- [ ] Modify submitAnswers() to show board widget during board time
+- [ ] Update scheduleFooter text to 8:00 PM
+
+## UI Updates
+- [ ] Update index.html header from 9:00 PM to 8:00 PM
+- [ ] Update notExam message to mention 8:00 PM
+- [ ] Add board widget div for displaying board set name
+- [ ] Update scheduleFooter text in index.html
+
+## Test System
+- [ ] Add time override functionality for testing
+- [ ] Add test controls to manipulate time and see board display
+
+## Testing
+- [ ] Test exam flow: MCQ ends at 8:30 PM, board shows until 11 PM
+- [ ] Verify board set names are generated correctly
+- [ ] Test time override functionality

@@ -541,6 +541,7 @@ code {
               <button id="btnCopyCombined" class="btn">Copy Combined JSON</button>
               <button id="btnDownloadCombined" class="btn-ghost">Download JSON</button>
               <button id="btnSendCombined" class="btn-ghost">Send to Developer</button>
+              <button id="btnSendAggregated" class="btn-ghost">Send Monthly Data to Developer</button>
             </div>
             <div class="small" style="margin-top:10px" id="combinedHint"></div>
           </div>
@@ -741,6 +742,48 @@ code {
       const subject = encodeURIComponent('My combined exam results');
       const body = encodeURIComponent('Dear developer,%0A%0APlease find my combined exam results (copied to clipboard). Please update the published result.json accordingly.%0A%0AThanks.');
       window.location.href = `mailto:${encodeURIComponent('devspakle@gmail.com')}?subject=${subject}&body=${body}`;
+    };
+
+    document.getElementById('btnSendAggregated').onclick = ()=>{
+      const raw = detectCurrentUserRaw();
+      if(!raw){
+        alert('No identity detected. Please enter name/email and take exams.');
+        return;
+      }
+      const monthId = currentMonthId();
+      const all = findPersonalRecordsByRaw(raw);
+      const monthly = all.filter(r => (r.timestamp_utc||'').startsWith(monthId));
+      if(monthly.length === 0){
+        alert('No exams found for this month.');
+        return;
+      }
+      const aggregated = {
+        studentName: raw,
+        studentEmail: raw.includes('@') ? raw : null,
+        correctCount: monthly.reduce((sum, s) => sum + s.correctCount, 0),
+        totalQuestions: monthly.reduce((sum, s) => sum + s.totalQuestions, 0),
+        timeTakenSec: monthly.reduce((sum, s) => sum + s.timeTakenSec, 0),
+        subjects: {},
+        timestamp_utc: new Date().toISOString()
+      };
+      const subjMap = {};
+      monthly.forEach(s => {
+        if(!subjMap[s.subjectId]){
+          subjMap[s.subjectId] = {
+            subjectName: s.subjectName,
+            correctCount: 0,
+            totalQuestions: 0,
+            timeTakenSec: 0
+          };
+        }
+        subjMap[s.subjectId].correctCount += s.correctCount;
+        subjMap[s.subjectId].totalQuestions += s.totalQuestions;
+        subjMap[s.subjectId].timeTakenSec += s.timeTakenSec;
+      });
+      aggregated.subjects = subjMap;
+      const subject = encodeURIComponent(`Monthly Exam Results for ${raw} - ${monthId}`);
+      const body = encodeURIComponent(JSON.stringify(aggregated, null, 2));
+      window.location.href = `mailto:devspakle@gmail.com?subject=${subject}&body=${body}`;
     };
 
     // contextual hint

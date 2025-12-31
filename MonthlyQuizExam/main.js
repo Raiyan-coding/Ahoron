@@ -1,9 +1,29 @@
 /* main.js — MonthlyQuizExam (cleaned, no download) */
 
 /* ---------- CONFIG ---------- */
-const EXAM_HOUR_DHAKA = 21;
-const SHORT_SUBJECT_IDS = new Set(["higher-math","physics","chemistry","biology","ict"]);
-const DEV_EMAIL = 'devspakle@gmail.com';
+const EXAM_HOUR_DHAKA = 20; // 8 PM Dhaka
+const SHORT_SUBJECT_IDS = new Set([]); // All subjects now 30 minutes
+
+// Board mapping for subjects
+const BOARD_MAP = {
+  "bangla-1": "DB",
+  "bangla-2": "DB",
+  "math": "MB",
+  "higher-math": "MB",
+  "physics": "PB",
+  "chemistry": "CB",
+  "biology": "BB",
+  "bgs": "BGSB",
+  "ict": "ICTB",
+  "religion": "RB"
+};
+
+// Generate board set name: board + year (20 + day % 6)
+function generateBoardSetName(subjectId, day) {
+  const board = BOARD_MAP[subjectId] || "XX";
+  const year = 20 + (day % 6);
+  return `${board}${year}`;
+}
 
 // Randomization controls
 // - RANDOMIZE_QUESTIONS: shuffle question order each time the exam is loaded (non-deterministic Math.random())
@@ -25,10 +45,18 @@ const SUBJECTS = [
 ];
 
 /* ---------- Dhaka time helpers ---------- */
-function nowUtcMs(){ return Date.now(); }
+let _fakeTime = null; // For developer testing
+function nowUtcMs(){ return _fakeTime || Date.now(); }
 function dhakaUtcMsFromComponents(year, monthIndex, day, hour, minute=0){
   return Date.UTC(year, monthIndex, day, hour - 6, minute, 0);
 }
+// Developer function to simulate different times for testing (type setFakeTime(20, 30) in console for 8:30 PM)
+window.setFakeTime = function(hour, minute=0) {
+  const now = new Date();
+  _fakeTime = dhakaUtcMsFromComponents(now.getFullYear(), now.getMonth(), now.getDate(), hour, minute);
+  init();
+};
+window.resetFakeTime = function() { _fakeTime = null; init(); };
 function getDhakaNow(){
   const now = new Date();
   const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
@@ -101,6 +129,7 @@ const resultWidget = document.getElementById("resultWidget");
 const congratsOverlay = document.getElementById("congratsOverlay");
 const congratsViewBtn = document.getElementById("congratsViewBtn");
 const congratsCloseBtn = document.getElementById("congratsCloseBtn");
+const boardWidget = document.getElementById("boardWidget");
 
 // persist name/email
 studentNameInput.value = localStorage.getItem('aq_studentName') || "";
@@ -140,7 +169,7 @@ async function init(){
       li.innerHTML = `<span class="date">${item.day} ${dhakaMonthName(monthIndex)}</span><span class="sub">${item.subject.name}</span>`;
       scheduleList.appendChild(li);
     }
-    scheduleFooter.textContent = `Exam window: ${startDay} → ${lastDay} (last 10 days of month). Exams start daily at 9:00 PM (Dhaka).`;
+    scheduleFooter.textContent = `Exam window: ${startDay} → ${lastDay} (last 10 days of month). Exams start daily at 8:00 PM (Dhaka).`;
   } else {
     scheduleInfo.textContent = "Routine will be published soon";
     scheduleList.innerHTML = `<li class="muted">Routine will be published on <strong>${fmtDate(year, monthIndex, schedulePublishDay)}</strong></li>`;
@@ -169,17 +198,31 @@ async function init(){
     const examStartUtc = dhakaUtcMsFromComponents(year, monthIndex, dhDay, EXAM_HOUR_DHAKA, 0);
     const durationMinutes = SHORT_SUBJECT_IDS.has(todays.subject.id) ? 25 : 30;
     const examEndUtc = examStartUtc + durationMinutes * 60 * 1000;
+    const boardStartUtc = dhakaUtcMsFromComponents(year, monthIndex, dhDay, 20, 30); // 8:30 PM
+    const boardEndUtc = dhakaUtcMsFromComponents(year, monthIndex, dhDay, 23, 0); // 11:00 PM
 
     if(nowUtc >= examStartUtc && nowUtc <= examEndUtc){
       notExam.classList.add("hidden");
       examWidget.classList.remove("hidden");
       resultWidget.classList.add("hidden");
+      if(boardWidget) boardWidget.classList.add('hidden');
       // hide routine while exam is running
       if(scheduleCard) scheduleCard.classList.add('hidden');
       await loadExamPaper(year, monthIndex, dhDay, todays.subject, examStartUtc, examEndUtc, durationMinutes);
-    } else {  
+    } else if(nowUtc >= boardStartUtc && nowUtc <= boardEndUtc){
+      // Show board widget during board time
+      notExam.classList.add("hidden");
+      examWidget.classList.add("hidden");
+      resultWidget.classList.add("hidden");
+      if(boardWidget) boardWidget.classList.remove('hidden');
+      if(scheduleCard) scheduleCard.classList.add('hidden');
+      const boardSetName = generateBoardSetName(todays.subject.id, dhDay);
+      if(boardWidget) boardWidget.innerHTML = `<div class="board-display"><h3>Board Set: ${boardSetName}</h3><p>This is your board set for the exam. Use this to prepare for the board examination.</p><p>Board time: 8:30 PM - 11:00 PM</p></div>`;
+    } else {
       notExam.classList.remove("hidden");
       examWidget.classList.add("hidden");
+      resultWidget.classList.add("hidden");
+      if(boardWidget) boardWidget.classList.add('hidden');
       // show routine when exam is not active
       if(scheduleCard) scheduleCard.classList.remove('hidden');
       scheduleFooter.innerHTML += ` Today (${dhDay}) scheduled: <strong>${todays.subject.name}</strong>.`;
@@ -187,6 +230,8 @@ async function init(){
   } else {
     notExam.classList.remove("hidden");
     examWidget.classList.add("hidden");
+    resultWidget.classList.add("hidden");
+    if(boardWidget) boardWidget.classList.add('hidden');
     // show routine (no exam running)
     if(scheduleCard) scheduleCard.classList.remove('hidden');
     scheduleFooter.innerHTML += ` Next exam window starts on ${startDay}.`;
@@ -344,9 +389,58 @@ async function submitAnswers({auto=false} = {}){
         timestamp_utc: new Date().toISOString()
       };
 
-      const saved = await sendSubmission(payload);
+      // Save to localStorage directly
+      const contentObj = {
+        subjectId: payload.subjectId,
+        subjectName: payload.subjectName,
+        paperId: payload.paperId,
+        alias: payload.alias || null,
+        studentName: payload.studentName || null,
+        studentEmail: payload.studentEmail || null,
+        totalQuestions: payload.totalQuestions ?? null,
+        correctCount: payload.correctCount ?? null,
+        wrongCount: payload.wrongCount ?? null,
+        unansweredCount: payload.unansweredCount ?? null,
+        timeTakenSec: payload.timeTakenSec ?? null,
+        resultSheet: payload.resultSheet || null,
+        answers: payload.answers || null,
+        auto: payload.auto ? true : false,
+        timestamp_utc: payload.timestamp_utc || new Date().toISOString()
+      };
+
+      const submission = { id: `sub-${Date.now()}`, contentObj };
+      const arr = JSON.parse(localStorage.getItem('aq_submissions') || '[]');
+      arr.push(submission);
+      localStorage.setItem('aq_submissions', JSON.stringify(arr));
+
+      // Save normalized personal storage
+      try{
+        const rawKey = (contentObj.studentEmail && contentObj.studentEmail.trim()) ? contentObj.studentEmail.trim() : (contentObj.studentName ? contentObj.studentName.trim() : 'anonymous');
+        const key = String(rawKey).toLowerCase();
+        const mapRaw = localStorage.getItem('aq_personal') || '{}';
+        const map = JSON.parse(mapRaw);
+        map[key] = map[key] || [];
+        map[key].push({
+          subjectId: contentObj.subjectId,
+          subjectName: contentObj.subjectName,
+          paperId: contentObj.paperId,
+          correctCount: contentObj.correctCount,
+          totalQuestions: contentObj.totalQuestions,
+          timeTakenSec: contentObj.timeTakenSec,
+          resultSheet: contentObj.resultSheet,
+          timestamp_utc: contentObj.timestamp_utc,
+          studentName: contentObj.studentName || null,
+          studentEmail: contentObj.studentEmail || null,
+          _rawKey: rawKey
+        });
+        localStorage.setItem('aq_personal', JSON.stringify(map));
+      }catch(e){ console.warn('Could not save personal result', e); }
+
       // mark exam as submitted (persist) so refresh won't re-show questions
-      try{ if(typeof saved !== 'undefined' && saved && saved.id) markExamSubmitted(paperSeed, saved.id); else setExamState(paperSeed, { status: 'submitted', submittedAt: Date.now() }); }catch(e){ console.warn('Could not persist submitted state', e); }
+      try{ markExamSubmitted(paperSeed, submission.id); }catch(e){ console.warn('Could not persist submitted state', e); }
+
+      // Show congrats overlay
+      showCongratsOverlay(contentObj);
     }catch(e){
       console.error('Submit failed', e);
       // allow re-try if submit failed
@@ -532,62 +626,7 @@ async function autoSubmitOnTimeout(){
   }
 }
 
-/* ---------- send submission (Plan B, no download) ---------- */
-async function sendSubmission(payload){
-  const contentObj = {
-    subjectId: payload.subjectId,
-    subjectName: payload.subjectName,
-    paperId: payload.paperId,
-    alias: payload.alias || null,
-    studentName: payload.studentName || null,
-    studentEmail: payload.studentEmail || null,
-    totalQuestions: payload.totalQuestions ?? null,
-    correctCount: payload.correctCount ?? null,
-    wrongCount: payload.wrongCount ?? null,
-    unansweredCount: payload.unansweredCount ?? null,
-    timeTakenSec: payload.timeTakenSec ?? null,
-    resultSheet: payload.resultSheet || null,
-    answers: payload.answers || null,
-    auto: payload.auto ? true : false,
-    timestamp_utc: payload.timestamp_utc || new Date().toISOString()
-  };
 
-  const submission = { id: `sub-${Date.now()}`, contentObj };
-
-  // Save to localStorage
-  const arr = JSON.parse(localStorage.getItem('aq_submissions') || '[]');
-  arr.push(submission);
-  localStorage.setItem('aq_submissions', JSON.stringify(arr));
-
-  // Save normalized personal storage
-  try{
-    const rawKey = (contentObj.studentEmail && contentObj.studentEmail.trim()) ? contentObj.studentEmail.trim() : (contentObj.studentName ? contentObj.studentName.trim() : 'anonymous');
-    const key = String(rawKey).toLowerCase();
-    const mapRaw = localStorage.getItem('aq_personal') || '{}';
-    const map = JSON.parse(mapRaw);
-    map[key] = map[key] || [];
-    map[key].push({
-      subjectId: contentObj.subjectId,
-      subjectName: contentObj.subjectName,
-      paperId: contentObj.paperId,
-      correctCount: contentObj.correctCount,
-      totalQuestions: contentObj.totalQuestions,
-      timeTakenSec: contentObj.timeTakenSec,
-      resultSheet: contentObj.resultSheet,
-      timestamp_utc: contentObj.timestamp_utc,
-      studentName: contentObj.studentName || null,
-      studentEmail: contentObj.studentEmail || null,
-      _rawKey: rawKey
-    });
-    localStorage.setItem('aq_personal', JSON.stringify(map));
-  }catch(e){ console.warn('Could not save personal result', e); }
-
-  // Show congrats overlay
-  showCongratsOverlay(contentObj);
-
-  // return the created submission for callers
-  return submission;
-}
 
 /* ---------- congrats overlay ---------- */
 function showCongratsOverlay(contentObj){
@@ -600,6 +639,7 @@ function showCongratsOverlay(contentObj){
         window.location.href = `./result.html?email=${param}`;
       };
     }
+
     if(congratsCloseBtn){
       congratsCloseBtn.onclick = ()=> {
         congratsOverlay.classList.add('hidden');
@@ -610,12 +650,13 @@ function showCongratsOverlay(contentObj){
     return;
   }
 
+  // Fallback: create dynamic overlay if static one doesn't exist
   const overlay = document.createElement('div'); overlay.className = 'congrats-overlay';
   const card = document.createElement('div'); card.className = 'congrats-card';
   const heart = document.createElement('div'); heart.className = 'heart'; heart.innerHTML = '💖';
   const title = document.createElement('div'); title.innerHTML = `<h3>Congratulations!</h3>`;
-  const text = document.createElement('div'); text.className='muted'; text.textContent = 'Your answers have been saved.';
-  const btnRow = document.createElement('div'); btnRow.style.display='flex'; btnRow.style.gap='8px';
+  const text = document.createElement('div'); text.className='muted'; text.textContent = 'Your answers have been saved locally. You can view results or copy data manually.';
+  const btnRow = document.createElement('div'); btnRow.style.display='flex'; btnRow.style.gap='8px'; btnRow.style.flexWrap='wrap';
   const viewBtn = document.createElement('button'); viewBtn.className='btn'; viewBtn.textContent='View Result';
   const closeBtn = document.createElement('button'); closeBtn.className='btn'; closeBtn.textContent='Close';
   closeBtn.style.background='linear-gradient(90deg,#cbd5e1,#94a3b8)';
@@ -669,6 +710,13 @@ function initScrollAnimations(){
 
 const testBtn = document.getElementById('btnTestExam');
 if(testBtn) testBtn.addEventListener('click', ()=>{ _testModeActive = true; init(); });
+
+// Developer function to start math exam (type startMathExam() in console)
+window.startMathExam = function() {
+  _testModeActive = true;
+  init();
+};
+
 document.addEventListener('keydown', (e)=>{
   if(e.key === 'Escape' && congratsOverlay && !congratsOverlay.classList.contains('hidden')){
     congratsOverlay.classList.add('hidden');
@@ -676,6 +724,9 @@ document.addEventListener('keydown', (e)=>{
     submitBtn.textContent = 'Submit Answers';
   }
 });
+
+
+
 init();
 // initialize scroll reveal animations (non-blocking)
 try{ initScrollAnimations(); }catch(e){ console.warn('Could not initialize scroll animations', e); }

@@ -29,6 +29,7 @@
     <section class="card exam-card" id="examCard">
       <div id="examArea">
         <div id="notExam" class="center muted">No exam right now. Come back at <strong>9:00 PM (Dhaka)</strong> on scheduled day.</div>
+        <div id="boardWidget" class="hidden"></div>
         <div id="examWidget" class="hidden">
           <div class="exam-header">
             <div>
@@ -63,8 +64,8 @@
     <div class="congrats-card">
       <div class="heart">💖</div>
       <div><h3>Congratulations!</h3></div>
-      <div class="muted">Your answers have been saved. Click below to view your result.</div>
-      <div style="display:flex;gap:8px;margin-top:8px">
+      <div class="muted">Your answers have been saved.</div>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
         <button id="congratsViewBtn" class="btn">View Result</button>
         <button id="congratsCloseBtn" class="btn" style="background:linear-gradient(90deg,#cbd5e1,#94a3b8)">Close</button>
       </div>
