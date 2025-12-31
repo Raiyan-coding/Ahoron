@@ -131,11 +131,119 @@ const congratsViewBtn = document.getElementById("congratsViewBtn");
 const congratsCloseBtn = document.getElementById("congratsCloseBtn");
 const boardWidget = document.getElementById("boardWidget");
 
-// persist name/email
-studentNameInput.value = localStorage.getItem('aq_studentName') || "";
-studentEmailInput.value = localStorage.getItem('aq_studentEmail') || "";
-studentNameInput.addEventListener('change', ()=> localStorage.setItem('aq_studentName', studentNameInput.value.trim()));
-studentEmailInput.addEventListener('change', ()=> localStorage.setItem('aq_studentEmail', studentEmailInput.value.trim()));
+// Get user data from login
+// Load user data and sync progress across devices
+const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+
+// Pre-fill with logged-in user data, or fall back to persisted values
+studentNameInput.value = userData.name || localStorage.getItem('aq_studentName') || "";
+studentEmailInput.value = userData.email || localStorage.getItem('aq_studentEmail') || "";
+
+// Sync progress if user is logged in
+if (userData.userId) {
+  syncProgress(userData.userId);
+}
+
+// Function to sync progress across devices
+async function syncProgress(userId) {
+  try {
+    // Load saved progress from server
+    const loadResponse = await fetch(`/api/progress/load?userId=${userId}&progressType=submissions`);
+    if (loadResponse.ok) {
+      const loadData = await loadResponse.json();
+      if (loadData.success && loadData.data) {
+        // Merge server progress with local progress
+        const localSubmissions = JSON.parse(localStorage.getItem('aq_submissions') || '[]');
+        const serverSubmissions = loadData.data;
+        const mergedSubmissions = [...localSubmissions];
+
+        // Add server submissions that don't exist locally
+        serverSubmissions.forEach(serverSub => {
+          const exists = localSubmissions.some(localSub => localSub.id === serverSub.id);
+          if (!exists) {
+            mergedSubmissions.push(serverSub);
+          }
+        });
+
+        localStorage.setItem('aq_submissions', JSON.stringify(mergedSubmissions));
+      }
+    }
+
+    // Load exam states
+    const examStateResponse = await fetch(`/api/progress/load?userId=${userId}&progressType=exam_states`);
+    if (examStateResponse.ok) {
+      const examStateData = await examStateResponse.json();
+      if (examStateData.success && examStateData.data) {
+        const localExamStates = JSON.parse(localStorage.getItem('aq_exam_state') || '{}');
+        const serverExamStates = examStateData.data;
+
+        // Merge exam states
+        const mergedExamStates = { ...localExamStates, ...serverExamStates };
+        localStorage.setItem('aq_exam_state', JSON.stringify(mergedExamStates));
+      }
+    }
+
+    // Load personal results
+    const personalResponse = await fetch(`/api/progress/load?userId=${userId}&progressType=personal_results`);
+    if (personalResponse.ok) {
+      const personalData = await personalResponse.json();
+      if (personalData.success && personalData.data) {
+        const localPersonal = JSON.parse(localStorage.getItem('aq_personal') || '{}');
+        const serverPersonal = personalData.data;
+
+        // Merge personal results
+        const mergedPersonal = { ...localPersonal };
+        Object.keys(serverPersonal).forEach(key => {
+          if (!mergedPersonal[key]) {
+            mergedPersonal[key] = serverPersonal[key];
+          } else {
+            // Merge arrays, avoiding duplicates
+            const existingIds = new Set(mergedPersonal[key].map(r => r.timestamp_utc));
+            serverPersonal[key].forEach(result => {
+              if (!existingIds.has(result.timestamp_utc)) {
+                mergedPersonal[key].push(result);
+              }
+            });
+          }
+        });
+
+        localStorage.setItem('aq_personal', JSON.stringify(mergedPersonal));
+      }
+    }
+
+  } catch (error) {
+    console.warn('Failed to sync progress:', error);
+  }
+}
+
+// Function to save progress to server
+async function saveProgressToServer(userId, progressType, data) {
+  if (!userId) return;
+
+  try {
+    await fetch('/api/progress/save', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userId, progressType, data }),
+    });
+  } catch (error) {
+    console.warn('Failed to save progress to server:', error);
+  }
+}
+
+// Make fields read-only if user is logged in
+if (userData.name && userData.email) {
+  studentNameInput.readOnly = true;
+  studentEmailInput.readOnly = true;
+  studentNameInput.style.backgroundColor = '#f0f0f0';
+  studentEmailInput.style.backgroundColor = '#f0f0f0';
+} else {
+  // Allow editing and persist changes if not logged in
+  studentNameInput.addEventListener('change', ()=> localStorage.setItem('aq_studentName', studentNameInput.value.trim()));
+  studentEmailInput.addEventListener('change', ()=> localStorage.setItem('aq_studentEmail', studentEmailInput.value.trim()));
+}
 
 /* ---------- Main ---------- */
 let _testModeActive = false;
@@ -671,7 +779,7 @@ function showCongratsOverlay(contentObj){
     window.location.href = `./result.html?email=${param}`;
   });
   closeBtn.addEventListener('click', ()=>{
-    overlay.remove();
+      overlay.remove();
     submitBtn.disabled = false;
     submitBtn.textContent = 'Submit Answers';
   });

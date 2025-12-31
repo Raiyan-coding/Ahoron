@@ -506,6 +506,26 @@
       hamburger.classList.toggle('active');
       mobileMenu.classList.toggle('active');
     }
+
+    // Authentication Check
+    async function checkAuth() {
+      try {
+        const response = await fetch('/api/auth/check');
+        const data = await response.json();
+
+        if (!data.authenticated) {
+          // Redirect to login page if not authenticated
+          window.location.href = '/login.html';
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
+        // Redirect to login on error
+        window.location.href = '/login.html';
+      }
+    }
+
+    // Run auth check when page loads
+    document.addEventListener('DOMContentLoaded', checkAuth);
   </script>
 </body>
 </html>

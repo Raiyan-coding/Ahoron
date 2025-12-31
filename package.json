@@ -1,0 +1,16 @@
+{
+  "name": "ahoron-web",
+  "version": "1.0.0",
+  "description": "Ahoron Web Application",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve . -p 8000",
+    "build": "echo 'No build step required for static site'",
+    "start": "npx serve . -p 8000"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
