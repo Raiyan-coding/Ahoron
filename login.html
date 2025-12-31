@@ -177,51 +177,48 @@
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
 
+      // Basic validation
+      if (!name || !email || !password) {
+        errorMessage.textContent = 'Please fill in all fields.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      if (password.length < 4) {
+        errorMessage.textContent = 'Password must be at least 4 characters long.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        errorMessage.textContent = 'Please enter a valid email address.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
       // Show loading state
       loginBtn.disabled = true;
       loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 8px;"></i>Signing In...';
       errorMessage.style.display = 'none';
 
-      try {
-        const response = await fetch('/api/auth/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ name, email, password }),
-        });
+      // Simulate login delay
+      setTimeout(() => {
+        // Store user data in localStorage
+        const userData = {
+          name: name,
+          email: email,
+          loginTime: new Date().toISOString()
+        };
+        localStorage.setItem('userData', JSON.stringify(userData));
 
-        const data = await response.json();
+        // Generate a simple auth token
+        const authToken = 'authenticated_' + Date.now();
+        localStorage.setItem('authToken', authToken);
 
-        if (data.success) {
-          // Store user data in localStorage for the quiz app
-          const userData = {
-            name: data.user.name,
-            email: data.user.email,
-            loginTime: new Date().toISOString()
-          };
-          localStorage.setItem('userData', JSON.stringify(userData));
-
-          // Redirect to home page on successful login
-          window.location.href = '/index.html';
-        } else {
-          // Show error message
-          errorMessage.textContent = data.error || 'Login failed. Please try again.';
-          errorMessage.style.display = 'block';
-
-          // Reset button state
-          loginBtn.disabled = false;
-          loginBtn.innerHTML = '<i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>Sign In';
-        }
-      } catch (error) {
-        console.error('Login error:', error);
-        errorMessage.textContent = 'Network error. Please check your connection and try again.';
-        errorMessage.style.display = 'block';
-
-        // Reset button state
-        loginBtn.disabled = false;
-        loginBtn.innerHTML = '<i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>Sign In';
-      }
+        // Redirect to home page on successful login
+        window.location.href = 'index.html';
+      }, 1000); // 1 second delay to simulate network request
     });
   </script>
 </body>

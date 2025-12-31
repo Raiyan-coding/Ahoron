@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "npx serve . -p 8000",
-    "build": "echo 'No build step required for static site'",
+    "build": "mkdir -p public && cp *.html *.js *.css public/ && cp -r assets api Company_disipline MonthlyQuizExam Safety public/",
     "start": "npx serve . -p 8000"
   },
   "dependencies": {},
   "devDependencies": {},
   "engines": {
-    "node": "18.0.0"
+    "node": "24.x"
   }
 }
