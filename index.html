@@ -119,6 +119,88 @@
       align-items: center;
       padding: 20px;
     }
+    .profile-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+    }
+    .profile-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+    }
+    .profile-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      min-width: 200px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      display: none;
+      z-index: 1000;
+    }
+    .profile-dropdown.show {
+      display: block;
+    }
+    .profile-info {
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 12px;
+    }
+    .profile-name {
+      font-weight: 600;
+      color: #667eea;
+      margin-bottom: 4px;
+    }
+    .profile-email {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    .profile-menu-item {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 0;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin: 4px 0;
+    }
+    .profile-menu-item:hover {
+      background: rgba(102, 126, 234, 0.1);
+      color: #667eea;
+    }
+    .logout-btn {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 8px;
+    }
+    .logout-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+    }
     .logo {
       font-size: 32px;
       font-weight: 700;
@@ -894,6 +976,10 @@
           <li><a href="about.html">About Us</a></li>
         </ul>
       </nav>
+      <button class="profile-btn" id="profileBtn">
+        <i class="fas fa-user"></i>
+        Profile
+      </button>
       <div class="hamburger" onclick="toggleMenu()">
         <span></span>
         <span></span>
@@ -901,6 +987,19 @@
       </div>
     </div>
   </header>
+
+  <!-- Profile Dropdown -->
+  <div class="profile-dropdown" id="profileDropdown">
+    <div class="profile-info">
+      <div class="profile-name">John Doe</div>
+      <div class="profile-email">john.doe@example.com</div>
+    </div>
+    <a href="#" class="profile-menu-item">My Profile</a>
+    <a href="#" class="profile-menu-item">Settings</a>
+    <a href="#" class="profile-menu-item">My Courses</a>
+    <a href="#" class="profile-menu-item">Progress</a>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
@@ -1239,6 +1338,32 @@
       });
     });
 
+    // Profile Dropdown Toggle
+    const profileBtn = document.getElementById('profileBtn');
+    const profileDropdown = document.getElementById('profileDropdown');
+
+    profileBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      profileDropdown.classList.toggle('show');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!profileBtn.contains(e.target) && !profileDropdown.contains(e.target)) {
+        profileDropdown.classList.remove('show');
+      }
+    });
+
+    // Logout function
+    function logout() {
+      // Clear any stored authentication data
+      localStorage.removeItem('authToken');
+      sessionStorage.removeItem('userData');
+
+      // Redirect to login page
+      window.location.href = '/login.html';
+    }
+
     // Add some interactive effects
     document.addEventListener('DOMContentLoaded', function() {
       // Add parallax effect to slider
@@ -1262,5 +1387,28 @@
     });
   </script>
   <script src="https://backend.nordanai.com/public/widget.js" defer nordankey="AIPHWsp6mcylI"></script>
+
+  <!-- Authentication Check -->
+  <script>
+    // Check authentication on page load
+    async function checkAuth() {
+      try {
+        const response = await fetch('/api/auth/check');
+        const data = await response.json();
+
+        if (!data.authenticated) {
+          // Redirect to login page if not authenticated
+          window.location.href = '/login.html';
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
+        // Redirect to login on error
+        window.location.href = '/login.html';
+      }
+    }
+
+    // Run auth check when page loads
+    document.addEventListener('DOMContentLoaded', checkAuth);
+  </script>
 </body>
 </html>
