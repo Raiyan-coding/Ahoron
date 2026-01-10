@@ -4,7 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Cumulative Mark Difference — Mobile First (Upgraded)</title>
-<script src="./chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <style>
   :root {
     --bg: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
@@ -112,7 +113,20 @@
     letter-spacing: 1px;
   }
 
-  select, input[type=range], button, input[type=text], input[type=number] {
+  select {
+    background: #333;
+    border: 2px solid var(--accent);
+    color: var(--text);
+    padding: 15px;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    box-shadow: var(--glow);
+    font-size: 1rem;
+    font-family: inherit;
+    backdrop-filter: blur(10px);
+  }
+
+  input[type=range], button, input[type=text], input[type=number] {
     background: var(--glass);
     border: 2px solid var(--accent);
     color: var(--text);
@@ -151,6 +165,11 @@
 
   select:hover {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ff6b6b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  }
+
+  option {
+    color: white;
+    background: #333;
   }
 
   .btn {
@@ -472,7 +491,7 @@
     }
 
     .chart-area {
-      flex-direction: column;
+      flex-direction: row;
       gap: 40px;
       margin-top: 50px;
     }
@@ -488,6 +507,8 @@
       border: 3px solid var(--accent);
       position: relative;
       padding: 20px;
+      flex: 1;
+      overflow-x: auto;
     }
 
     #markChart {
@@ -566,8 +587,8 @@
     }
 
     .side {
-      order: -1;
-      width: 100%;
+      width: 30%;
+      min-width: 300px;
       display: flex;
       flex-direction: column;
       gap: 30px;
@@ -888,7 +909,21 @@
       <h1>Exam Chart</h1>
     </div>
   </header>
-
+      <div style="margin-top:10px">
+        <label>Baseline নির্বাচন (কিভাবে তুলনা হবে)</label>
+      <div class="row" style="align-items:center">
+        <select id="baseline">
+          <option value="topper">Topper-based (সর্বোচ্চ)</option>
+          <option value="lowest">Lowest-based (সর্বনিম্ন)</option>
+          <option value="average">Average-based (গড়)</option>
+          <option value="custom">Custom student (নিজেকে তুলনা)</option>
+        </select>
+        
+        <div style="flex:1;margin-left:8px">
+          <select id="customStudent"></select>
+        </div>
+        
+      </div>
   <div class="controls">
     <div class="card">
       <div style="margin-bottom:10px">
@@ -901,20 +936,7 @@
 
       </div>
 
-      <div style="margin-top:10px">
-        <label>Baseline নির্বাচন (কিভাবে তুলনা হবে)</label>
-      <div class="row" style="align-items:center">
-        <select id="baseline">
-          <option value="topper">Topper-based (সর্বোচ্চ)</option>
-          <option value="lowest">Lowest-based (সর্বনিম্ন)</option>
-          <option value="average">Average-based (গড়)</option>
-          <option value="custom">Custom student (নিজেকে তুলনা)</option>
-        </select>
-        <div style="flex:1;margin-left:8px">
-          <label class="muted">Custom (যদি প্রয়োজন)</label>
-          <select id="customStudent"></select>
-        </div>
-      </div>
+
 
 
     </div>
@@ -934,21 +956,10 @@
   <div class="chart-area">
     <div class="chart-wrapper">
       <canvas id="markChart" aria-label="Cumulative mark difference chart"></canvas>
-      <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
+     
     </div>
 
-    <aside class="side">
 
-
-      <div class="card small">
-        <strong>How to use</strong>
-        <ul>
-          <li>Baseline নির্বাচন করো — Topper/Lowest/Average/Custom</li>
-          <li>“Add your data” দিয়ে নাম ও প্রতিটি সাবজেক্টে নম্বর লেখো</li>
-          <li>Export PNG/CSV করে লাইভস্ট্রিমে দেখাও</li>
-        </ul>
-      </div>
-    </aside>
   </div>
 
 
@@ -1091,8 +1102,6 @@ function buildDatasets(diffs, smooth, isPC = false){
 }
 
 function renderChart(options = {}){
-  console.log('renderChart called with marks:', marks);
-  console.log('subjects:', subjects);
   const baseline = options.baseline || document.getElementById('baseline').value;
   const custom = options.custom || document.getElementById('customStudent').value;
   const smooth = 0.5;
@@ -1100,9 +1109,7 @@ function renderChart(options = {}){
   const isPC = window.innerWidth >= 768;
 
   const diffs = calculateDiffs(marks, baseline, custom);
-  console.log('diffs:', diffs);
   const datasets = buildDatasets(diffs, smooth, isPC);
-  console.log('datasets:', datasets);
   const data = { labels: subjects, datasets };
 
   // Calculate width based on number of subjects
@@ -1140,9 +1147,14 @@ function renderChart(options = {}){
   };
 
   if (chart) chart.destroy();
-  chart = new Chart(ctx, cfg);
-  console.log('Chart created:', chart);
+  try {
+    chart = new Chart(ctx, cfg);
+  } catch (e) {
+    console.error('Failed to create chart:', e);
+  }
 }
+
+
 
 function toggleFullscreen() {
   const elem = document.querySelector('.chart-wrapper');
@@ -1175,9 +1187,6 @@ function populateCustomStudent(){
     const opt = document.createElement('option'); opt.value=name; opt.textContent=name; sel.appendChild(opt);
   }
 }
-function populateSubjects(){
-  document.getElementById('subjectsList').textContent = subjects.join(' · ');
-}
 function populateDatasetChips(){
   const wrap = document.getElementById('datasetToggle');
   wrap.innerHTML = '';
@@ -1187,14 +1196,24 @@ function populateDatasetChips(){
     chip.className = 'chip active';
     chip.dataset.name = name;
     chip.style.borderColor = palette[idx % palette.length] + '33';
-    chip.innerHTML = `<span style="width:10px;height:10px;border-radius:999px;background:${palette[idx%palette.length]}"></span><strong>${name}</strong>`;
-    chip.addEventListener('click', ()=> {
+    chip.innerHTML = `<span style="width:10px;height:10px;border-radius:999px;background:${palette[idx%palette.length]}"></span><strong>${name}</strong><button class="delete-chip" style="margin-left:8px;background:none;border:none;color:#ff4444;font-size:16px;cursor:pointer;">✕</button>`;
+    chip.addEventListener('click', (e)=> {
+      if(e.target.classList.contains('delete-chip')) return; // don't toggle if delete clicked
       chip.classList.toggle('active');
       // toggle visibility in chart (by dataset index)
       const dsIdx = Object.keys(marks).indexOf(name);
       if(chart && chart.getDatasetMeta(dsIdx)){
         chart.getDatasetMeta(dsIdx).hidden = !chip.classList.contains('active');
         chart.update();
+      }
+    });
+    const deleteBtn = chip.querySelector('.delete-chip');
+    deleteBtn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      if(confirm(`Remove ${name} from the dataset?`)){
+        delete marks[name];
+        saveToLocal();
+        updateAll();
       }
     });
     wrap.appendChild(chip);

@@ -811,9 +811,17 @@ code {
           <div style="text-align:right"><div class="muted small">Paper: ${escapeHtml(r.paperId||'—')}</div></div>
         </div>`;
 
-      // per-question details (if present) in black pre
+      // per-question details (if present) in formatted list
       if(r.resultSheet && r.resultSheet.length){
-        html += `<details style="margin-top:8px"><summary style="cursor:pointer">View per-question details</summary><pre class="details">${escapeHtml(JSON.stringify(r.resultSheet,null,2))}</pre></details>`;
+        let detailsHtml = '<div style="margin-top:8px"><details><summary style="cursor:pointer">View per-question details (' + r.resultSheet.length + ' questions)</summary><div class="details-list" style="padding:8px;background:#000;color:#fff;border-radius:12px;border:1px solid rgba(255,255,255,0.08);font-family:monospace;font-size:13px;line-height:1.5">';
+        r.resultSheet.forEach((q, idx) => {
+          const status = q.correct === true ? '✅ Correct' : q.correct === false ? '❌ Wrong' : '❓ Unanswered';
+          const chosenText = q.chosenIndex !== null && q.options[q.chosenIndex] ? (typeof q.options[q.chosenIndex] === 'string' ? q.options[q.chosenIndex] : q.options[q.chosenIndex].text || 'N/A') : 'None';
+          const correctText = q.correctIndex !== null && q.options[q.correctIndex] ? (typeof q.options[q.correctIndex] === 'string' ? q.options[q.correctIndex] : q.options[q.correctIndex].text || 'N/A') : 'N/A';
+          detailsHtml += `<div style="margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:8px"><strong>Q${idx+1}:</strong> ${escapeHtml(q.text)}<br><strong>Status:</strong> ${status}<br><strong>Your Answer:</strong> ${escapeHtml(chosenText)}<br><strong>Correct Answer:</strong> ${escapeHtml(correctText)}</div>`;
+        });
+        detailsHtml += '</div></details></div>';
+        html += detailsHtml;
       } else {
         html += `<div class="muted small" style="margin-top:8px">No per-question details saved for this exam.</div>`;
       }

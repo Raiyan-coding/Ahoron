@@ -15,7 +15,9 @@ const BOARD_MAP = {
   "biology": "BB",
   "bgs": "BGSB",
   "ict": "ICTB",
-  "religion": "RB"
+  "religion": "RB",
+  "e1": "E1B",
+  "e2": "E2B"
 };
 
 // Generate board set name: board + year (20 + day % 6)
@@ -33,7 +35,7 @@ const RANDOMIZE_SET = false;
 
 const SUBJECTS = [
   {id:"bangla-1", name:"Bangla — 1st Paper", file:"bangla-1.json"},
-  {id:"bangla-2", name:"Bangla — 2nd Paper", file:"bangla-2.json"}, 
+  {id:"bangla-2", name:"Bangla — 2nd Paper", file:"bangla-2.json"},
   {id:"math", name:"Math", file:"math.json"},
   {id:"higher-math", name:"Higher Math", file:"higher-math.json"},
   {id:"physics", name:"Physics", file:"physics.json"},
@@ -41,7 +43,9 @@ const SUBJECTS = [
   {id:"biology", name:"Biology", file:"biology.json"},
   {id:"bgs", name:"Bangladesh & Global Studies", file:"bgs.json"},
   {id:"ict", name:"ICT", file:"ict.json"},
-  {id:"religion", name:"Religion", file:"religion.json"}
+  {id:"religion", name:"Religion", file:"religion.json"},
+  {id:"e1", name:"E1", file:"e1.json"},
+  {id:"e2", name:"E2", file:"e2.json"}
 ];
 
 /* ---------- Dhaka time helpers ---------- */
@@ -135,6 +139,8 @@ const userData = JSON.parse(localStorage.getItem('userData') || '{}');
 
 /* ---------- Main ---------- */
 let _testModeActive = false;
+let _testSubjectId = 'math';
+let _testPaperId = null;
 // Prevent multiple submissions/downloads while a submission is in progress
 let _submissionInProgress = false;
 
@@ -143,7 +149,7 @@ async function init(){
   const year = dhakaNow.getFullYear();
   const monthIndex = dhakaNow.getMonth();
   const lastDay = new Date(year, monthIndex+1, 0).getDate();
-  const startDay = lastDay - 9;
+  const startDay = lastDay - 11;
 
   const schedulePublishDay = Math.max(1, startDay - 20);
   const schedulePublishUtc = dhakaUtcMsFromComponents(year, monthIndex, schedulePublishDay, 0, 0);
@@ -153,7 +159,7 @@ async function init(){
   const shuffled = seededShuffle(SUBJECTS, monthSeed);
 
   const schedule = [];
-  for(let i=0;i<10;i++){
+  for(let i=0;i<12;i++){
     schedule.push({ day: startDay + i, subject: shuffled[i] });
   }
 
@@ -174,7 +180,7 @@ async function init(){
 
   const dhDay = dhakaNow.getDate();
   if(_testModeActive){
-    const subj = SUBJECTS.find(s=>s.id==='math') || SUBJECTS[0];
+    const subj = SUBJECTS.find(s=>s.id===_testSubjectId) || SUBJECTS[0];
     const dur = SHORT_SUBJECT_IDS.has(subj.id) ? 25 : 30;
     const nowUtcMsVal = nowUtcMs();
     const examStartUtc = nowUtcMsVal - 1000;
@@ -261,7 +267,49 @@ async function loadExamPaper(year, monthIndex, day, subject, examStartUtc, examE
   let paper = null;
   let paperAlias = null;
 
-  if(Array.isArray(data.papers) && data.papers.length > 0){
+  // In test mode, select specific paper by _testPaperId if set
+  if(_testModeActive && _testPaperId){
+    let found = false;
+    if(Array.isArray(data.papers) && data.papers.length > 0){
+      const matchingPaper = data.papers.find(p => p.paperId === _testPaperId || p.id === _testPaperId);
+      if(matchingPaper){
+        paper = matchingPaper;
+        paper.paperId = paper.paperId || paper.id || `paper${data.papers.indexOf(matchingPaper)+1}`;
+        if(!Array.isArray(paper.questions) || paper.questions.length === 0){
+          paperInfo.textContent = `Paper data incomplete for "${subject.name}". Missing 'questions' array.`;
+          questionsList.innerHTML = `<div class="muted">Paper is missing questions.</div>`;
+          startExamTimer(examStartUtc, examEndUtc);
+          return;
+        }
+        if(RANDOMIZE_QUESTIONS){ paper.questions = randomShuffle(paper.questions); console.info('Questions randomized for paper', paper.paperId); }
+        paperAlias = data.alias || data.board || null;
+        found = true;
+      }
+    } else if(Array.isArray(data.sets) && data.sets.length > 0){
+      const matchingSet = data.sets.find(s => s.id === _testPaperId);
+      if(matchingSet){
+        const set = matchingSet;
+        paperAlias = set.alias || null;
+        let mappedQuestions = (set.questions || []).map((qq, i) => {
+          return {
+            id: `${set.id}-q${i+1}`,
+            text: qq.q || qq.text || `Q${i+1}`,
+            options: qq.a || qq.options || [],
+            answer: typeof qq.correct !== "undefined" ? qq.correct : (typeof qq.answer !== "undefined" ? qq.answer : undefined)
+          };
+        });
+        if(RANDOMIZE_QUESTIONS){ mappedQuestions = randomShuffle(mappedQuestions); console.info('Questions randomized for set', set.id); }
+        paper = { paperId: set.id, questions: mappedQuestions };
+        found = true;
+      }
+    }
+    if(!found){
+      paperInfo.textContent = `Paper "${_testPaperId}" not found for "${subject.name}".`;
+      questionsList.innerHTML = `<div class="muted">Specified paper not found in data.</div>`;
+      startExamTimer(examStartUtc, examEndUtc);
+      return;
+    }
+  } else if(Array.isArray(data.papers) && data.papers.length > 0){
     const idx = RANDOMIZE_SET ? Math.floor(Math.random() * data.papers.length) : pickPaperIndex(paperSeed, data.papers.length);
     paper = data.papers[idx];
     // normalize identifier and validate questions array
@@ -350,7 +398,7 @@ async function submitAnswers({auto=false} = {}){
       const resultSheet = paper.questions.map((q, i) => {
         const qid = q.id || `q${i+1}`;
         const chosen = typeof answers[qid] !== 'undefined' ? Number(answers[qid]) : null;
-        const correctIndex = typeof q.answer !== 'undefined' ? Number(q.answer) : null;
+        const correctIndex = (q.answer !== null && typeof q.answer !== 'undefined') ? Number(q.answer) : null;
         return {
           id: qid,
           text: q.text,
@@ -664,7 +712,7 @@ function showCongratsOverlay(contentObj){
   viewBtn.addEventListener('click', ()=>{
     const key = (contentObj.studentEmail && contentObj.studentEmail.trim()) ? contentObj.studentEmail.trim() : (contentObj.studentName ? contentObj.studentName.trim() : 'anonymous');
     const param = encodeURIComponent(key);
-    window.location.href = `./result.html?email=${param}`;
+  window.location.href = `./result.html?email=${param}`;
   });
   closeBtn.addEventListener('click', ()=>{
       overlay.remove();
@@ -709,6 +757,27 @@ if(testBtn) testBtn.addEventListener('click', ()=>{ _testModeActive = true; init
 
 // Developer function to start math exam (type startMathExam() in console)
 window.startMathExam = function() {
+  _testModeActive = true;
+  init();
+};
+
+// Developer function to start any exam by paper ID (type startExam('math-bb-25') in console)
+window.startExam = function(paperId) {
+  // Parse paperId like 'math-bb-25' to extract subject
+  const parts = paperId.split('-');
+  if (parts.length < 2) {
+    console.error(`Invalid paper ID format: "${paperId}". Expected format: subject-board-year`);
+    return;
+  }
+  const subjectName = parts[0];
+  const subject = SUBJECTS.find(s => s.id === subjectName);
+  if (!subject) {
+    console.error(`Subject "${subjectName}" not found. Available subjects: ${SUBJECTS.map(s => s.id).join(', ')}`);
+    return;
+  }
+  console.log(`Starting exam for paper: ${paperId}, subject: ${subjectName}`);
+  _testSubjectId = subjectName;
+  _testPaperId = paperId;
   _testModeActive = true;
   init();
 };
