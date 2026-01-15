@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Ambikacharan Laha  (A. C. Laha) Pilot High School" />
+    <title>
+      Ambikacharan Laha  (A. C. Laha) Pilot High School
+    </title>
+    <link rel="shortcut icon" type="image" href="https://aclaha.edu.bd/uploads/logos/bQc70kmivKHpH6PNjO5o1UYBOgmMjCD907NAXEeo.png" />
+    <link rel="stylesheet" href="https://aclaha.edu.bd/frontend/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://aclaha.edu.bd/frontend/css/all.min.css" />
+    <link rel="stylesheet" href="https://aclaha.edu.bd/frontend/css/common.css?v=1768130763" />
+    <link rel="stylesheet" href="https://aclaha.edu.bd/frontend/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="https://aclaha.edu.bd/frontend/responsive/common.css" />
+    <link rel="stylesheet" href="https://aclaha.edu.bd/frontend/responsive/style.css" />
+    <link rel="stylesheet" href="https://aclaha.edu.bd/frontend/css/gallery.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <style>
+      .skiptranslate {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
+
+        .dataTables_wrapper .row {
+            margin-bottom: 12px;
+        }
+
+        .dataTables_wrapper .dataTables_length label,
+        .dataTables_wrapper .dataTables_filter label {
+            display: flex;
+        }
+
+        .dataTables_wrapper .dataTables_filter label {
+            justify-content: end;
+        }
+        .dataTables_length .form-control-sm {
+            width: 10%;
+        }
+
+        /* Set width for search input in DataTable filter */
+        .dataTables_filter .form-control-sm {
+            width: 34%;
+        }
+    </style>
+    <!-- Livewire Styles -->
+    <style>
+      [wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}dialog#livewire-error::backdrop {background-color: rgba(0, 0, 0, .6);}
+    </style>
+    <meta name="google-site-verification" content="68dBwP4q5Xemra7vjfYTp86ACSpvGy8zBo3kDpCpGzI" />
+    <script type="text/javascript" class="flasher-js">
+      (function() {    var rootScript = &#39;https://cdn.jsdelivr.net/npm/@flasher/flasher@1.3.2/dist/flasher.min.js&#39;;    var FLASHER_FLASH_BAG_PLACE_HOLDER = {};    var options = mergeOptions([], FLASHER_FLASH_BAG_PLACE_HOLDER);    function mergeOptions(first, second) {        return {            context: merge(first.context || {}, second.context || {}),            envelopes: merge(first.envelopes || [], second.envelopes || []),            options: merge(first.options || {}, second.options || {}),            scripts: merge(first.scripts || [], second.scripts || []),            styles: merge(first.styles || [], second.styles || []),        };    }    function merge(first, second) {        if (Array.isArray(first) &amp;&amp; Array.isArray(second)) {            return first.concat(second).filter(function(item, index, array) {                return array.indexOf(item) === index;            });        }        return Object.assign({}, first, second);    }    function renderOptions(options) {        if(!window.hasOwnProperty(&#39;flasher&#39;)) {            console.error(&#39;Flasher is not loaded&#39;);            return;        }        requestAnimationFrame(function () {            window.flasher.render(options);        });    }    function render(options) {        if (&#39;loading&#39; !== document.readyState) {            renderOptions(options);            return;        }        document.addEventListener(&#39;DOMContentLoaded&#39;, function() {            renderOptions(options);        });    }    if (1 === document.querySelectorAll(&#39;script.flasher-js&#39;).length) {        document.addEventListener(&#39;flasher:render&#39;, function (event) {            render(event.detail);        });        document.addEventListener(&#39;livewire:navigating&#39;, function () {    var elements = document.querySelectorAll(&#39;.fl-no-cache&#39;);    for (var i = 0; i &lt; elements.length; i++) {        elements[i].remove();    }});    }    if (window.hasOwnProperty(&#39;flasher&#39;) || !rootScript || document.querySelector(&#39;script[src=&#34;&#39; + rootScript + &#39;&#34;]&#39;)) {        render(options);    } else {        var tag = document.createElement(&#39;script&#39;);        tag.setAttribute(&#39;src&#39;, rootScript);        tag.setAttribute(&#39;type&#39;, &#39;text/javascript&#39;);        tag.onload = function () {            render(options);        };        document.head.appendChild(tag);    }})();
+    </script>
+    <link rel="stylesheet" type="text/css" property="stylesheet" href="/_debugbar/assets/stylesheets?v=1766511420" data-turbolinks-eval="false" data-turbo-eval="false" />
+    <script src="/_debugbar/assets/javascript?v=1766511420" data-turbolinks-eval="false" data-turbo-eval="false">
+    </script>
+    <script data-turbo-eval="false">
+      jQuery.noConflict(true);
+    </script>
+    <script>
+      Sfdump = window.Sfdump || (function (doc) { doc.documentElement.classList.add(&#39;sf-js-enabled&#39;); var rxEsc = /([.*+?^${}()|\[\]\/\\])/g, idRx = /\bsf-dump-\d+-ref[012]\w+\b/, keyHint = 0 &lt;= navigator.platform.toUpperCase().indexOf(&#39;MAC&#39;) ? &#39;Cmd&#39; : &#39;Ctrl&#39;, addEventListener = function (e, n, cb) { e.addEventListener(n, cb, false); }; if (!doc.addEventListener) { addEventListener = function (element, eventName, callback) { element.attachEvent(&#39;on&#39; + eventName, function (e) { e.preventDefault = function () {e.returnValue = false;}; e.target = e.srcElement; callback(e); }); }; } function toggle(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className, arrow, newClass; if (/\bsf-dump-compact\b/.test(oldClass)) { arrow = &#39;▼&#39;; newClass = &#39;sf-dump-expanded&#39;; } else if (/\bsf-dump-expanded\b/.test(oldClass)) { arrow = &#39;▶&#39;; newClass = &#39;sf-dump-compact&#39;; } else { return false; } if (doc.createEvent &amp;&amp; s.dispatchEvent) { var event = doc.createEvent(&#39;Event&#39;); event.initEvent(&#39;sf-dump-expanded&#39; === newClass ? &#39;sfbeforedumpexpand&#39; : &#39;sfbeforedumpcollapse&#39;, true, false); s.dispatchEvent(event); } a.lastChild.innerHTML = arrow; s.className = s.className.replace(/\bsf-dump-(compact|expanded)\b/, newClass); if (recursive) { try { a = s.querySelectorAll(&#39;.&#39;+oldClass); for (s = 0; s &lt; a.length; ++s) { if (-1 == a[s].className.indexOf(newClass)) { a[s].className = newClass; a[s].previousSibling.lastChild.innerHTML = arrow; } } } catch (e) { } } return true; }; function collapse(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-expanded\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function expand(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-compact\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function collapseAll(root) { var a = root.querySelector(&#39;a.sf-dump-toggle&#39;); if (a) { collapse(a, true); expand(a); return true; } return false; } function reveal(node) { var previous, parents = []; while ((node = node.parentNode || {}) &amp;&amp; (previous = node.previousSibling) &amp;&amp; &#39;A&#39; === previous.tagName) { parents.push(previous); } if (0 !== parents.length) { parents.forEach(function (parent) { expand(parent); }); return true; } return false; } function highlight(root, activeNode, nodes) { resetHighlightedNodes(root); Array.from(nodes||[]).forEach(function (node) { if (!/\bsf-dump-highlight\b/.test(node.className)) { node.className = node.className + &#39; sf-dump-highlight&#39;; } }); if (!/\bsf-dump-highlight-active\b/.test(activeNode.className)) { activeNode.className = activeNode.className + &#39; sf-dump-highlight-active&#39;; } } function resetHighlightedNodes(root) { Array.from(root.querySelectorAll(&#39;.sf-dump-str, .sf-dump-key, .sf-dump-public, .sf-dump-protected, .sf-dump-private&#39;)).forEach(function (strNode) { strNode.className = strNode.className.replace(/\bsf-dump-highlight\b/, &#39;&#39;); strNode.className = strNode.className.replace(/\bsf-dump-highlight-active\b/, &#39;&#39;); }); } return function (root, x) { root = doc.getElementById(root); var indentRx = new RegExp(&#39;^(&#39;+(root.getAttribute(&#39;data-indent-pad&#39;) || &#39; &#39;).replace(rxEsc, &#39;\\$1&#39;)+&#39;)+&#39;, &#39;m&#39;), options = {&#34;maxDepth&#34;:1,&#34;maxStringLength&#34;:160,&#34;fileLinkFormat&#34;:false}, elt = root.getElementsByTagName(&#39;A&#39;), len = elt.length, i = 0, s, h, t = []; while (i &lt; len) t.push(elt[i++]); for (i in x) { options[i] = x[i]; } function a(e, f) { addEventListener(root, e, function (e, n) { if (&#39;A&#39; == e.target.tagName) { f(e.target, e); } else if (&#39;A&#39; == e.target.parentNode.tagName) { f(e.target.parentNode, e); } else { n = /\bsf-dump-ellipsis\b/.test(e.target.className) ? e.target.parentNode : e.target; if ((n = n.nextElementSibling) &amp;&amp; &#39;A&#39; == n.tagName) { if (!/\bsf-dump-toggle\b/.test(n.className)) { n = n.nextElementSibling || n; } f(n, e, true); } } }); }; function isCtrlKey(e) { return e.ctrlKey || e.metaKey; } function xpathString(str) { var parts = str.match(/[^&#39;&#34;]+|[&#39;&#34;]/g).map(function (part) { if (&#34;&#39;&#34; == part) { return &#39;&#34;\&#39;&#34;&#39;; } if (&#39;&#34;&#39; == part) { return &#34;&#39;\&#34;&#39;&#34;; } return &#34;&#39;&#34; + part + &#34;&#39;&#34;; }); return &#34;concat(&#34; + parts.join(&#34;,&#34;) + &#34;, &#39;&#39;)&#34;; } function xpathHasClass(className) { return &#34;contains(concat(&#39; &#39;, normalize-space(@class), &#39; &#39;), &#39; &#34; + className +&#34; &#39;)&#34;; } a(&#39;mouseover&#39;, function (a, e, c) { if (c) { e.target.style.cursor = &#34;pointer&#34;; } }); a(&#39;click&#39;, function (a, e, c) { if (/\bsf-dump-toggle\b/.test(a.className)) { e.preventDefault(); if (!toggle(a, isCtrlKey(e))) { var r = doc.getElementById(a.getAttribute(&#39;href&#39;).slice(1)), s = r.previousSibling, f = r.parentNode, t = a.parentNode; t.replaceChild(r, a); f.replaceChild(a, s); t.insertBefore(s, r); f = f.firstChild.nodeValue.match(indentRx); t = t.firstChild.nodeValue.match(indentRx); if (f &amp;&amp; t &amp;&amp; f[0] !== t[0]) { r.innerHTML = r.innerHTML.replace(new RegExp(&#39;^&#39;+f[0].replace(rxEsc, &#39;\\$1&#39;), &#39;mg&#39;), t[0]); } if (/\bsf-dump-compact\b/.test(r.className)) { toggle(s, isCtrlKey(e)); } } if (c) { } else if (doc.getSelection) { try { doc.getSelection().removeAllRanges(); } catch (e) { doc.getSelection().empty(); } } else { doc.selection.empty(); } } else if (/\bsf-dump-str-toggle\b/.test(a.className)) { e.preventDefault(); e = a.parentNode.parentNode; e.className = e.className.replace(/\bsf-dump-str-(expand|collapse)\b/, a.parentNode.className); } }); elt = root.getElementsByTagName(&#39;SAMP&#39;); len = elt.length; i = 0; while (i &lt; len) t.push(elt[i++]); len = t.length; for (i = 0; i &lt; len; ++i) { elt = t[i]; if (&#39;SAMP&#39; == elt.tagName) { a = elt.previousSibling || {}; if (&#39;A&#39; != a.tagName) { a = doc.createElement(&#39;A&#39;); a.className = &#39;sf-dump-ref&#39;; elt.parentNode.insertBefore(a, elt); } else { a.innerHTML += &#39; &#39;; } a.title = (a.title ? a.title+&#39;\n[&#39; : &#39;[&#39;)+keyHint+&#39;+click] Expand all children&#39;; a.innerHTML += elt.className == &#39;sf-dump-compact&#39; ? &#39;&lt;span&gt;▶&lt;/span&gt;&#39; : &#39;&lt;span&gt;▼&lt;/span&gt;&#39;; a.className += &#39; sf-dump-toggle&#39;; x = 1; if (&#39;sf-dump&#39; != elt.parentNode.className) { x += elt.parentNode.getAttribute(&#39;data-depth&#39;)/1; } } else if (/\bsf-dump-ref\b/.test(elt.className) &amp;&amp; (a = elt.getAttribute(&#39;href&#39;))) { a = a.slice(1); elt.className += &#39; sf-dump-hover&#39;; elt.className += &#39; &#39;+a; if (/[\[{]$/.test(elt.previousSibling.nodeValue)) { a = a != elt.nextSibling.id &amp;&amp; doc.getElementById(a); try { s = a.nextSibling; elt.appendChild(a); s.parentNode.insertBefore(a, s); if (/^[@#]/.test(elt.innerHTML)) { elt.innerHTML += &#39; &lt;span&gt;▶&lt;/span&gt;&#39;; } else { elt.innerHTML = &#39;&lt;span&gt;▶&lt;/span&gt;&#39;; elt.className = &#39;sf-dump-ref&#39;; } elt.className += &#39; sf-dump-toggle&#39;; } catch (e) { if (&#39;&amp;&#39; == elt.innerHTML.charAt(0)) { elt.innerHTML = &#39;…&#39;; elt.className = &#39;sf-dump-ref&#39;; } } } } } if (doc.evaluate &amp;&amp; Array.from &amp;&amp; root.children.length &gt; 1) { root.setAttribute(&#39;tabindex&#39;, 0); SearchState = function () { this.nodes = []; this.idx = 0; }; SearchState.prototype = { next: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx &lt; (this.nodes.length - 1) ? this.idx + 1 : 0; return this.current(); }, previous: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx &gt; 0 ? this.idx - 1 : (this.nodes.length - 1); return this.current(); }, isEmpty: function () { return 0 === this.count(); }, current: function () { if (this.isEmpty()) { return null; } return this.nodes[this.idx]; }, reset: function () { this.nodes = []; this.idx = 0; }, count: function () { return this.nodes.length; }, }; function showCurrent(state) { var currentNode = state.current(), currentRect, searchRect; if (currentNode) { reveal(currentNode); highlight(root, currentNode, state.nodes); if (&#39;scrollIntoView&#39; in currentNode) { currentNode.scrollIntoView(true); currentRect = currentNode.getBoundingClientRect(); searchRect = search.getBoundingClientRect(); if (currentRect.top &lt; (searchRect.top + searchRect.height)) { window.scrollBy(0, -(searchRect.top + searchRect.height + 5)); } } } counter.textContent = (state.isEmpty() ? 0 : state.idx + 1) + &#39; of &#39; + state.count(); } var search = doc.createElement(&#39;div&#39;); search.className = &#39;sf-dump-search-wrapper sf-dump-search-hidden&#39;; search.innerHTML = &#39; &lt;input type=&#34;text&#34; class=&#34;sf-dump-search-input&#34;&gt; &lt;span class=&#34;sf-dump-search-count&#34;&gt;0 of 0&lt;\/span&gt; &lt;button type=&#34;button&#34; class=&#34;sf-dump-search-input-previous&#34; tabindex=&#34;-1&#34;&gt; &lt;svg viewBox=&#34;0 0 1792 1792&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M1683 1331l-166 165q-19 19-45 19t-45-19L896 965l-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z&#34;\/&gt;&lt;\/svg&gt; &lt;\/button&gt; &lt;button type=&#34;button&#34; class=&#34;sf-dump-search-input-next&#34; tabindex=&#34;-1&#34;&gt; &lt;svg viewBox=&#34;0 0 1792 1792&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M1683 808l-742 741q-19 19-45 19t-45-19L109 808q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z&#34;\/&gt;&lt;\/svg&gt; &lt;\/button&gt; &#39;; root.insertBefore(search, root.firstChild); var state = new SearchState(); var searchInput = search.querySelector(&#39;.sf-dump-search-input&#39;); var counter = search.querySelector(&#39;.sf-dump-search-count&#39;); var searchInputTimer = 0; var previousSearchQuery = &#39;&#39;; addEventListener(searchInput, &#39;keyup&#39;, function (e) { var searchQuery = e.target.value; /* Don&#39;t perform anything if the pressed key didn&#39;t change the query */ if (searchQuery === previousSearchQuery) { return; } previousSearchQuery = searchQuery; clearTimeout(searchInputTimer); searchInputTimer = setTimeout(function () { state.reset(); collapseAll(root); resetHighlightedNodes(root); if (&#39;&#39; === searchQuery) { counter.textContent = &#39;0 of 0&#39;; return; } var classMatches = [ &#34;sf-dump-str&#34;, &#34;sf-dump-key&#34;, &#34;sf-dump-public&#34;, &#34;sf-dump-protected&#34;, &#34;sf-dump-private&#34;, ].map(xpathHasClass).join(&#39; or &#39;); var xpathResult = doc.evaluate(&#39;.//span[&#39; + classMatches + &#39;][contains(translate(child::text(), &#39; + xpathString(searchQuery.toUpperCase()) + &#39;, &#39; + xpathString(searchQuery.toLowerCase()) + &#39;), &#39; + xpathString(searchQuery.toLowerCase()) + &#39;)]&#39;, root, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null); while (node = xpathResult.iterateNext()) state.nodes.push(node); showCurrent(state); }, 400); }); Array.from(search.querySelectorAll(&#39;.sf-dump-search-input-next, .sf-dump-search-input-previous&#39;)).forEach(function (btn) { addEventListener(btn, &#39;click&#39;, function (e) { e.preventDefault(); -1 !== e.target.className.indexOf(&#39;next&#39;) ? state.next() : state.previous(); searchInput.focus(); collapseAll(root); showCurrent(state); }) }); addEventListener(root, &#39;keydown&#39;, function (e) { var isSearchActive = !/\bsf-dump-search-hidden\b/.test(search.className); if ((114 === e.keyCode &amp;&amp; !isSearchActive) || (isCtrlKey(e) &amp;&amp; 70 === e.keyCode)) { /* F3 or CMD/CTRL + F */ if (70 === e.keyCode &amp;&amp; document.activeElement === searchInput) { /* * If CMD/CTRL + F is hit while having focus on search input, * the user probably meant to trigger browser search instead. * Let the browser execute its behavior: */ return; } e.preventDefault(); search.className = search.className.replace(/\bsf-dump-search-hidden\b/, &#39;&#39;); searchInput.focus(); } else if (isSearchActive) { if (27 === e.keyCode) { /* ESC key */ search.className += &#39; sf-dump-search-hidden&#39;; e.preventDefault(); resetHighlightedNodes(root); searchInput.value = &#39;&#39;; } else if ( (isCtrlKey(e) &amp;&amp; 71 === e.keyCode) /* CMD/CTRL + G */ || 13 === e.keyCode /* Enter */ || 114 === e.keyCode /* F3 */ ) { e.preventDefault(); e.shiftKey ? state.previous() : state.next(); collapseAll(root); showCurrent(state); } } }); } if (0 &gt;= options.maxStringLength) { return; } try { elt = root.querySelectorAll(&#39;.sf-dump-str&#39;); len = elt.length; i = 0; t = []; while (i &lt; len) t.push(elt[i++]); len = t.length; for (i = 0; i &lt; len; ++i) { elt = t[i]; s = elt.innerText || elt.textContent; x = s.length - options.maxStringLength; if (0 &lt; x) { h = elt.innerHTML; elt[elt.innerText ? &#39;innerText&#39; : &#39;textContent&#39;] = s.substring(0, options.maxStringLength); elt.className += &#39; sf-dump-str-collapse&#39;; elt.innerHTML = &#39;&lt;span class=sf-dump-str-collapse&gt;&#39;+h+&#39;&lt;a class=&#34;sf-dump-ref sf-dump-str-toggle&#34; title=&#34;Collapse&#34;&gt; ◀&lt;/a&gt;&lt;/span&gt;&#39;+ &#39;&lt;span class=sf-dump-str-expand&gt;&#39;+elt.innerHTML+&#39;&lt;a class=&#34;sf-dump-ref sf-dump-str-toggle&#34; title=&#34;&#39;+x+&#39; remaining characters&#34;&gt; ▶&lt;/a&gt;&lt;/span&gt;&#39;; } } } catch (e) { } }; })(document);
+    </script>
+    <style>
+      .sf-js-enabled .phpdebugbar pre.sf-dump .sf-dump-compact, .sf-js-enabled .sf-dump-str-collapse .sf-dump-str-collapse, .sf-js-enabled .sf-dump-str-expand .sf-dump-str-expand { display: none; } .sf-dump-hover:hover { background-color: #B729D9; color: #FFF !important; border-radius: 2px; } .phpdebugbar pre.sf-dump { display: block; white-space: pre; padding: 5px; overflow: initial !important; } .phpdebugbar pre.sf-dump:after { content: &#34;&#34;; visibility: hidden; display: block; height: 0; clear: both; } .phpdebugbar pre.sf-dump .sf-dump-ellipsization { display: inline-flex; } .phpdebugbar pre.sf-dump a { text-decoration: none; cursor: pointer; border: 0; outline: none; color: inherit; } .phpdebugbar pre.sf-dump img { max-width: 50em; max-height: 50em; margin: .5em 0 0 0; padding: 0; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAHUlEQVQY02O8zAABilCaiQEN0EeA8QuUcX9g3QEAAjcC5piyhyEAAAAASUVORK5CYII=) #D3D3D3; } .phpdebugbar pre.sf-dump .sf-dump-ellipsis { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; } .phpdebugbar pre.sf-dump .sf-dump-ellipsis-tail { flex-shrink: 0; } .phpdebugbar pre.sf-dump code { display:inline; padding:0; background:none; } .sf-dump-public.sf-dump-highlight, .sf-dump-protected.sf-dump-highlight, .sf-dump-private.sf-dump-highlight, .sf-dump-str.sf-dump-highlight, .sf-dump-key.sf-dump-highlight { background: rgba(111, 172, 204, 0.3); border: 1px solid #7DA0B1; border-radius: 3px; } .sf-dump-public.sf-dump-highlight-active, .sf-dump-protected.sf-dump-highlight-active, .sf-dump-private.sf-dump-highlight-active, .sf-dump-str.sf-dump-highlight-active, .sf-dump-key.sf-dump-highlight-active { background: rgba(253, 175, 0, 0.4); border: 1px solid #ffa500; border-radius: 3px; } .phpdebugbar pre.sf-dump .sf-dump-search-hidden { display: none !important; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper { font-size: 0; white-space: nowrap; margin-bottom: 5px; display: flex; position: -webkit-sticky; position: sticky; top: 5px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper &gt; * { vertical-align: top; box-sizing: border-box; height: 21px; font-weight: normal; border-radius: 0; background: #FFF; color: #757575; border: 1px solid #BBB; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper &gt; input.sf-dump-search-input { padding: 3px; height: 21px; font-size: 12px; border-right: none; border-top-left-radius: 3px; border-bottom-left-radius: 3px; color: #000; min-width: 15px; width: 100%; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper &gt; .sf-dump-search-input-next, .phpdebugbar pre.sf-dump .sf-dump-search-wrapper &gt; .sf-dump-search-input-previous { background: #F2F2F2; outline: none; border-left: none; font-size: 0; line-height: 0; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper &gt; .sf-dump-search-input-next { border-top-right-radius: 3px; border-bottom-right-radius: 3px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper &gt; .sf-dump-search-input-next &gt; svg, .phpdebugbar pre.sf-dump .sf-dump-search-wrapper &gt; .sf-dump-search-input-previous &gt; svg { pointer-events: none; width: 12px; height: 12px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper &gt; .sf-dump-search-count { display: inline-block; padding: 0 5px; margin: 0; border-left: none; line-height: 21px; font-size: 12px; }.phpdebugbar pre.sf-dump, .phpdebugbar pre.sf-dump .sf-dump-default{word-wrap: break-word; white-space: pre-wrap; word-break: normal}.phpdebugbar pre.sf-dump .sf-dump-num{font-weight:bold; color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-const{font-weight:bold}.phpdebugbar pre.sf-dump .sf-dump-str{font-weight:bold; color:#3A9B26}.phpdebugbar pre.sf-dump .sf-dump-note{color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-ref{color:#7B7B7B}.phpdebugbar pre.sf-dump .sf-dump-public{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-protected{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-private{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-meta{color:#B729D9}.phpdebugbar pre.sf-dump .sf-dump-key{color:#3A9B26}.phpdebugbar pre.sf-dump .sf-dump-index{color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-ellipsis{color:#A0A000}.phpdebugbar pre.sf-dump .sf-dump-ns{user-select:none;}.phpdebugbar pre.sf-dump .sf-dump-ellipsis-note{color:#1299DA}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump, pre.sf-dump .sf-dump-default{background-color:#18171B; color:#FF8400; line-height:1.2em; font:12px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:99999; word-break: break-all}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-num{font-weight:bold; color:#1299DA}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-const{font-weight:bold}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-str{font-weight:bold; color:#56DB3A}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-note{color:#1299DA}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-ref{color:#A0A0A0}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-public{color:#FFFFFF}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-protected{color:#FFFFFF}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-private{color:#FFFFFF}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-meta{color:#B729D9}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-key{color:#56DB3A}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-index{color:#1299DA}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-ellipsis{color:#FF8400}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-ns{user-select:none;}.phpdebugbar[data-theme=&#39;dark&#39;] pre.sf-dump .sf-dump-ellipsis-note{color:#1299DA}
+    </style>
+  </head>
+  <body>
+    <!--------- ========== main section start  =========== --------->
+    <section class="main-area bg-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="top-header topheader">
+              <div class="top-logo d-flex">
+                <a href="https://aclaha.edu.bd/mujib_corner" class="">                Archive Library
+</a>
+                <select class="p-1 border rounded" onchange="languageAction(this.value)">
+                  <option value="">
+                    Language
+                  </option>
+                  <option value="bn">
+                    বাংলা
+                  </option>
+                  <option value="en">
+                    English
+                  </option>
+                </select>
+                <div id="google_translate_element" style="display:none;">
+                </div>
+              </div>
+              <ul class="top-nav text-end justify-content-end  align-items-center">
+                <li>
+                  <a href="https://aclaha.edu.bd/admission">                  Admission / Registration
+</a>
+                </li>
+                <li>
+                  <a href="https://aclaha.edu.bd/result">                  Result
+</a>
+                </li>
+                <li>
+                  <a href="https://aclaha.edu.bd/login">                  Student Login
+</a>
+                </li>
+                <li>
+                  <a href="https://aclaha.edu.bd/teacher/login">                  Teacher Login
+</a>
+                </li>
+                <li>
+                  <a href="https://aclaha.edu.bd/staff/login">                  Staff Login
+</a>
+                </li>
+                <li>
+                  <a href="https://aclaha.edu.bd/admin/login">                  Admin Login
+</a>
+                </li>
+              </ul>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <a href="/">                <span class="titleBar">                <div class="titleBar-img">
+                  <img src="https://aclaha.edu.bd/uploads/logos/yyKhfXQAQWbHgJt7PYMiUEmZ3Tugh1HwRunl413v.jpg" alt="logo" />
+                  <!-- <img src="images/logo.png" alt="logo"> -->
+                </div>
+                <!-- ফয়লাহাট আছিয়া কারামাতিয়া আলিম মাদ্রাসা   -->
+                Ambikacharan Laha  (A. C. Laha) Pilot High School
+</span>
+</a>
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="https://aclaha.edu.bd/uploads/banner/igtiB6H5f5qCbOm8dQqYcelXJTt3XcnOECYWe3S2.jpg" class="d-block w-100" alt="slide-1" />
+                    </div>
+                    <div class="carousel-item 1">
+                      <img src="https://aclaha.edu.bd/uploads/banner/vdAQS0Yk93VuPshEdDLH0Ot6cLHvwDxWMJgm7Jvx.jpg" class="d-block w-100" alt="slide-1" />
+                    </div>
+                    <div class="carousel-item 1">
+                      <img src="https://aclaha.edu.bd/uploads/banner/XEXp7IVRf1U4mRdVUoJ5QLEzAyMoB91HZAcJqd2i.jpg" class="d-block w-100" alt="slide-1" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <!-- mega start  -->
+                <header>
+                  <div class="mb-header-tab-area bg-area">
+                    <div class="mb-header-tab">
+                      <div class="menu-text">
+                        <h5>
+                          MENU
+                        </h5>
+                      </div>
+                      <label for="menu-bar">
+                        <i class="fa-solid fa-bars"></i>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="header-bottom">
+                    <input type="checkbox" id="menu-bar" />
+                    <nav class="navber">
+                      <ul class="mega-munu">
+                        <li>
+                          <a href="/" class="menu-home">                          <i class="fa fa-home"></i>
+</a>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          Campus
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-one">
+                            <div class="col-md-12 col-12 dmenu">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/about-us">                                    About The Organization
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/aims-objectives">                                    Aims and Objectives
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/history">                                    History
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/citizen-charter">                                    Citizen Charter
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/teaching-permission">                                    Teaching permission and Recognitio
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/nationalization-Info">                                    MPO/Nationalization Information
+</a>
+                                  </li>
+                                </div>
+                                <div class="col-md-6">
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/infrastructure">                                    Physical Infrastructure
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/annual-action">                                    Annual Work Plan
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/principal">                                    Principal Introduction
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/contact">                                    Contact Information
+</a>
+                                  </li>
+                                </div>
+                              </div>
+                            </div>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          About Admission
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-seven">
+                            <div class="col-md-12 col-12">
+                              <li>
+                                <a href="https://aclaha.edu.bd/possibility">                                Prospectus
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/admission_rules">                                Admission Rules
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/admission_procedure">                                Admission Procedure
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/admission_test_question">                                Admission Test Question
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/admission_result">                                Admission Result
+</a>
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          Management
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-two">
+                            <div class="col-md-12 col-12">
+                              <li>
+                                <a href="https://aclaha.edu.bd/vice">                                President&#39;s Message
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/principal">                                Principal&#39;s Message
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/bod-list">                                Management Committee Information
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/vice-list">                                President&#39;s List
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/principle-list">                                Principal&#39;s List
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/donor-member-list">                                Donor Members List
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/former-member-list">                                Former Members List
+</a>
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          Academic Paper
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-five">
+                            <div class="col-md-12 col-12">
+                              <li>
+                                <a href="https://aclaha.edu.bd/rules-regulations">                                Ritual
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/academic-calendar">                                Academic Calendar
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/class-routine">                                Class Routine
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/list-holidays">                                Holiday List
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/uniform">                                Uniform Information
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/fees">                                Fee Information
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/online-class-routine">                                Daily Diary
+</a>
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          Student
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-four">
+                            <div class="col-md-12 col-12">
+                              <li>
+                                <a href="https://aclaha.edu.bd/student-information/qlodk/class-three">                                Class Three
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/student-information/mkqdl/class-four">                                Class Four
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/student-information/vkpol/class-five">                                Class Five
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/student-information/nkynl/class-six">                                Class Six
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/student-information/blgjk/class-seven">                                Class Seven
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/student-information/elrdl/class-eight">                                Class Eight
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/student-information/nkzxk/class-nine">                                Class Nine
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/student-information/bljrl/class-ten">                                Class Ten
+</a>
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          Results
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-nine">
+                            <div class="col-md-12 col-12">
+                              <li>
+                                <a href="https://aclaha.edu.bd/all_result">                                All Internal Results
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/result">                                Internal Results
+</a>
+                              </li>
+                              <li>
+                                <a href="http://www.educationboardresults.gov.bd/" target="_blank">                                Public Exam Results
+</a>
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          Teachers and Staff
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-three">
+                            <div class="col-md-12 col-12">
+                              <li>
+                                <a href="https://aclaha.edu.bd/teacher-list">                                Teachers Information
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/staff-list">                                Staff Information
+</a>
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          Extracurricular Programs
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-four">
+                            <div class="col-md-12 col-12 dmenu">
+                              <div class="row">
+                                <div class="col-md-6 p-0">
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/sports">                                    Sports Programs
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/cultural-activities">                                    Cultural Programs
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/scouts-news">                                    Scouts
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/red-crescent">                                    Red Crescent
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/educational-tour">                                    Educational Tour
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/student-cabinet">                                    Student Cabinet
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/debate-competition">                                    Debating Club
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/language-club">                                    Language Club
+</a>
+                                  </li>
+                                  <li>
+                                    <a href="https://aclaha.edu.bd/science-fair">                                    Science Fair
+</a>
+                                  </li>
+                                </div>
+                              </div>
+                            </div>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          Exam-related Information
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-eight">
+                            <div class="col-md-12 col-12">
+                              <li>
+                                <a href="https://aclaha.edu.bd/exam_rules">                                Exam Rules
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/exam_schedule">                                Exam Schedule
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/suggestions">                                Suggestions
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/library_info">                                Library Information
+</a>
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          Gallery
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-ten">
+                            <div class="col-md-12 col-12">
+                              <li>
+                                <a href="https://aclaha.edu.bd/photo_gallery">                                Photo Gallery
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/video_gallery">                                Video Gallery
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/magazine">                                Magazine
+</a>
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="https://aclaha.edu.bd/general-information/index" class="menu-home">                          General Information
+</a>
+                        </li>
+                        <li>
+                          <a href="https://aclaha.edu.bd/event/index" class="menu-home">                          Event
+</a>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="menu">                          e-Pay
+                          <i class="fa-solid fa-caret-down"></i>
+</a>
+                          <ul class="dp-menu dp-ten">
+                            <div class="col-md-12 col-12">
+                              <li>
+                                <a href="https://aclaha.edu.bd/admission/admission-fee-pay">                                Admission / Registration
+</a>
+                              </li>
+                              <li>
+                                <a href="https://aclaha.edu.bd/payfees/index">                                Payment of Fees
+</a>
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </header>
+              </div>
+              <!-- mega end  -->
+            </div>
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-12">
+              <div class="wraper-left">
+                <!-- notice  -->
+                <div class="notice-wraper">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="notice-content">
+                        <div class="notice-content-details">
+                          <div class="notice-img">
+                            <img src="https://aclaha.edu.bd/frontend/images/notice.png" alt="" />
+                          </div>
+                          <div class="notice-details">
+                            <div class="notice-header">
+                              <h3>
+                                Notice Board
+                              </h3>
+                            </div>
+                            <ul class="card-details me-5">
+                              <li class="py-1">
+                                <i class="fa-solid fa-caret-right"></i>
+                                <a class="float-end badge px-2 py-0 border-0 rounded" style="font-size: 14px" href="https://aclaha.edu.bd/storage/notice/7ctu8k6Udw4UVbMoaa0OAgcnlpGGES3cKI9wLUqz.jpg" download="">                                Download
+</a>
+                                <a href="https://aclaha.edu.bd/storage/notice/7ctu8k6Udw4UVbMoaa0OAgcnlpGGES3cKI9wLUqz.jpg" download="" style="font-size: 14px;">                                ২০২৬ শিক্ষাবর্ষে ভর্তির বিজ্ঞপ্তি
+</a>
+                              </li>
+                              <li class="py-1">
+                                <i class="fa-solid fa-caret-right"></i>
+                                <a class="float-end badge px-2 py-0 border-0 rounded" style="font-size: 14px" href="https://aclaha.edu.bd/storage/notice/6x9CbHEV6iL8jZvkmNKt1Mg7Y6naVky6ssOJiWne.jpg" download="">                                Download
+</a>
+                                <a href="https://aclaha.edu.bd/storage/notice/6x9CbHEV6iL8jZvkmNKt1Mg7Y6naVky6ssOJiWne.jpg" download="" style="font-size: 14px;">                                শোক বার্তা
+</a>
+                              </li>
+                              <li class="py-1">
+                                <i class="fa-solid fa-caret-right"></i>
+                                <a class="float-end badge px-2 py-0 border-0 rounded" style="font-size: 14px" href="https://aclaha.edu.bd/storage/notice/aCvnM0xbKpV2S1KKvwnF5JgmmHVh1NHufk0qqst7.jpg" download="">                                Download
+</a>
+                                <a href="https://aclaha.edu.bd/storage/notice/aCvnM0xbKpV2S1KKvwnF5JgmmHVh1NHufk0qqst7.jpg" download="" style="font-size: 14px;">                                বার্ষিক পরীক্ষা-২০২৫ এর ফলাফল প্রকাশের নোটিশ
+</a>
+                              </li>
+                            </ul>
+                            <div class="notice-btn mt-4">
+                              <a href="https://aclaha.edu.bd/notice/index">                              <button class="notice-button common-btn">
+                                All Notice
+                              </button>
+</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- institute-details  -->
+                <div class="institute-wraper">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="institute-content">
+                        <div class="institute-header card-header">
+                          <h3>
+                            জরুরী নোটিশঃ
+                          </h3>
+                        </div>
+                        <div class="institute-details">
+                          <p>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- card  -->
+                <div class="card-wraper">
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                      <div class="informatino-card">
+                        <div class="card-header">
+                          <h3>
+                            Campus
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="card-img">
+                            <img src="https://aclaha.edu.bd/frontend/images/campus.png" alt="card" />
+                          </div>
+                          <ul class="card-details">
+                            <li>
+                              <a href="https://aclaha.edu.bd/about-us">                              <i class="fa-solid fa-caret-right"></i>
+                              About The Organization
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/aims-objectives">                              <i class="fa-solid fa-caret-right"></i>
+                              Aims and Objectives
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/history">                              <i class="fa-solid fa-caret-right"></i>
+                              History
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/annual-action">                              <i class="fa-solid fa-caret-right"></i>
+                              Annual Work Plan
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/contact">                              <i class="fa-solid fa-caret-right"></i>
+                              Contact Us
+</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                      <div class="informatino-card">
+                        <div class="card-header">
+                          <h3>
+                            Collage Administration
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="card-img">
+                            <img src="https://aclaha.edu.bd/frontend/images/collage_administration.png" alt="card" />
+                          </div>
+                          <ul class="card-details">
+                            <li>
+                              <a href="https://aclaha.edu.bd/principal">                              <i class="fa-solid fa-caret-right"></i>
+                              Principal&#39;s Message
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/vice">                              <i class="fa-solid fa-caret-right"></i>
+                              President&#39;s Message
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/bod-list">                              <i class="fa-solid fa-caret-right"></i>
+                              Management Council Information
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/donor-member-list">                              <i class="fa-solid fa-caret-right"></i>
+                              Donor Members List
+</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                      <div class="informatino-card">
+                        <div class="card-header">
+                          <h3>
+                            Teachers and Staff
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="card-img">
+                            <img src="https://aclaha.edu.bd/frontend/images/faculty-icon.jpg" alt="card" />
+                          </div>
+                          <ul class="card-details">
+                            <li>
+                              <a href="https://aclaha.edu.bd/teacher-list">                              <i class="fa-solid fa-caret-right"></i>
+                              Teachers Information
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/staff-list">                              <i class="fa-solid fa-caret-right"></i>
+                              Staff Information
+</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                      <div class="informatino-card">
+                        <div class="card-header">
+                          <h3>
+                            Academic Paper
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="card-img">
+                            <img src="https://aclaha.edu.bd/frontend/images/academic_paper.png" alt="card" />
+                          </div>
+                          <ul class="card-details">
+                            <li>
+                              <a href="https://aclaha.edu.bd/class-routine">                              <i class="fa-solid fa-caret-right"></i>
+                              Class Routine
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/fees">                              <i class="fa-solid fa-caret-right"></i>
+                              Fee Information
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/academic-calendar">                              <i class="fa-solid fa-caret-right"></i>
+                              Academic Calendar
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/list-holidays">                              <i class="fa-solid fa-caret-right"></i>
+                              Holiday List
+</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                      <div class="informatino-card">
+                        <div class="card-header">
+                          <h3>
+                            Exam Information
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="card-img">
+                            <img src="https://aclaha.edu.bd/frontend/images/card-5.png" alt="card" />
+                          </div>
+                          <ul class="card-details">
+                            <li>
+                              <a href="https://aclaha.edu.bd/exam_rules">                              <i class="fa-solid fa-caret-right"></i>
+                              Exam Rules
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/exam_schedule">                              <i class="fa-solid fa-caret-right"></i>
+                              Exam Schedule
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/suggestions">                              <i class="fa-solid fa-caret-right"></i>
+                              Suggestions
+</a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0)">                              <i class="fa-solid fa-caret-right"></i>
+                              Library Information
+</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                      <div class="informatino-card">
+                        <div class="card-header">
+                          <h3>
+                            About Admission
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="card-img">
+                            <img src="https://aclaha.edu.bd/frontend/images/about_admission.png" alt="card" />
+                          </div>
+                          <ul class="card-details">
+                            <li>
+                              <a href="https://aclaha.edu.bd/possibility">                              <i class="fa-solid fa-caret-right"></i>
+                              Possibility
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/admission_rules">                              <i class="fa-solid fa-caret-right"></i>
+                              Admission Rules
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/admission_result">                              <i class="fa-solid fa-caret-right"></i>
+                              Admission Result
+</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                      <div class="informatino-card">
+                        <div class="card-header">
+                          <h3>
+                            Gallery
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="card-img">
+                            <img src="https://aclaha.edu.bd/frontend/images/GPA.png" alt="card" />
+                          </div>
+                          <ul class="card-details">
+                            <li>
+                              <a href="https://aclaha.edu.bd/photo_gallery">                              <i class="fa-solid fa-caret-right"></i>
+                              Photo Gallery
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/video_gallery">                              <i class="fa-solid fa-caret-right"></i>
+                              Video Gallery
+</a>
+                            </li>
+                            <li>
+                              <a href="https://aclaha.edu.bd/magazine">                              <i class="fa-solid fa-caret-right"></i>
+                              Magazine
+</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                      <div class="informatino-card">
+                        <div class="card-header">
+                          <h3>
+                            Results
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="card-img">
+                            <img src="https://aclaha.edu.bd/frontend/images/gallery.png" alt="card" />
+                          </div>
+                          <ul class="card-details">
+                            <li>
+                              <a href="https://aclaha.edu.bd/result" target="_blank">                              <i class="fa-solid fa-caret-right"></i>
+                              Internal Results
+</a>
+                            </li>
+                            <li>
+                              <a href="http://www.educationboardresults.gov.bd" target="_blank">                              <i class="fa-solid fa-caret-right"></i>
+                              Public Exam Results
+</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- video  -->
+                <div class="video">
+                </div>
+              </div>
+            </div>
+            <!-- right  -->
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="wraper-right">
+                <div class="instructor-wrapper mb-4">
+                  <div class="instructor mb-4">
+                    <div class="header">
+                      <h3>
+                        Founder
+                      </h3>
+                    </div>
+                    <div class="instructor-content">
+                      <div class="instructor-img">
+                        <img src="https://aclaha.edu.bd/storage/images/founder-92bc4f94-7e4d-4db7-8d1b-efd77a286605.jpg" alt="pri" height="150" class="mb-3" />
+                      </div>
+                      <h3>
+                        Dr. Satyen Chandra Laha  And  Dr. Amal Charan Laha
+                      </h3>
+                    </div>
+                    <a href="https://aclaha.edu.bd/founder">                    <button class="common-btn-2">
+                      Details
+                    </button>
+</a>
+                  </div>
+                  <div class="instructor mb-4">
+                    <div class="header">
+                      <h3>
+                        President
+                      </h3>
+                    </div>
+                    <div class="instructor-content">
+                      <div class="instructor-img">
+                        <img src="https://aclaha.edu.bd/storage/images/vice-455b2ca0-1a82-49a3-9237-a6dad5b45ced.jpeg" alt="pri" height="150" class="mb-3" />
+                      </div>
+                      <h3>
+                        Principal Md. Nurul Alam Fakir
+                      </h3>
+                    </div>
+                    <a href="https://aclaha.edu.bd/vice">                    <button class="common-btn-2">
+                      Details
+                    </button>
+</a>
+                  </div>
+                  <div class="instructor mb-4">
+                    <div class="header">
+                      <h3>
+                        Principal
+                      </h3>
+                    </div>
+                    <div class="instructor-content">
+                      <div class="instructor-img">
+                        <img src="https://aclaha.edu.bd/storage/images/principal-4bd139e2-826c-404c-92e7-13ad0158f78a.png" alt="" />
+                      </div>
+                      <h3>
+                        এটিএম মনজুরুল করিম ফকির
+                      </h3>
+                    </div>
+                    <a href="https://aclaha.edu.bd/principal">                    <button class="common-btn-2">
+                      Details
+                    </button>
+</a>
+                  </div>
+                </div>
+                <!-- important-link -->
+                <div class="important-link mb-4">
+                  <div class="header">
+                    <h3>
+                      Important Link
+                    </h3>
+                  </div>
+                  <ul class="card-details">
+                    <li>
+                      <a href="https://www.jessoreboard.gov.bd/" target="_blank">                      <i class="fa-solid fa-caret-right"></i>
+                      Jashore Board
+</a>
+                    </li>
+                    <li>
+                      <a href="http://app1.nu.edu.bd" target="_blank">                      <i class="fa-solid fa-caret-right"></i>
+                      National University
+</a>
+                    </li>
+                    <li>
+                      <a href="https://dshe.gov.bd/" target="_blank">                      <i class="fa-solid fa-caret-right"></i>
+                      Directorate of Secondary and Higher Education (DSHE)
+</a>
+                    </li>
+                    <li>
+                      <a href="https://shed.gov.bd/" target="_blank">                      <i class="fa-solid fa-caret-right"></i>
+                      Secondary and Higher Education Division
+</a>
+                    </li>
+                    <li>
+                      <a href="http://emis.gov.bd" target="_blank">                      <i class="fa-solid fa-caret-right"></i>
+                      EMIS
+</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- map-wrapper -->
+                <div class="map-wrapper mb-4">
+                  <div class="header">
+                    <h3>
+                      Google Map
+                    </h3>
+                  </div>
+                  <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4575.727584308347!2d89.8603515!3d22.4489707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0005463ed5638d%3A0xf92df26c08c8dd64!2z4KaPIOCmuOCmvyDgprLgpr7gprngpr4g4Kaq4Ka-4KaH4Kay4KafIOCmieCmmuCnjeCmmiDgpqzgpr_gpqbgp43gpq_gpr7gprLgp58!5e1!3m2!1sen!2sbd!4v1766314077068!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                  </div>
+                </div>
+                <!-- official-wrapper -->
+                <div class="official-wrapper mb-4">
+                  <div class="header">
+                    <h3>
+                      Official Facebook Page
+                    </h3>
+                  </div>
+                  <div class="official-content">
+                  </div>
+                </div>
+                <!-- national-wrapper -->
+                <div class="national-wrapper mb-4">
+                  <div class="header">
+                    <h3>
+                      National Anthem
+                    </h3>
+                  </div>
+                  <div class="video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_r58G5iM_NU?si=zJcLxMPyELtCraiR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-wrapper" style="padding-bottom: 40px !important;">
+            <div class="footer-img">
+              <img src="https://aclaha.edu.bd/frontend/images/footer_top_bg.png" alt="" />
+            </div>
+            <div class="copyright-text">
+              <p>
+                © Copyright @ 2025
+                <span>                |
+</span>
+                Developed By
+                <a href="https://cybersparkglobal.com/" target="_blank">                Cyberspark Global
+</a>
+              </p>
+              <a target="_blank" style=" margin-bottom: 5px" href="https://www.sslcommerz.com/" title="SSLCommerz" alt="SSLCommerz">              <img style="width:100%;height:auto;" src="https://securepay.sslcommerz.com/public/image/SSLCommerz-Pay-With-logo-All-Size-01.png" />
+</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://aclaha.edu.bd/frontend/js/jquery.min.js">
+    </script>
+    <script src="https://aclaha.edu.bd/frontend/js/jquery.easing.min.js">
+    </script>
+    <script src="https://aclaha.edu.bd/frontend/js/jquery.dataTables.min.js">
+    </script>
+    <script src="https://aclaha.edu.bd/frontend/js/dataTables.bootstrap4.min.js">
+    </script>
+    <script src="https://aclaha.edu.bd/frontend/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://aclaha.edu.bd/frontend/js/datatables-demo.js">
+    </script>
+    <script src="https://aclaha.edu.bd/frontend/js/common.js">
+    </script>
+    <script type="text/javascript">
+      function languageAction(lang) {
+        if (lang === &#39;bn&#39;) {
+            translatePage(&#39;bn&#39;);   // আপনার existing function
+        }
+        else if (lang === &#39;en&#39;) {
+            resetTranslate();      // আপনার existing function
+        }
+    }
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: &#39;en&#39;,
+            includedLanguages: &#39;en,bn&#39;,
+            autoDisplay: false
+        }, &#39;google_translate_element&#39;);
+    }
+
+    function translatePage(lang) {
+        var selectField = document.querySelector(&#34;#google_translate_element select&#34;);
+        if (!selectField) return;
+        for (var i = 0; i &lt; selectField.options.length; i++) {
+            if (selectField.options[i].value.indexOf(lang) &gt; -1) {
+                selectField.selectedIndex = i;
+                selectField.dispatchEvent(new Event(&#34;change&#34;));
+                break;
+            }
+        }
+
+        // Delay দিয়ে custom replace করবো
+        setTimeout(() =&gt; {
+            applyCustomTranslations();
+        }, 3000);
+    }
+
+    function resetTranslate() {
+        document.cookie = &#34;googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;&#34;;
+        document.cookie = &#34;googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;domain=&#34; + window.location.hostname + &#34;;path=/;&#34;;
+        location.reload();
+    }
+
+    // Custom dictionary (after-translation override)
+    const customDictionary = {
+        &#34;রাষ্ট্রপতি&#34;: &#34;সভাপতি&#34;,
+
+    };
+
+    function applyCustomTranslations() {
+        const elements = document.querySelectorAll(&#39;body *:not(script):not(style)&#39;);
+        elements.forEach(el =&gt; {
+            if (el.childNodes.length === 1 &amp;&amp; el.childNodes[0].nodeType === 3) {
+                let text = el.innerText;
+                for (const [key, value] of Object.entries(customDictionary)) {
+                    const regex = new RegExp(key, &#39;g&#39;);
+                    text = text.replace(regex, value);
+                }
+                el.innerText = text;
+            }
+        });
+    }
+    // function protectNumericStrings() {
+    //     document.querySelectorAll(&#39;body *:not(script):not(style)&#39;).forEach(el =&gt; {
+    //         if (el.childNodes.length === 1 &amp;&amp; el.childNodes[0].nodeType === 3) {
+    //             let text = el.innerText.trim();
+    //             if (/^[A-Za-z0-9-]+$/.test(text)) {
+    //                 el.classList.add(&#39;notranslate&#39;);
+    //             }
+    //         }
+    //     });
+    // }
+
+    setInterval(() =&gt; {
+        if (document.cookie.includes(&#39;/bn&#39;)) {
+            applyCustomTranslations();
+            // protectNumericStrings();
+        }
+
+        document.querySelectorAll(&#39;*&#39;).forEach(el =&gt; {
+            if (/[\u0980-\u09FF]/.test(el.innerText)) {
+                el.style.fontFamily = &#39;sans-serif&#39;;
+            }
+        });
+    }, 2000);
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+    <!-- Livewire Scripts -->
+    <script>
+      console.warn(&#39;Livewire: The published Livewire assets are out of date\n See: https://livewire.laravel.com/docs/installation#publishing-livewires-frontend-assets&#39;)
+    </script>
+    <script src="https://aclaha.edu.bd/vendor/livewire/livewire.js?id=cc800bf4" data-csrf="bzW7QciZk4wiHNSwBEBTWcAo3WaVb8agDikt9cut" data-update-uri="/livewire/update" data-navigate-once="true">
+    </script>
+    <script type="text/javascript">
+      var phpdebugbar = new PhpDebugBar.DebugBar({&#34;theme&#34;:&#34;auto&#34;,&#34;hideEmptyTabs&#34;:true});
+phpdebugbar.addTab(&#34;request&#34;, new PhpDebugBar.DebugBar.Tab({&#34;icon&#34;:&#34;tags&#34;,&#34;order&#34;:-100,&#34;title&#34;:&#34;Request&#34;, &#34;widget&#34;: new PhpDebugBar.Widgets.HtmlVariableListWidget()}));
+phpdebugbar.addTab(&#34;messages&#34;, new PhpDebugBar.DebugBar.Tab({&#34;icon&#34;:&#34;list-alt&#34;,&#34;title&#34;:&#34;Messages&#34;, &#34;widget&#34;: new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addIndicator(&#34;time&#34;, new PhpDebugBar.DebugBar.Indicator({&#34;icon&#34;:&#34;clock-o&#34;,&#34;tooltip&#34;:&#34;Request Duration&#34;,&#34;link&#34;:&#34;timeline&#34;}), &#34;right&#34;);
+phpdebugbar.addTab(&#34;timeline&#34;, new PhpDebugBar.DebugBar.Tab({&#34;icon&#34;:&#34;tasks&#34;,&#34;title&#34;:&#34;Timeline&#34;, &#34;widget&#34;: new PhpDebugBar.Widgets.TimelineWidget()}));
+phpdebugbar.addIndicator(&#34;memory&#34;, new PhpDebugBar.DebugBar.Indicator({&#34;icon&#34;:&#34;cogs&#34;,&#34;tooltip&#34;:&#34;Memory Usage&#34;}), &#34;right&#34;);
+phpdebugbar.addTab(&#34;exceptions&#34;, new PhpDebugBar.DebugBar.Tab({&#34;icon&#34;:&#34;bug&#34;,&#34;title&#34;:&#34;Exceptions&#34;, &#34;widget&#34;: new PhpDebugBar.Widgets.ExceptionsWidget()}));
+phpdebugbar.addIndicator(&#34;version&#34;, new PhpDebugBar.DebugBar.Indicator({&#34;icon&#34;:&#34;laravel phpdebugbar-fab&#34;}), &#34;right&#34;);
+phpdebugbar.addTab(&#34;views&#34;, new PhpDebugBar.DebugBar.Tab({&#34;icon&#34;:&#34;leaf&#34;,&#34;title&#34;:&#34;Views&#34;, &#34;widget&#34;: new PhpDebugBar.Widgets.TemplatesWidget()}));
+phpdebugbar.addTab(&#34;queries&#34;, new PhpDebugBar.DebugBar.Tab({&#34;icon&#34;:&#34;database&#34;,&#34;title&#34;:&#34;Queries&#34;, &#34;widget&#34;: new PhpDebugBar.Widgets.LaravelQueriesWidget()}));
+phpdebugbar.addTab(&#34;models&#34;, new PhpDebugBar.DebugBar.Tab({&#34;icon&#34;:&#34;cubes&#34;,&#34;title&#34;:&#34;Models&#34;, &#34;widget&#34;: new PhpDebugBar.Widgets.TableVariableListWidget()}));
+phpdebugbar.addTab(&#34;livewire&#34;, new PhpDebugBar.DebugBar.Tab({&#34;icon&#34;:&#34;bolt&#34;,&#34;title&#34;:&#34;Livewire&#34;, &#34;widget&#34;: new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.addTab(&#34;emails&#34;, new PhpDebugBar.DebugBar.Tab({&#34;icon&#34;:&#34;inbox&#34;,&#34;title&#34;:&#34;Mails&#34;, &#34;widget&#34;: new PhpDebugBar.Widgets.MailsWidget()}));
+phpdebugbar.addTab(&#34;gate&#34;, new PhpDebugBar.DebugBar.Tab({&#34;icon&#34;:&#34;list-alt&#34;,&#34;title&#34;:&#34;Gate&#34;, &#34;widget&#34;: new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addIndicator(&#34;currentrequest&#34;, new PhpDebugBar.DebugBar.Indicator({&#34;icon&#34;:&#34;share&#34;,&#34;link&#34;:&#34;request&#34;}), &#34;right&#34;);
+phpdebugbar.setDataMap({
+&#34;request&#34;: [&#34;request.data&#34;, {}],
+&#34;messages&#34;: [&#34;messages.messages&#34;, []],
+&#34;messages:badge&#34;: [&#34;messages.count&#34;, null],
+&#34;time&#34;: [&#34;time.duration_str&#34;, &#39;0ms&#39;],
+&#34;timeline&#34;: [&#34;time&#34;, {}],
+&#34;memory&#34;: [&#34;memory.peak_usage_str&#34;, &#39;0B&#39;],
+&#34;exceptions&#34;: [&#34;exceptions.exceptions&#34;, []],
+&#34;exceptions:badge&#34;: [&#34;exceptions.count&#34;, null],
+&#34;version&#34;: [&#34;laravel.version&#34;, ],
+&#34;version:tooltip&#34;: [&#34;laravel.tooltip&#34;, {}],
+&#34;views&#34;: [&#34;views&#34;, []],
+&#34;views:badge&#34;: [&#34;views.nb_templates&#34;, 0],
+&#34;queries&#34;: [&#34;queries&#34;, []],
+&#34;queries:badge&#34;: [&#34;queries.nb_statements&#34;, 0],
+&#34;models&#34;: [&#34;models&#34;, {}],
+&#34;models:badge&#34;: [&#34;models.count&#34;, 0],
+&#34;livewire&#34;: [&#34;livewire.data&#34;, {}],
+&#34;livewire:badge&#34;: [&#34;livewire.count&#34;, 0],
+&#34;emails&#34;: [&#34;symfonymailer_mails.mails&#34;, []],
+&#34;emails:badge&#34;: [&#34;symfonymailer_mails.count&#34;, null],
+&#34;gate&#34;: [&#34;gate.messages&#34;, []],
+&#34;gate:badge&#34;: [&#34;gate.count&#34;, null],
+&#34;request:badge&#34;: [&#34;request.badge&#34;, null],
+&#34;currentrequest&#34;: [&#34;request.data.uri&#34;, ],
+&#34;currentrequest:tooltip&#34;: [&#34;request.tooltip&#34;, {}]
+});
+phpdebugbar.restoreState();
+phpdebugbar.enableAjaxHandlerTab();
+phpdebugbar.ajaxHandler = new PhpDebugBar.AjaxHandler(phpdebugbar, undefined, true);
+phpdebugbar.ajaxHandler.bindToFetch();
+phpdebugbar.ajaxHandler.bindToXHR();
+phpdebugbar.setOpenHandler(new PhpDebugBar.OpenHandler({&#34;url&#34;:&#34;https:\/\/aclaha.edu.bd\/_debugbar\/open&#34;}));
+phpdebugbar.addDataSet({&#34;__meta&#34;:{&#34;id&#34;:&#34;01KEPCWPRTQ3E0H2F4GEWJ17AZ&#34;,&#34;datetime&#34;:&#34;2026-01-11 17:26:03&#34;,&#34;utime&#34;:1768130763.54634,&#34;method&#34;:&#34;GET&#34;,&#34;uri&#34;:&#34;\/&#34;,&#34;ip&#34;:&#34;172.70.47.2&#34;},&#34;messages&#34;:{&#34;count&#34;:0,&#34;messages&#34;:[]},&#34;time&#34;:{&#34;count&#34;:9,&#34;start&#34;:1768130763.362151,&#34;end&#34;:1768130763.546373,&#34;duration&#34;:0.18422198295593262,&#34;duration_str&#34;:&#34;184ms&#34;,&#34;measures&#34;:[{&#34;label&#34;:&#34;Booting&#34;,&#34;start&#34;:1768130763.362151,&#34;relative_start&#34;:0,&#34;end&#34;:1768130763.460302,&#34;relative_end&#34;:1768130763.460302,&#34;duration&#34;:0.09815120697021484,&#34;duration_str&#34;:&#34;98.15ms&#34;,&#34;memory&#34;:0,&#34;memory_str&#34;:&#34;0B&#34;,&#34;params&#34;:[],&#34;collector&#34;:&#34;time&#34;,&#34;group&#34;:null},{&#34;label&#34;:&#34;Application&#34;,&#34;start&#34;:1768130763.460336,&#34;relative_start&#34;:0.09818506240844727,&#34;end&#34;:1768130763.546376,&#34;relative_end&#34;:3.0994415283203125e-6,&#34;duration&#34;:0.08604001998901367,&#34;duration_str&#34;:&#34;86.04ms&#34;,&#34;memory&#34;:0,&#34;memory_str&#34;:&#34;0B&#34;,&#34;params&#34;:[],&#34;collector&#34;:&#34;time&#34;,&#34;group&#34;:null},{&#34;label&#34;:&#34;Routing&#34;,&#34;start&#34;:1768130763.463785,&#34;relative_start&#34;:0.10163402557373047,&#34;end&#34;:1768130763.47008,&#34;relative_end&#34;:1768130763.47008,&#34;duration&#34;:0.006294965744018555,&#34;duration_str&#34;:&#34;6.29ms&#34;,&#34;memory&#34;:0,&#34;memory_str&#34;:&#34;0B&#34;,&#34;params&#34;:[],&#34;collector&#34;:null,&#34;group&#34;:null},{&#34;label&#34;:&#34;Preparing Response&#34;,&#34;start&#34;:1768130763.481568,&#34;relative_start&#34;:0.11941719055175781,&#34;end&#34;:1768130763.545076,&#34;relative_end&#34;:1768130763.545076,&#34;duration&#34;:0.0635077953338623,&#34;duration_str&#34;:&#34;63.51ms&#34;,&#34;memory&#34;:0,&#34;memory_str&#34;:&#34;0B&#34;,&#34;params&#34;:[],&#34;collector&#34;:null,&#34;group&#34;:null},{&#34;label&#34;:&#34;View: welcome&#34;,&#34;start&#34;:1768130763.481923,&#34;relative_start&#34;:0.11977219581604004,&#34;end&#34;:1768130763.481923,&#34;relative_end&#34;:1768130763.481923,&#34;duration&#34;:0,&#34;duration_str&#34;:&#34;0\u03bcs&#34;,&#34;memory&#34;:0,&#34;memory_str&#34;:&#34;0B&#34;,&#34;params&#34;:[],&#34;collector&#34;:&#34;views&#34;,&#34;group&#34;:&#34;View&#34;},{&#34;label&#34;:&#34;View: layouts.frontend.wrapper-right&#34;,&#34;start&#34;:1768130763.49118,&#34;relative_start&#34;:0.1290290355682373,&#34;end&#34;:1768130763.49118,&#34;relative_end&#34;:1768130763.49118,&#34;duration&#34;:0,&#34;duration_str&#34;:&#34;0\u03bcs&#34;,&#34;memory&#34;:0,&#34;memory_str&#34;:&#34;0B&#34;,&#34;params&#34;:[],&#34;collector&#34;:&#34;views&#34;,&#34;group&#34;:&#34;View&#34;},{&#34;label&#34;:&#34;View: layouts.frontend.app&#34;,&#34;start&#34;:1768130763.491829,&#34;relative_start&#34;:0.12967801094055176,&#34;end&#34;:1768130763.491829,&#34;relative_end&#34;:1768130763.491829,&#34;duration&#34;:0,&#34;duration_str&#34;:&#34;0\u03bcs&#34;,&#34;memory&#34;:0,&#34;memory_str&#34;:&#34;0B&#34;,&#34;params&#34;:[],&#34;collector&#34;:&#34;views&#34;,&#34;group&#34;:&#34;View&#34;},{&#34;label&#34;:&#34;View: layouts.frontend.navbar&#34;,&#34;start&#34;:1768130763.511292,&#34;relative_start&#34;:0.1491410732269287,&#34;end&#34;:1768130763.511292,&#34;relative_end&#34;:1768130763.511292,&#34;duration&#34;:0,&#34;duration_str&#34;:&#34;0\u03bcs&#34;,&#34;memory&#34;:0,&#34;memory_str&#34;:&#34;0B&#34;,&#34;params&#34;:[],&#34;collector&#34;:&#34;views&#34;,&#34;group&#34;:&#34;View&#34;},{&#34;label&#34;:&#34;View: layouts.frontend.footer&#34;,&#34;start&#34;:1768130763.534918,&#34;relative_start&#34;:0.17276716232299805,&#34;end&#34;:1768130763.534918,&#34;relative_end&#34;:1768130763.534918,&#34;duration&#34;:0,&#34;duration_str&#34;:&#34;0\u03bcs&#34;,&#34;memory&#34;:0,&#34;memory_str&#34;:&#34;0B&#34;,&#34;params&#34;:[],&#34;collector&#34;:&#34;views&#34;,&#34;group&#34;:&#34;View&#34;}]},&#34;memory&#34;:{&#34;peak_usage&#34;:3224568,&#34;peak_usage_str&#34;:&#34;3MB&#34;},&#34;exceptions&#34;:{&#34;count&#34;:0,&#34;exceptions&#34;:[]},&#34;laravel&#34;:{&#34;version&#34;:&#34;10.x&#34;,&#34;tooltip&#34;:{&#34;Laravel Version&#34;:&#34;10.50.0&#34;,&#34;PHP Version&#34;:&#34;8.4.14&#34;,&#34;Environment&#34;:&#34;local&#34;,&#34;Debug Mode&#34;:&#34;Enabled&#34;,&#34;URL&#34;:&#34;aclaha.edu.bd\/&#34;,&#34;Timezone&#34;:&#34;Asia\/Dhaka&#34;,&#34;Locale&#34;:&#34;en&#34;}},&#34;views&#34;:{&#34;count&#34;:5,&#34;nb_templates&#34;:5,&#34;templates&#34;:[{&#34;name&#34;:&#34;welcome&#34;,&#34;param_count&#34;:null,&#34;params&#34;:[],&#34;start&#34;:1768130763.481906,&#34;type&#34;:&#34;blade&#34;,&#34;hash&#34;:&#34;blade\/home\/aclaha\/htdocs\/aclaha.edu.bd\/resources\/views\/welcome.blade.phpwelcome&#34;,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fresources%2Fviews%2Fwelcome.blade.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;welcome.blade.php&#34;,&#34;line&#34;:&#34;?&#34;}},{&#34;name&#34;:&#34;layouts.frontend.wrapper-right&#34;,&#34;param_count&#34;:null,&#34;params&#34;:[],&#34;start&#34;:1768130763.491167,&#34;type&#34;:&#34;blade&#34;,&#34;hash&#34;:&#34;blade\/home\/aclaha\/htdocs\/aclaha.edu.bd\/resources\/views\/layouts\/frontend\/wrapper-right.blade.phplayouts.frontend.wrapper-right&#34;,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fresources%2Fviews%2Flayouts%2Ffrontend%2Fwrapper-right.blade.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;wrapper-right.blade.php&#34;,&#34;line&#34;:&#34;?&#34;}},{&#34;name&#34;:&#34;layouts.frontend.app&#34;,&#34;param_count&#34;:null,&#34;params&#34;:[],&#34;start&#34;:1768130763.491819,&#34;type&#34;:&#34;blade&#34;,&#34;hash&#34;:&#34;blade\/home\/aclaha\/htdocs\/aclaha.edu.bd\/resources\/views\/layouts\/frontend\/app.blade.phplayouts.frontend.app&#34;,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fresources%2Fviews%2Flayouts%2Ffrontend%2Fapp.blade.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;app.blade.php&#34;,&#34;line&#34;:&#34;?&#34;}},{&#34;name&#34;:&#34;layouts.frontend.navbar&#34;,&#34;param_count&#34;:null,&#34;params&#34;:[],&#34;start&#34;:1768130763.511276,&#34;type&#34;:&#34;blade&#34;,&#34;hash&#34;:&#34;blade\/home\/aclaha\/htdocs\/aclaha.edu.bd\/resources\/views\/layouts\/frontend\/navbar.blade.phplayouts.frontend.navbar&#34;,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fresources%2Fviews%2Flayouts%2Ffrontend%2Fnavbar.blade.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;navbar.blade.php&#34;,&#34;line&#34;:&#34;?&#34;}},{&#34;name&#34;:&#34;layouts.frontend.footer&#34;,&#34;param_count&#34;:null,&#34;params&#34;:[],&#34;start&#34;:1768130763.534907,&#34;type&#34;:&#34;blade&#34;,&#34;hash&#34;:&#34;blade\/home\/aclaha\/htdocs\/aclaha.edu.bd\/resources\/views\/layouts\/frontend\/footer.blade.phplayouts.frontend.footer&#34;,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fresources%2Fviews%2Flayouts%2Ffrontend%2Ffooter.blade.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;footer.blade.php&#34;,&#34;line&#34;:&#34;?&#34;}}]},&#34;queries&#34;:{&#34;count&#34;:20,&#34;nb_statements&#34;:20,&#34;nb_visible_statements&#34;:20,&#34;nb_excluded_statements&#34;:0,&#34;nb_failed_statements&#34;:0,&#34;accumulated_duration&#34;:0.03825,&#34;accumulated_duration_str&#34;:&#34;38.25ms&#34;,&#34;memory_usage&#34;:0,&#34;memory_usage_str&#34;:null,&#34;statements&#34;:[{&#34;sql&#34;:&#34;select * from `page_contents` where (`page` = \u0027about-us\u0027 and `key` = \u0027title\u0027)&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[&#34;about-us&#34;,&#34;title&#34;],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/PageContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/PageContent.php&#34;,&#34;line&#34;:38},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Http\/Controllers\/FrontendController.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Http\/Controllers\/FrontendController.php&#34;,&#34;line&#34;:29},{&#34;index&#34;:17,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php&#34;,&#34;line&#34;:54},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php&#34;,&#34;line&#34;:43},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php&#34;,&#34;line&#34;:259}],&#34;start&#34;:1768130763.472903,&#34;duration&#34;:0.00128,&#34;duration_str&#34;:&#34;1.28ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;PageContent.php:38&#34;,&#34;source&#34;:{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/PageContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/PageContent.php&#34;,&#34;line&#34;:38},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FPageContent.php\u0026line=38&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;PageContent.php&#34;,&#34;line&#34;:&#34;38&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:0,&#34;width_percent&#34;:3.346},{&#34;sql&#34;:&#34;select * from `page_contents` where (`page` = \u0027about-us\u0027 and `key` = \u0027description\u0027)&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[&#34;about-us&#34;,&#34;description&#34;],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/PageContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/PageContent.php&#34;,&#34;line&#34;:38},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Http\/Controllers\/FrontendController.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Http\/Controllers\/FrontendController.php&#34;,&#34;line&#34;:30},{&#34;index&#34;:17,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php&#34;,&#34;line&#34;:54},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php&#34;,&#34;line&#34;:43},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php&#34;,&#34;line&#34;:259}],&#34;start&#34;:1768130763.475636,&#34;duration&#34;:0.00102,&#34;duration_str&#34;:&#34;1.02ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;PageContent.php:38&#34;,&#34;source&#34;:{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/PageContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/PageContent.php&#34;,&#34;line&#34;:38},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FPageContent.php\u0026line=38&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;PageContent.php&#34;,&#34;line&#34;:&#34;38&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:3.346,&#34;width_percent&#34;:2.667},{&#34;sql&#34;:&#34;select * from `page_contents` where (`page` = \u0027about-us\u0027 and `key` = \u0027image\u0027)&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[&#34;about-us&#34;,&#34;image&#34;],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/PageContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/PageContent.php&#34;,&#34;line&#34;:38},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Http\/Controllers\/FrontendController.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Http\/Controllers\/FrontendController.php&#34;,&#34;line&#34;:31},{&#34;index&#34;:17,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php&#34;,&#34;line&#34;:54},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php&#34;,&#34;line&#34;:43},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php&#34;,&#34;line&#34;:259}],&#34;start&#34;:1768130763.477431,&#34;duration&#34;:0.0016899999999999999,&#34;duration_str&#34;:&#34;1.69ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;PageContent.php:38&#34;,&#34;source&#34;:{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/PageContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/PageContent.php&#34;,&#34;line&#34;:38},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FPageContent.php\u0026line=38&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;PageContent.php&#34;,&#34;line&#34;:&#34;38&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:6.013,&#34;width_percent&#34;:4.418},{&#34;sql&#34;:&#34;select * from `notices` where `type` = \u0027public\u0027 order by `created_at` desc limit 4&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[&#34;public&#34;],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Http\/Controllers\/FrontendController.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Http\/Controllers\/FrontendController.php&#34;,&#34;line&#34;:32},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php&#34;,&#34;line&#34;:54},{&#34;index&#34;:17,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php&#34;,&#34;line&#34;:43},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php&#34;,&#34;line&#34;:259},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php&#34;,&#34;line&#34;:205}],&#34;start&#34;:1768130763.48005,&#34;duration&#34;:0.0007,&#34;duration_str&#34;:&#34;700\u03bcs&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;FrontendController.php:32&#34;,&#34;source&#34;:{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Http\/Controllers\/FrontendController.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Http\/Controllers\/FrontendController.php&#34;,&#34;line&#34;:32},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FHttp%2FControllers%2FFrontendController.php\u0026line=32&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;FrontendController.php&#34;,&#34;line&#34;:&#34;32&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:10.431,&#34;width_percent&#34;:1.83},{&#34;sql&#34;:&#34;select * from `page_contents` where (`page` = \u0027principal\u0027)&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[&#34;principal&#34;],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/PageContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/PageContent.php&#34;,&#34;line&#34;:51},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Providers\/AppServiceProvider.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Providers\/AppServiceProvider.php&#34;,&#34;line&#34;:62},{&#34;index&#34;:20,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Concerns\/ManagesEvents.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Concerns\/ManagesEvents.php&#34;,&#34;line&#34;:177},{&#34;index&#34;:21,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php&#34;,&#34;line&#34;:188},{&#34;index&#34;:22,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php&#34;,&#34;line&#34;:159}],&#34;start&#34;:1768130763.4838512,&#34;duration&#34;:0.00082,&#34;duration_str&#34;:&#34;820\u03bcs&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;PageContent.php:51&#34;,&#34;source&#34;:{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/PageContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/PageContent.php&#34;,&#34;line&#34;:51},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FPageContent.php\u0026line=51&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;PageContent.php&#34;,&#34;line&#34;:&#34;51&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:12.261,&#34;width_percent&#34;:2.144},{&#34;sql&#34;:&#34;select * from `important_links`&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Providers\/AppServiceProvider.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Providers\/AppServiceProvider.php&#34;,&#34;line&#34;:64},{&#34;index&#34;:20,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Concerns\/ManagesEvents.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Concerns\/ManagesEvents.php&#34;,&#34;line&#34;:177},{&#34;index&#34;:21,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php&#34;,&#34;line&#34;:188},{&#34;index&#34;:22,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php&#34;,&#34;line&#34;:159},{&#34;index&#34;:23,&#34;namespace&#34;:&#34;view&#34;,&#34;name&#34;:&#34;welcome&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/resources\/views\/welcome.blade.php&#34;,&#34;line&#34;:382}],&#34;start&#34;:1768130763.4859378,&#34;duration&#34;:0.00128,&#34;duration_str&#34;:&#34;1.28ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;AppServiceProvider.php:64&#34;,&#34;source&#34;:{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Providers\/AppServiceProvider.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Providers\/AppServiceProvider.php&#34;,&#34;line&#34;:64},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FProviders%2FAppServiceProvider.php\u0026line=64&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;AppServiceProvider.php&#34;,&#34;line&#34;:&#34;64&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:14.405,&#34;width_percent&#34;:3.346},{&#34;sql&#34;:&#34;select `value`, `key`, `type` from `data_contents` where `name` = \u0027right_sidebar\u0027 and `data_contents`.`deleted_at` is null&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[&#34;right_sidebar&#34;],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/DataContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/DataContent.php&#34;,&#34;line&#34;:84},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/DataContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/DataContent.php&#34;,&#34;line&#34;:94},{&#34;index&#34;:17,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/DataContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/DataContent.php&#34;,&#34;line&#34;:99},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Providers\/AppServiceProvider.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Providers\/AppServiceProvider.php&#34;,&#34;line&#34;:65},{&#34;index&#34;:22,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Concerns\/ManagesEvents.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Concerns\/ManagesEvents.php&#34;,&#34;line&#34;:177}],&#34;start&#34;:1768130763.489365,&#34;duration&#34;:0.00098,&#34;duration_str&#34;:&#34;980\u03bcs&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;DataContent.php:84&#34;,&#34;source&#34;:{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/DataContent.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/DataContent.php&#34;,&#34;line&#34;:84},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FDataContent.php\u0026line=84&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;DataContent.php&#34;,&#34;line&#34;:&#34;84&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:17.752,&#34;width_percent&#34;:2.562},{&#34;sql&#34;:&#34;select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = \u0027aclaha2025\u0027 and table_type in (\u0027BASE TABLE\u0027, \u0027SYSTEM VERSIONED\u0027) order by table_name&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},{&#34;index&#34;:14,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:79},{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:37},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:135},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124}],&#34;start&#34;:1768130763.492126,&#34;duration&#34;:0.00354,&#34;duration_str&#34;:&#34;3.54ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Setting.php:117&#34;,&#34;source&#34;:{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FSetting.php\u0026line=117&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Setting.php&#34;,&#34;line&#34;:&#34;117&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:20.314,&#34;width_percent&#34;:9.255},{&#34;sql&#34;:&#34;select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = \u0027aclaha2025\u0027 and table_type in (\u0027BASE TABLE\u0027, \u0027SYSTEM VERSIONED\u0027) order by table_name&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},{&#34;index&#34;:14,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:38},{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:135},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;line&#34;:58}],&#34;start&#34;:1768130763.496978,&#34;duration&#34;:0.00315,&#34;duration_str&#34;:&#34;3.15ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Setting.php:117&#34;,&#34;source&#34;:{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FSetting.php\u0026line=117&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Setting.php&#34;,&#34;line&#34;:&#34;117&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:29.569,&#34;width_percent&#34;:8.235},{&#34;sql&#34;:&#34;select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = \u0027aclaha2025\u0027 and table_type in (\u0027BASE TABLE\u0027, \u0027SYSTEM VERSIONED\u0027) order by table_name&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},{&#34;index&#34;:14,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:79},{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:37},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:135},{&#34;index&#34;:20,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124}],&#34;start&#34;:1768130763.50129,&#34;duration&#34;:0.00265,&#34;duration_str&#34;:&#34;2.65ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Setting.php:117&#34;,&#34;source&#34;:{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FSetting.php\u0026line=117&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Setting.php&#34;,&#34;line&#34;:&#34;117&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:37.804,&#34;width_percent&#34;:6.928},{&#34;sql&#34;:&#34;select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = \u0027aclaha2025\u0027 and table_type in (\u0027BASE TABLE\u0027, \u0027SYSTEM VERSIONED\u0027) order by table_name&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},{&#34;index&#34;:14,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:38},{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:135},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124},{&#34;index&#34;:20,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;line&#34;:58}],&#34;start&#34;:1768130763.505424,&#34;duration&#34;:0.00329,&#34;duration_str&#34;:&#34;3.29ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Setting.php:117&#34;,&#34;source&#34;:{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FSetting.php\u0026line=117&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Setting.php&#34;,&#34;line&#34;:&#34;117&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:44.732,&#34;width_percent&#34;:8.601},{&#34;sql&#34;:&#34;select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = \u0027aclaha2025\u0027 and table_type in (\u0027BASE TABLE\u0027, \u0027SYSTEM VERSIONED\u0027) order by table_name&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},{&#34;index&#34;:14,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:79},{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:37},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:135},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124}],&#34;start&#34;:1768130763.511776,&#34;duration&#34;:0.00376,&#34;duration_str&#34;:&#34;3.76ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Setting.php:117&#34;,&#34;source&#34;:{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FSetting.php\u0026line=117&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Setting.php&#34;,&#34;line&#34;:&#34;117&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:53.333,&#34;width_percent&#34;:9.83},{&#34;sql&#34;:&#34;select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = \u0027aclaha2025\u0027 and table_type in (\u0027BASE TABLE\u0027, \u0027SYSTEM VERSIONED\u0027) order by table_name&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},{&#34;index&#34;:14,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:38},{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:135},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;line&#34;:58}],&#34;start&#34;:1768130763.516873,&#34;duration&#34;:0.00213,&#34;duration_str&#34;:&#34;2.13ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Setting.php:117&#34;,&#34;source&#34;:{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FSetting.php\u0026line=117&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Setting.php&#34;,&#34;line&#34;:&#34;117&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:63.163,&#34;width_percent&#34;:5.569},{&#34;sql&#34;:&#34;select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = \u0027aclaha2025\u0027 and table_type in (\u0027BASE TABLE\u0027, \u0027SYSTEM VERSIONED\u0027) order by table_name&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},{&#34;index&#34;:14,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:79},{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:37},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:135},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124}],&#34;start&#34;:1768130763.52038,&#34;duration&#34;:0.00249,&#34;duration_str&#34;:&#34;2.49ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Setting.php:117&#34;,&#34;source&#34;:{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FSetting.php\u0026line=117&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Setting.php&#34;,&#34;line&#34;:&#34;117&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:68.732,&#34;width_percent&#34;:6.51},{&#34;sql&#34;:&#34;select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = \u0027aclaha2025\u0027 and table_type in (\u0027BASE TABLE\u0027, \u0027SYSTEM VERSIONED\u0027) order by table_name&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},{&#34;index&#34;:14,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:38},{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:135},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;line&#34;:58}],&#34;start&#34;:1768130763.523832,&#34;duration&#34;:0.00239,&#34;duration_str&#34;:&#34;2.39ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Setting.php:117&#34;,&#34;source&#34;:{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FSetting.php\u0026line=117&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Setting.php&#34;,&#34;line&#34;:&#34;117&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:75.242,&#34;width_percent&#34;:6.248},{&#34;sql&#34;:&#34;select `image` from `banners`&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:15,&#34;namespace&#34;:&#34;view&#34;,&#34;name&#34;:&#34;layouts.frontend.navbar&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/resources\/views\/layouts\/frontend\/navbar.blade.php&#34;,&#34;line&#34;:46},{&#34;index&#34;:17,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;line&#34;:58},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php&#34;,&#34;line&#34;:22},{&#34;index&#34;:20,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php&#34;,&#34;line&#34;:72}],&#34;start&#34;:1768130763.5275369,&#34;duration&#34;:0.00079,&#34;duration_str&#34;:&#34;790\u03bcs&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;layouts.frontend.navbar:46&#34;,&#34;source&#34;:{&#34;index&#34;:15,&#34;namespace&#34;:&#34;view&#34;,&#34;name&#34;:&#34;layouts.frontend.navbar&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/resources\/views\/layouts\/frontend\/navbar.blade.php&#34;,&#34;line&#34;:46},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fresources%2Fviews%2Flayouts%2Ffrontend%2Fnavbar.blade.php\u0026line=46&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;navbar.blade.php&#34;,&#34;line&#34;:&#34;46&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:81.49,&#34;width_percent&#34;:2.065},{&#34;sql&#34;:&#34;select * from `institute_classes` order by `order` asc&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:33},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;line&#34;:58},{&#34;index&#34;:20,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php&#34;,&#34;line&#34;:22},{&#34;index&#34;:21,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php&#34;,&#34;line&#34;:72}],&#34;start&#34;:1768130763.529841,&#34;duration&#34;:0.00106,&#34;duration_str&#34;:&#34;1.06ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Helpers.php:33&#34;,&#34;source&#34;:{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:33},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FHelpers.php\u0026line=33&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Helpers.php&#34;,&#34;line&#34;:&#34;33&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:83.556,&#34;width_percent&#34;:2.771},{&#34;sql&#34;:&#34;select * from `institute_classes` order by `order` asc&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:33},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;line&#34;:58},{&#34;index&#34;:20,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php&#34;,&#34;line&#34;:22},{&#34;index&#34;:21,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php&#34;,&#34;line&#34;:72}],&#34;start&#34;:1768130763.531635,&#34;duration&#34;:0.0007199999999999999,&#34;duration_str&#34;:&#34;720\u03bcs&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Helpers.php:33&#34;,&#34;source&#34;:{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:33},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FHelpers.php\u0026line=33&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Helpers.php&#34;,&#34;line&#34;:&#34;33&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:86.327,&#34;width_percent&#34;:1.882},{&#34;sql&#34;:&#34;select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = \u0027aclaha2025\u0027 and table_type in (\u0027BASE TABLE\u0027, \u0027SYSTEM VERSIONED\u0027) order by table_name&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},{&#34;index&#34;:14,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:79},{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:37},{&#34;index&#34;:16,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:135},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124}],&#34;start&#34;:1768130763.5352008,&#34;duration&#34;:0.00234,&#34;duration_str&#34;:&#34;2.34ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Setting.php:117&#34;,&#34;source&#34;:{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FSetting.php\u0026line=117&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Setting.php&#34;,&#34;line&#34;:&#34;117&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:88.209,&#34;width_percent&#34;:6.118},{&#34;sql&#34;:&#34;select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = \u0027aclaha2025\u0027 and table_type in (\u0027BASE TABLE\u0027, \u0027SYSTEM VERSIONED\u0027) order by table_name&#34;,&#34;type&#34;:&#34;query&#34;,&#34;params&#34;:[],&#34;bindings&#34;:[],&#34;hints&#34;:null,&#34;show_copy&#34;:true,&#34;backtrace&#34;:[{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},{&#34;index&#34;:14,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:38},{&#34;index&#34;:15,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Helpers.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Helpers.php&#34;,&#34;line&#34;:135},{&#34;index&#34;:18,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/Filesystem\/Filesystem.php&#34;,&#34;line&#34;:124},{&#34;index&#34;:19,&#34;namespace&#34;:null,&#34;name&#34;:&#34;vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/PhpEngine.php&#34;,&#34;line&#34;:58}],&#34;start&#34;:1768130763.5386698,&#34;duration&#34;:0.00217,&#34;duration_str&#34;:&#34;2.17ms&#34;,&#34;slow&#34;:false,&#34;memory&#34;:0,&#34;memory_str&#34;:null,&#34;filename&#34;:&#34;Setting.php:117&#34;,&#34;source&#34;:{&#34;index&#34;:13,&#34;namespace&#34;:null,&#34;name&#34;:&#34;app\/Models\/Setting.php&#34;,&#34;file&#34;:&#34;\/home\/aclaha\/htdocs\/aclaha.edu.bd\/app\/Models\/Setting.php&#34;,&#34;line&#34;:117},&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FSetting.php\u0026line=117&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Setting.php&#34;,&#34;line&#34;:&#34;117&#34;},&#34;connection&#34;:&#34;aclaha2025&#34;,&#34;explain&#34;:null,&#34;start_percent&#34;:94.327,&#34;width_percent&#34;:5.673}]},&#34;models&#34;:{&#34;data&#34;:{&#34;App\\Models\\InstituteClass&#34;:{&#34;retrieved&#34;:16,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FInstituteClass.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;InstituteClass.php&#34;,&#34;line&#34;:&#34;?&#34;}},&#34;App\\Models\\PageContent&#34;:{&#34;retrieved&#34;:7,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FPageContent.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;PageContent.php&#34;,&#34;line&#34;:&#34;?&#34;}},&#34;App\\Models\\ImportantLink&#34;:{&#34;retrieved&#34;:5,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FImportantLink.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;ImportantLink.php&#34;,&#34;line&#34;:&#34;?&#34;}},&#34;App\\Models\\Notice&#34;:{&#34;retrieved&#34;:3,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FNotice.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Notice.php&#34;,&#34;line&#34;:&#34;?&#34;}},&#34;App\\Models\\DataContent&#34;:{&#34;retrieved&#34;:3,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FDataContent.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;DataContent.php&#34;,&#34;line&#34;:&#34;?&#34;}},&#34;App\\Models\\Banner&#34;:{&#34;retrieved&#34;:3,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FModels%2FBanner.php\u0026line=1&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;Banner.php&#34;,&#34;line&#34;:&#34;?&#34;}}},&#34;count&#34;:37,&#34;key_map&#34;:{&#34;retrieved&#34;:&#34;Retrieved&#34;,&#34;created&#34;:&#34;Created&#34;,&#34;updated&#34;:&#34;Updated&#34;,&#34;deleted&#34;:&#34;Deleted&#34;},&#34;is_counter&#34;:true,&#34;badges&#34;:{&#34;retrieved&#34;:37}},&#34;livewire&#34;:{&#34;data&#34;:[],&#34;count&#34;:0},&#34;symfonymailer_mails&#34;:{&#34;count&#34;:0,&#34;mails&#34;:[]},&#34;gate&#34;:{&#34;count&#34;:0,&#34;messages&#34;:[]},&#34;request&#34;:{&#34;data&#34;:{&#34;status&#34;:&#34;200 OK&#34;,&#34;full_url&#34;:&#34;https:\/\/aclaha.edu.bd&#34;,&#34;action_name&#34;:&#34;home.index&#34;,&#34;controller_action&#34;:&#34;App\\Http\\Controllers\\FrontendController@index&#34;,&#34;uri&#34;:&#34;GET \/&#34;,&#34;controller&#34;:{&#34;value&#34;:&#34;App\\Http\\Controllers\\FrontendController@index&#34;,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FHttp%2FControllers%2FFrontendController.php\u0026line=26&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;FrontendController.php&#34;,&#34;line&#34;:&#34;26&#34;}},&#34;file&#34;:{&#34;value&#34;:&#34;app\/Http\/Controllers\/FrontendController.php:26-35&#34;,&#34;xdebug_link&#34;:{&#34;url&#34;:&#34;phpstorm:\/\/open?file=%2Fhome%2Faclaha%2Fhtdocs%2Faclaha.edu.bd%2Fapp%2FHttp%2FControllers%2FFrontendController.php\u0026line=26&#34;,&#34;ajax&#34;:false,&#34;filename&#34;:&#34;FrontendController.php&#34;,&#34;line&#34;:&#34;26&#34;}},&#34;middleware&#34;:&#34;web&#34;,&#34;duration&#34;:&#34;184ms&#34;,&#34;peak_memory&#34;:&#34;4MB&#34;,&#34;response&#34;:&#34;text\/html; charset=UTF-8&#34;,&#34;request_format&#34;:&#34;html&#34;,&#34;request_query&#34;:&#34;\u003Cpre class=sf-dump id=sf-dump-321393709 data-indent-pad=\u0022  \u0022\u003E[]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-321393709\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n&#34;,&#34;request_request&#34;:&#34;\u003Cpre class=sf-dump id=sf-dump-1833821359 data-indent-pad=\u0022  \u0022\u003E[]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1833821359\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n&#34;,&#34;request_headers&#34;:&#34;\u003Cpre class=sf-dump id=sf-dump-1567069480 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:15\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Ex-forwarded-proto\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00225 characters\u0022\u003Ehttps\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ecf-visitor\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002218 characters\u0022\u003E{\u0026quot;scheme\u0026quot;:\u0026quot;https\u0026quot;}\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ecf-ipcountry\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00222 characters\u0022\u003EFR\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ecf-connecting-ip\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002221 characters\u0022\u003E2001:41d0:203:584c::1\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ecdn-loop\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002219 characters\u0022\u003Ecloudflare; loops=1\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ecf-ray\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002220 characters\u0022\u003E9bc40e94eb531cb6-AMS\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eaccept-language\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002214 characters\u0022\u003Een-US,en;q=0.5\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eaccept-encoding\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003Egzip, br\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Euser-agent\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002282 characters\u0022\u003EMozilla\/5.0 (compatible; View Page Source\/2.0; +https:\/\/www.view-page-source.com\/)\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eaccept\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002263 characters\u0022\u003Etext\/html,application\/xhtml+xml,application\/xml;q=0.9,*\/*;q=0.8\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Econnection\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00225 characters\u0022\u003Eclose\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ex-forwarded-for\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002234 characters\u0022\u003E2001:41d0:203:584c::1, 172.70.47.2\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ex-real-ip\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002211 characters\u0022\u003E172.70.47.2\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ex-forwarded-host\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002213 characters\u0022\u003Eaclaha.edu.bd\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ehost\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002213 characters\u0022\u003Eaclaha.edu.bd\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1567069480\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n&#34;,&#34;request_cookies&#34;:&#34;\u003Cpre class=sf-dump id=sf-dump-1147302579 data-indent-pad=\u0022  \u0022\u003E[]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1147302579\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n&#34;,&#34;response_headers&#34;:&#34;\u003Cpre class=sf-dump id=sf-dump-549067593 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:5\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Econtent-type\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002224 characters\u0022\u003Etext\/html; charset=UTF-8\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ecache-control\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002224 characters\u0022\u003Eprivate, must-revalidate\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Edate\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002229 characters\u0022\u003ESun, 11 Jan 2026 11:26:03 GMT\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Epragma\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003Eno-cache\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eexpires\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00222 characters\u0022\u003E-1\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-549067593\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n&#34;,&#34;session_attributes&#34;:&#34;\u003Cpre class=sf-dump id=sf-dump-999087480 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:3\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Elocale\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00222 characters\u0022\u003Een\u003C\/span\u003E\u0022\n  \u0022\u003Cspan class=sf-dump-key\u003E_token\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002240 characters\u0022\u003EbzW7QciZk4wiHNSwBEBTWcAo3WaVb8agDikt9cut\u003C\/span\u003E\u0022\n  \u0022\u003Cspan class=sf-dump-key\u003Eflasher::envelopes\u003C\/span\u003E\u0022 =\u003E []\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-999087480\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n&#34;},&#34;tooltip&#34;:{&#34;status&#34;:&#34;200 OK&#34;,&#34;full_url&#34;:&#34;https:\/\/aclaha.edu.bd&#34;,&#34;action_name&#34;:&#34;home.index&#34;,&#34;controller_action&#34;:&#34;App\\Http\\Controllers\\FrontendController@index&#34;},&#34;badge&#34;:null}}, &#34;01KEPCWPRTQ3E0H2F4GEWJ17AZ&#34;);
+    </script>
+  </body>
+</html>

@@ -339,7 +339,9 @@ async function loadExamPaper(year, monthIndex, day, subject, examStartUtc, examE
       startExamTimer(examStartUtc, examEndUtc);
       return;
     }
-  } else if(Array.isArray(data.papers) && data.papers.length > 0){
+  }
+
+  if(Array.isArray(data.papers) && data.papers.length > 0){
     const idx = RANDOMIZE_SET ? Math.floor(Math.random() * data.papers.length) : pickPaperIndex(paperSeed, data.papers.length);
     paper = data.papers[idx];
     // normalize identifier and validate questions array
@@ -476,26 +478,12 @@ async function submitAnswers({auto=false} = {}){
         const qid = q.id || `q${i+1}`;
         let chosenIndex = null;
         let answerText = null;
-        const hasOptions = Array.isArray(q.options) && q.options.length > 0;
-        if(hasOptions){
+        if(Array.isArray(q.options) && q.options.length > 0){
           chosenIndex = (typeof answers[qid] !== 'undefined') ? Number(answers[qid]) : null;
         } else {
           answerText = (typeof answers[qid] !== 'undefined') ? String(answers[qid]) : null;
         }
-        const hasAnswer = (q.answer !== null && typeof q.answer !== 'undefined');
-        if(subject.id === 'e1' || subject.id === 'e2' || !hasAnswer){
-          // Manual grading or no answers available — do not compute correctness
-          return {
-            id: qid,
-            text: q.text,
-            options: q.options || [],
-            chosenIndex,
-            answerText,
-            correctIndex: null,
-            correct: null
-          };
-        }
-        const correctIndex = Number(q.answer);
+        const correctIndex = (q.answer !== null && typeof q.answer !== 'undefined') ? Number(q.answer) : null;
         return {
           id: qid,
           text: q.text,
@@ -503,17 +491,17 @@ async function submitAnswers({auto=false} = {}){
           chosenIndex,
           answerText,
           correctIndex,
-          correct: (chosenIndex === correctIndex)
+          correct: (correctIndex !== null) ? (chosenIndex === correctIndex) : null
         };
       });
 
       const totalQuestions = paper.questions.length;
-      let correctCount = null, wrongCount = null, unansweredCount = null;
       // Only compute counts when this exam provides answers and is not E1/E2
+      let correctCount = null, wrongCount = null, unansweredCount = null;
       if(!(subject.id === 'e1' || subject.id === 'e2')){
         correctCount = resultSheet.filter(r=>r.correct===true).length;
         wrongCount = resultSheet.filter(r=>r.correct===false).length;
-        unansweredCount = resultSheet.filter(r=>r.chosenIndex===null).length;
+        unansweredCount = resultSheet.filter(r=> (r.chosenIndex===null) ).length;
       }
       const timeTakenSec = Math.round((Date.now() - examStartedAt)/1000);
 
@@ -630,9 +618,8 @@ function renderQuestions(paper){
       }
       return `<label><input type="radio" name="${qid}" value="${oi}"/> <div class="opt-flex">${optImg ? `<div class="opt-img-wrap">${optImg}</div>` : ''}${optText ? `<div class="opt-text">${optText}</div>` : ''}</div></label>`;
     }).join("");
-    const finalOptionsHtml = optionsHtml || `<textarea name="${qid}" class="open-answer" rows="4" placeholder="Type your answer here..."></textarea>`;
 
-    div.innerHTML = `\n      ${q.section ? `<div class="q-section">${escapeHtml(q.section)}</div>` : ''}\n      <div class="q-text"><strong>${i+1}.</strong> ${escapeHtml(q.text||'')}</div>${qImageHtml}\n      <div class="options" id="opt-${qid}">${finalOptionsHtml}</div>\n    `; 
+    div.innerHTML = `\n      ${q.section ? `<div class="q-section">${escapeHtml(q.section)}</div>` : ''}\n      <div class="q-text"><strong>${i+1}.</strong> ${escapeHtml(q.text||'')}</div>${qImageHtml}\n      <div class="options" id="opt-${qid}">${optionsHtml}</div>\n    `;
     questionsList.appendChild(div);
 
     // Ensure options are selectable regardless of CSS quirks: add click/keyboard handlers and visual selection
@@ -816,8 +803,7 @@ function showCongratsOverlay(contentObj){
   const card = document.createElement('div'); card.className = 'congrats-card';
   const heart = document.createElement('div'); heart.className = 'heart'; heart.innerHTML = '💖';
   const title = document.createElement('div'); title.innerHTML = `<h3>Congratulations!</h3>`;
-  const text = document.createElement('div'); text.className='muted';
-  text.textContent = contentObj && contentObj.manual ? 'Your answers have been saved. This exam is graded manually — results will be added to the Results page by an instructor.' : 'Your answers have been saved locally. You can view results or copy data manually.';
+  const text = document.createElement('div'); text.className='muted'; text.textContent = 'Your answers have been saved locally. You can view results or copy data manually.';
   const btnRow = document.createElement('div'); btnRow.style.display='flex'; btnRow.style.gap='8px'; btnRow.style.flexWrap='wrap';
   const viewBtn = document.createElement('button'); viewBtn.className='btn'; viewBtn.textContent='View Result';
   const closeBtn = document.createElement('button'); closeBtn.className='btn'; closeBtn.textContent='Close';

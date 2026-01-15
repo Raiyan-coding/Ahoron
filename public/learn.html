@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ahoron — Learn</title>
+  <link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Ahoron logo" class="logo" />
+        <span>Ahoron</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="learn.html">Learn</a>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+      <li><a href="courses.html" onclick="toggleMenu()">Courses</a></li>
+      <li><a href="learn.html" onclick="toggleMenu()">Learn</a></li>
+    </ul>
+  </div>
+
+  <main class="container">
+    <h1>Learning Materials</h1>
+    <p class="lead">Videos and downloadable PDFs organised by subject.</p>
+
+    <section id="materials">
+      <!-- Example material blocks. Use #courseId anchor when linking from courses -->
+
+      <article id="math" class="material">
+        <h3>Mathematics</h3>
+        <div class="media">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Mathematics video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p><a class="btn" href="#">Download PDF: Mathematics Basics</a></p>
+      </article>
+
+      <article id="english" class="material">
+        <h3>English</h3>
+        <div class="media">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="English video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p><a class="btn" href="#">Download PDF: Grammar & Composition</a></p>
+      </article>
+
+      <p class="note">Tip: If you'd like, we can swap in your real video links and PDFs — tell me where they are or provide them and I’ll add them.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Ahoron.</small>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    }
+
+    // Authentication Check
+    async function checkAuth() {
+      try {
+        const response = await fetch('/api/auth/check');
+        const data = await response.json();
+
+        if (!data.authenticated) {
+          // Redirect to login page if not authenticated
+          window.location.href = '/login.html';
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
+        // Redirect to login on error
+        window.location.href = '/login.html';
+      }
+    }
+
+    // Run auth check when page loads
+    document.addEventListener('DOMContentLoaded', checkAuth);
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

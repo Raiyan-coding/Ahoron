@@ -204,22 +204,6 @@ async function loadExamPaper(year, monthIndex, day, subject, examStartUtc, examE
     paper = data.papers[idx];
     // legacy uses q.id and q.text and q.options and q.answer (existing code expects this)
     paperAlias = data.alias || data.board || null;
-  } else if (subject.id === 'e1' && Array.isArray(data.boards) && data.boards.length > 0) {
-    // E1 special: show two board names (Section 1: Normal, Section 2: Grammar)
-    const boards = data.boards;
-    if(!Array.isArray(boards) || boards.length === 0){
-      paperInfo.textContent = `E1 JSON missing 'boards' array. Add demo JSON.`;
-      questionsList.innerHTML = `<div class="muted">E1 demo data missing.</div>`;
-      startExamTimer(examStartUtc, examEndUtc);
-      return;
-    }
-    const idx1 = pickPaperIndex(`${paperSeed}|e1-normal`, boards.length);
-    let idx2 = pickPaperIndex(`${paperSeed}|e1-grammar`, boards.length);
-    if(idx2 === idx1) idx2 = (idx2 + 1) % boards.length;
-    const q1 = { id: `e1-normal-${idx1+1}`, text: boards[idx1], section: 'Section 1 (Normal)' };
-    const q2 = { id: `e1-grammar-${idx2+1}`, text: boards[idx2], section: 'Section 2 (Grammar)' };
-    paper = { paperId: data.paperId || `e1-${paperSeed}`, questions: [q1,q2] };
-    paperAlias = data.alias || null;
   } else if(Array.isArray(data.sets) && data.sets.length > 0){
     // new format: sets with {id, alias, questions:[{q,a,correct}]}
     const idx = pickPaperIndex(paperSeed, data.sets.length);
@@ -241,37 +225,6 @@ async function loadExamPaper(year, monthIndex, day, subject, examStartUtc, examE
       paperId: set.id,
       questions: mappedQuestions
     };
-  } else if (subject.id === 'e2' && Array.isArray(data.slots) && data.slots.length > 0) {
-    // Build E2 paper from slots: pick one candidate per slot (slot order preserved)
-    const slots = data.slots;
-    if(!Array.isArray(slots) || slots.length === 0){
-      paperInfo.textContent = `E2 JSON missing 'slots' array. Add demo JSON.`;
-      questionsList.innerHTML = `<div class="muted">E2 demo data missing.</div>`;
-      startExamTimer(examStartUtc, examEndUtc);
-      return;
-    }
-    const selectedQuestions = [];
-    for (let si = 0; si < slots.length; si++) {
-      const candidates = slots[si] || [];
-      if(!Array.isArray(candidates) || candidates.length === 0){
-        paperInfo.textContent = `E2 slot ${si+1} has no candidate questions.`;
-        questionsList.innerHTML = `<div class="muted">E2 JSON incomplete: empty slot ${si+1}.</div>`;
-        startExamTimer(examStartUtc, examEndUtc);
-        return;
-      }
-      const idx = pickPaperIndex(`${paperSeed}|slot${si}`, candidates.length);
-      const q = candidates[idx];
-      const norm = {
-        id: q.id || `e2-s${si+1}-q${idx+1}`,
-        text: q.text || q.q || '',
-        options: q.options || q.a || [],
-        image: q.image || null,
-        imageAlt: q.imageAlt || null
-      };
-      selectedQuestions.push(norm);
-    }
-    paper = { paperId: data.paperId || `e2-${paperSeed}`, questions: selectedQuestions };
-    paperAlias = data.alias || data.board || null;
   } else {
     paperInfo.textContent = "No papers/sets found in JSON.";
     questionsList.innerHTML = `<div class="muted">Add 'papers' or 'sets' array to JSON with at least one entry.</div>`;
@@ -318,10 +271,9 @@ function renderQuestions(paper){
     const div = document.createElement("div");
     div.className = "q-card";
     div.innerHTML = `
-      ${q.section ? `<div class="q-section">${escapeHtml(q.section)}</div>` : ''}
       <div class="q-text"><strong>${i+1}.</strong> ${escapeHtml(q.text)}</div>
       <div class="options" id="opt-${q.id}">
-        ${ (q.options || []).map((opt,oi)=>`<label><input type="radio" name="${q.id}" value="${oi}"/> ${escapeHtml(typeof opt === 'string' ? opt : (opt.text||''))}</label>`).join("") }
+        ${q.options.map((opt,oi)=>`<label><input type="radio" name="${q.id}" value="${oi}"/> ${escapeHtml(opt)}</label>`).join("")}
       </div>
     `;
     questionsList.appendChild(div);
@@ -334,12 +286,8 @@ function gatherAnswers(){
   radios.forEach(r=>{
     ans[r.name] = Number(r.value);
   });
-  const textareas = questionsList.querySelectorAll('textarea[name]');
-  textareas.forEach(t=>{
-    if(typeof ans[t.name] === 'undefined') ans[t.name] = t.value ? String(t.value).trim() : '';
-  });
   return ans;
-} 
+}
 
 function escapeHtml(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 

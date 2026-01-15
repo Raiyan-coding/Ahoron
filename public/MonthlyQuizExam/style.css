@@ -274,6 +274,7 @@ h3 {
   resize: vertical;
 }
 .open-answer::placeholder { color: var(--text-muted); }
+
 .options {
   margin-top: 16px;
 }

@@ -1,0 +1,55 @@
+{
+  "alias": "English — 2nd Paper (Demo)",
+  "paperId": "e2-demo-1",
+  "slots": [
+    [
+      { "id": "e2-q1-1", "text": "Write a short definition of the word 'rapid'." },
+      { "id": "e2-q1-2", "text": "Explain the meaning of 'rapid' in one sentence." },
+      { "id": "e2-q1-3", "text": "Give a synonym of 'rapid' and use it in a sentence." },
+      { "id": "e2-q1-4", "text": "Describe a situation where something is 'rapid'." },
+      { "id": "e2-q1-5", "text": "Write one word that best matches 'rapid' and explain why." }
+    ],
+    [
+      { "id": "e2-q2-1", "text": "Write a short sentence correcting: 'He don't like it.'" },
+      { "id": "e2-q2-2", "text": "Explain why 'He doesn't like it.' is correct or incorrect." },
+      { "id": "e2-q2-3", "text": "Rewrite the sentence to make it grammatically correct." },
+      { "id": "e2-q2-4", "text": "Write two alternate correct forms of the sentence." },
+      { "id": "e2-q2-5", "text": "Give a short explanation of subject-verb agreement using this sentence." }
+    ],
+    [
+      { "id": "e2-q3-1", "text": "Define the word 'generous' in your own words." },
+      { "id": "e2-q3-2", "text": "Write an antonym of 'generous' and use it in a sentence." },
+      { "id": "e2-q3-3", "text": "Give an example of a generous act." },
+      { "id": "e2-q3-4", "text": "Describe a person who is not generous." },
+      { "id": "e2-q3-5", "text": "Write a short paragraph contrasting 'generous' and 'stingy'." }
+    ],
+    [
+      { "id": "e2-q4-1", "text": "Fill in the blank and explain: He _____ to school every day." },
+      { "id": "e2-q4-2", "text": "Write the correct verb form for: My brother _____ football." },
+      { "id": "e2-q4-3", "text": "Explain the difference between 'go' and 'goes' with examples." },
+      { "id": "e2-q4-4", "text": "Write one sentence using the correct present simple form." },
+      { "id": "e2-q4-5", "text": "Convert the sentence to negative and explain the rule." }
+    ],
+    [
+      { "id": "e2-q5-1", "text": "Write the correctly punctuated form of: Whats the time" },
+      { "id": "e2-q5-2", "text": "Explain why the punctuation is needed in the sentence." },
+      { "id": "e2-q5-3", "text": "Give two more examples where a question mark is required." },
+      { "id": "e2-q5-4", "text": "Rewrite a sentence with correct punctuation and explain changes." },
+      { "id": "e2-q5-5", "text": "Describe the difference between statements and questions in punctuation." }
+    ],
+    [
+      { "id": "e2-q6-1", "text": "Explain which preposition is correct: 'She is good ___ mathematics.'" },
+      { "id": "e2-q6-2", "text": "Give an example sentence using 'good at' correctly." },
+      { "id": "e2-q6-3", "text": "Write a short rule for choosing prepositions in such sentences." },
+      { "id": "e2-q6-4", "text": "Explain the difference between 'in' and 'at' with examples." },
+      { "id": "e2-q6-5", "text": "Correct the sentence: 'He arrived ___ Dhaka.' and explain choice." }
+    ],
+    [
+      { "id": "e2-q7-1", "text": "Write the passive form of: 'People speak English all over the world.' and explain." },
+      { "id": "e2-q7-2", "text": "Explain the concept of passive voice with an example." },
+      { "id": "e2-q7-3", "text": "Convert: 'They will finish the work tomorrow.' to passive and explain." },
+      { "id": "e2-q7-4", "text": "Give two sentences in passive voice and explain why passive is used." },
+      { "id": "e2-q7-5", "text": "Write a sentence in passive voice using 'finish' and explain tense changes." }
+    ]
+  ]
+}

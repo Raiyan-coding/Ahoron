@@ -1,4 +1,7 @@
-{
+import json
+
+# Paste your FULL original JSON string here (the one with paperId bangla2-01 to bangla2-09)
+json_str = '''{
   "papers": [
     {
       "paperId": "bangla2-01",
@@ -3025,4 +3028,36 @@
       ]
     }
   ]
-}
+}}'''
+
+# Load JSON
+data = json.loads(json_str)
+
+# Your correct answers (in order: DB25 → JB25)
+all_answers = [
+    [3,2,0,1,3,0,2,3,1,1,3,0,2,1,1,3,0,3,0,0,1,0,2,3,2,1,0,1,2,2],   # DB25
+    [3,3,1,1,1,2,2,0,0,3,0,3,0,0,2,1,1,0,3,0,2,1,3,2,0,0,3,1,3,3],   # MB25
+    [2,0,1,3,2,2,1,3,2,0,1,3,2,0,1,3,2,0,1,3,1,2,2,0,1,3,2,0,3,3],   # RB25
+    [1,0,0,3,2,3,1,1,2,3,0,3,3,1,2,0,2,0,2,1,3,0,3,1,3,1,2,0,3,1],   # DINB25
+    [3,2,3,1,3,2,0,0,1,3,1,2,2,2,1,2,2,3,2,1,0,1,0,1,2,1,1,3,3,3],   # CB25
+    [0,0,0,1,2,2,3,0,3,0,1,2,0,0,2,1,3,2,1,1,3,0,3,3,2,3,0,2,1,2],   # CTGB25
+    [1,2,1,2,0,2,3,2,0,3,2,0,1,3,2,2,1,0,3,3,3,1,3,2,3,0,3,2,3,0],   # SB25
+    [2,1,3,0,1,0,0,0,2,2,1,0,3,3,2,2,3,1,0,3,2,1,0,2,1,3,2,1,2,1],   # BB25
+    [2,1,0,3,1,0,3,2,0,2,1,3,1,2,0,1,0,1,2,3,1,0,1,3,1,0,1,2,0,3]    # JB25
+]
+
+# Map paperId to index (adjust order if your JSON has different sequence)
+paper_order = ["bangla2-01", "bangla2-02", "bangla2-03", "bangla2-04", "bangla2-05", "bangla2-06", "bangla2-07", "bangla2-08", "bangla2-09"]
+
+for idx, paper_id in enumerate(paper_order):
+    for paper in data["papers"]:
+        if paper["paperId"] == paper_id:
+            for q_idx, question in enumerate(paper["questions"]):
+                question["answer"] = all_answers[idx][q_idx]
+            break
+
+# Save the updated JSON
+with open("bangla2_updated.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)
+
+print("JSON updated successfully! File saved as: bangla2_updated.json")

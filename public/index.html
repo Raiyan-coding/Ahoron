@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahoron - Study Smarter, Score Higher | SSC Exam Preparation Platform</title>
+  <meta name="description" content="Join thousands of SSC students revolutionizing their education with Ahoron's cutting-edge platform. AI-powered learning, interactive MCQ exams, and comprehensive courses for SSC success.">
+  <meta name="keywords" content="SSC preparation, SSC exam, Bangladesh education, MCQ exam, online learning, SSC courses, mathematics, physics, chemistry, biology, English, Bangla">
+  <meta name="author" content="Ahoron">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ahoron.com/">
+  <meta property="og:title" content="Ahoron - Study Smarter, Score Higher">
+  <meta property="og:description" content="Join thousands of SSC students revolutionizing their education with Ahoron's cutting-edge platform. AI-powered learning, interactive MCQ exams, and comprehensive courses for SSC success.">
+  <meta property="og:image" content="https://ahoron.com/images/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ahoron.com/">
+  <meta property="twitter:title" content="Ahoron - Study Smarter, Score Higher">
+  <meta property="twitter:description" content="Join thousands of SSC students revolutionizing their education with Ahoron's cutting-edge platform. AI-powered learning, interactive MCQ exams, and comprehensive courses for SSC success.">
+  <meta property="twitter:image" content="https://ahoron.com/images/og-image.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ahoron.com/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ahoron",
+    "url": "https://ahoron.com",
+    "logo": "https://ahoron.com/images/logo.png",
+    "description": "Empowering SSC students with innovative education solutions and personalized learning experiences",
+    "foundingDate": "2024",
+    "sameAs": [
+      "https://facebook.com/ahoron",
+      "https://twitter.com/ahoron",
+      "https://instagram.com/ahoron",
+      "https://youtube.com/ahoron",
+      "https://linkedin.com/company/ahoron"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+880-123-456-7890",
+      "contactType": "customer service",
+      "availableLanguage": "English"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "BD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ahoron",
+    "url": "https://ahoron.com",
+    "description": "SSC exam preparation platform with AI-powered learning",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ahoron"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://ahoron.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <style>
+    /* Modern Dark Theme */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: all 0.3s ease;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      position: relative;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      color: #667eea;
+      transform: translateY(-2px);
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #ffffff;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(26, 26, 26, 0.95) 100%);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: left 0.3s ease;
+    }
+    .mobile-menu.active {
+      left: 0;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      text-align: center;
+    }
+    .mobile-menu ul li {
+      margin: 20px 0;
+    }
+    .mobile-menu ul li a {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .mobile-menu ul li a:hover {
+      color: #667eea;
+      transform: scale(1.1);
+    }
+    .mobile-menu ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+    .mobile-menu ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 140px 0 80px;
+      text-align: center;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 60%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+    }
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      z-index: 1;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 40px;
+      opacity: 0.8;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      border-radius: 30px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+    .hero-btn.secondary {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      color: white;
+    }
+    .hero-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
+    }
+
+    /* Slider */
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+      margin: 60px 0;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .slider-container {
+      display: flex;
+      width: 300%;
+      animation: slide 18s infinite ease-in-out;
+    }
+    .slide {
+      width: 33.333%;
+      height: 450px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.7) 0%, rgba(26, 26, 26, 0.3) 100%);
+    }
+    .slide-content {
+      z-index: 1;
+      text-align: center;
+      color: white;
+    }
+    .slide-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    .slide-content p {
+      font-size: 1.125rem;
+      opacity: 0.9;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33.33% { transform: translateX(-33.333%); }
+      66.66% { transform: translateX(-66.666%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* Stats Section */
+    .stats {
+      padding: 100px 0;
+      background: #0a0a0a;
+    }
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+    .stat-item {
+      padding: 40px 30px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .stat-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.1);
+      border-color: rgba(102, 126, 234, 0.3);
+    }
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .stat-label {
+      font-size: 1.125rem;
+      opacity: 0.8;
+      font-weight: 500;
+    }
+
+    /* Services Section */
+    .services {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+    .services h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+    .service-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+      border-color: rgba(102, 126, 234, 0.3);
+    }
+    .service-icon {
+      font-size: 3.5rem;
+      color: #667eea;
+      margin-bottom: 24px;
+    }
+    .service-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+    .service-desc {
+      opacity: 0.8;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Courses Section */
+    .courses {
+      padding: 100px 0;
+      background: #0a0a0a;
+    }
+    .courses h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 40px;
+    }
+    .course-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .course-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+      border-color: rgba(102, 126, 234, 0.3);
+    }
+    .course-image {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .course-content {
+      padding: 30px;
+    }
+    .course-title {
+      font-size: 1.375rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #667eea;
+    }
+    .course-desc {
+      opacity: 0.8;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .course-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    .course-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Why Ahoron Section */
+    .why-ahoron {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      text-align: center;
+    }
+    .why-ahoron h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+    .why-item {
+      padding: 40px 30px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .why-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.1);
+      border-color: rgba(102, 126, 234, 0.2);
+    }
+    .why-icon {
+      font-size: 3rem;
+      color: #667eea;
+      margin-bottom: 24px;
+    }
+    .why-title {
+      font-size: 1.375rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+    .why-item p {
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    /* Team Section */
+    .team {
+      padding: 100px 0;
+      background: #0a0a0a;
+    }
+    .team h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+    .team-member {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+      border-color: rgba(102, 126, 234, 0.3);
+    }
+    .team-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: white;
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2);
+    }
+    .team-name {
+      font-size: 1.375rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #667eea;
+    }
+    .team-role {
+      opacity: 0.8;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+    .testimonials h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .testimonial-slider {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .testimonial {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 50px 40px;
+      text-align: center;
+      margin: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 24px;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+    .testimonial-author {
+      color: #667eea;
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+
+    /* Contact */
+    .contact {
+      padding: 100px 0;
+      background: #0a0a0a;
+      text-align: center;
+    }
+    .contact h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .contact input:focus, .contact textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    .contact input::placeholder, .contact textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .contact button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      border-radius: 30px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    .contact button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      padding: 60px 0 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+    .social-links {
+      margin-bottom: 30px;
+    }
+    .social-links a {
+      color: #667eea;
+      font-size: 2rem;
+      margin: 0 20px;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: translateY(-5px);
+      color: #764ba2;
+    }
+    footer p {
+      opacity: 0.8;
+      font-size: 1rem;
+    }
+
+    /* Scroll Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .fade-in.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease;
+    }
+    .slide-in-left.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease;
+    }
+    .slide-in-right.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.8s ease;
+    }
+    .scale-in.animate {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .bounce-in {
+      opacity: 0;
+      transform: scale(0.3);
+      animation: bounceIn 0.8s ease forwards;
+    }
+    @keyframes bounceIn {
+      0% { opacity: 0; transform: scale(0.3); }
+      50% { opacity: 1; transform: scale(1.05); }
+      70% { transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Pulse Animation */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Glow Animation */
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(102, 126, 234, 0.6), 0 0 40px rgba(102, 126, 234, 0.4); }
+    }
+    .glow {
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      nav ul {
+        display: none;
+      }
+      .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 20px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .hero p {
+        font-size: 1.125rem;
+      }
+      .slider {
+        height: 350px;
+        margin: 40px 0;
+      }
+      .slide {
+        height: 350px;
+      }
+      .stats-container, .services-grid, .courses-grid, .why-grid, .team-grid {
+        grid-template-columns: 1fr;
+      }
+      .service-card, .course-card, .why-item, .team-member, .stat-item {
+        margin: 0 auto;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container container">
+      <div class="logo">Ahoron</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="notices.html">Notices</a></li>
+          <li><a href="MonthlyQuizExam/index.html">MCQ Exam</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="instructors.html">Teachers</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+      <li><a href="notices.html" onclick="toggleMenu()">Notices</a></li>
+      <li><a href="MonthlyQuizExam/index.html" onclick="toggleMenu()">MCQ Exam</a></li>
+      <li><a href="courses.html" onclick="toggleMenu()">Courses</a></li>
+      <li><a href="instructors.html" onclick="toggleMenu()">Teachers</a></li>
+      <li><a href="community.html" onclick="toggleMenu()">Community</a></li>
+      <li><a href="about.html" onclick="toggleMenu()">About Us</a></li>
+    </ul>
+  </div>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Study Smarter, Score Higher</h1>
+      <p>Join thousands of SSC students revolutionizing their education with Ahoron's cutting-edge platform</p>
+      <div class="hero-buttons">
+        <a href="MonthlyQuizExam/index.html" class="hero-btn">Start MCQ Test Now</a>
+        <a href="learn.html" class="hero-btn secondary">Start Learning Now</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="slider">
+    <div class="slider-container">
+      <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400/00ffff/000000?text=Mathematics+Masterclass')">
+        <div class="slide-content">
+          <h2>Mathematics Masterclass</h2>
+          <p>Conquer SSC Math with expert guidance</p>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400/ff00ff/000000?text=Science+Excellence')">
+        <div class="slide-content">
+          <h2>Science Excellence</h2>
+          <p>Unlock the secrets of Physics, Chemistry & Biology</p>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400/ffff00/000000?text=English+Proficiency')">
+        <div class="slide-content">
+          <h2>English Proficiency</h2>
+          <p>Master English for SSC success</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number" data-target="500">0</div>
+          <div class="stat-label">Videos Published</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="25">0</div>
+          <div class="stat-label">Courses Available</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="10000">0</div>
+          <div class="stat-label">Students Enrolled</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card" onclick="window.location.href='#courses'">
+          <i class="fas fa-book-open service-icon"></i>
+          <h3 class="service-title">Our Courses</h3>
+          <p class="service-desc">Comprehensive SSC curriculum with interactive lessons and practice tests</p>
+        </div>
+        <div class="service-card" onclick="window.location.href='#products'">
+          <i class="fas fa-shopping-bag service-icon"></i>
+          <h3 class="service-title">Products</h3>
+          <p class="service-desc">Educational products including books, stationery, and premium subscriptions</p>
+        </div>
+        <div class="service-card" onclick="window.location.href='#community'">
+          <i class="fas fa-users service-icon"></i>
+          <h3 class="service-title">Community</h3>
+          <p class="service-desc">Connect with fellow SSC students and share study resources</p>
+        </div>
+        <div class="service-card" onclick="window.location.href='#exam-center'">
+          <i class="fas fa-graduation-cap service-icon"></i>
+          <h3 class="service-title">Exam Center</h3>
+          <p class="service-desc">Timed mock tests and exam preparation with real SSC conditions</p>
+        </div>
+        <div class="service-card" onclick="window.open('https://raiyan-coding.github.io/monthly-exam-demo/MonthlyQuizExam/', '_blank')">
+          <i class="fas fa-question-circle service-icon"></i>
+          <h3 class="service-title">MCQ Exam</h3>
+          <p class="service-desc">Interactive multiple-choice question system for practice and assessment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" class="courses">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Our Courses</h2>
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-image" style="background-image: url('https://via.placeholder.com/350x200/00ffff/000000?text=Advanced+Mathematics')"></div>
+          <div class="course-content">
+            <h3 class="course-title">Advanced Mathematics</h3>
+            <p class="course-desc">Master algebra, geometry, and calculus with step-by-step explanations</p>
+            <button class="course-btn">Enroll Now</button>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-image" style="background-image: url('https://via.placeholder.com/350x200/ff00ff/000000?text=Physics+Fundamentals')"></div>
+          <div class="course-content">
+            <h3 class="course-title">Physics Fundamentals</h3>
+            <p class="course-desc">Understand mechanics, electricity, and modern physics concepts</p>
+            <button class="course-btn">Enroll Now</button>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-image" style="background-image: url('https://via.placeholder.com/350x200/ffff00/000000?text=Chemistry+Mastery')"></div>
+          <div class="course-content">
+            <h3 class="course-title">Chemistry Mastery</h3>
+            <p class="course-desc">Explore organic, inorganic, and physical chemistry in depth</p>
+            <button class="course-btn">Enroll Now</button>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-image" style="background-image: url('https://via.placeholder.com/350x200/00ff00/000000?text=Biology+Excellence')"></div>
+          <div class="course-content">
+            <h3 class="course-title">Biology Excellence</h3>
+            <p class="course-desc">Comprehensive coverage of botany, zoology, and biotechnology</p>
+            <button class="course-btn">Enroll Now</button>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-image" style="background-image: url('https://via.placeholder.com/350x200/ff6600/000000?text=English+Proficiency')"></div>
+          <div class="course-content">
+            <h3 class="course-title">English Proficiency</h3>
+            <p class="course-desc">Grammar, literature, and communication skills for SSC success</p>
+            <button class="course-btn">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-ahoron">
+    <div class="container">
+      <h2 style="font-size: 2.5rem;">Why Ahoron?</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <i class="fas fa-brain why-icon"></i>
+          <h3 class="why-title">AI-Powered Learning</h3>
+          <p>Personalized learning paths adapted to your pace and learning style</p>
+        </div>
+        <div class="why-item">
+          <i class="fas fa-clock why-icon"></i>
+          <h3 class="why-title">Time Management</h3>
+          <p>Efficient study techniques and exam strategies to maximize your score</p>
+        </div>
+        <div class="why-item">
+          <i class="fas fa-users why-icon"></i>
+          <h3 class="why-title">Community Support</h3>
+          <p>Connect with peers and mentors for guidance and motivation</p>
+        </div>
+        <div class="why-item">
+          <i class="fas fa-mobile-alt why-icon"></i>
+          <h3 class="why-title">Mobile Learning</h3>
+          <p>Study anywhere, anytime with our responsive mobile platform</p>
+        </div>
+        <div class="why-item">
+          <i class="fas fa-chart-line why-icon"></i>
+          <h3 class="why-title">Proven Results</h3>
+          <p>90% of our students improve their grades within 3 months</p>
+        </div>
+        <div class="why-item">
+          <i class="fas fa-shield-alt why-icon"></i>
+          <h3 class="why-title">Quality Assurance</h3>
+          <p>Content reviewed by experienced educators and SSC toppers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="teachers" class="team">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Our Teachers & Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-image">👨‍🏫</div>
+          <h3 class="team-name">Dr. Rahman</h3>
+          <p class="team-role">Mathematics Expert<br>15+ years teaching experience</p>
+        </div>
+        <div class="team-member">
+          <div class="team-image">👩‍🔬</div>
+          <h3 class="team-name">Prof. Ahmed</h3>
+          <p class="team-role">Science Coordinator<br>PhD in Physics, former SSC examiner</p>
+        </div>
+        <div class="team-member">
+          <div class="team-image">👨‍💼</div>
+          <h3 class="team-name">CEO - Ahoron</h3>
+          <p class="team-role">Visionary Leader<br>Teen entrepreneur driving innovation</p>
+        </div>
+        <div class="team-member">
+          <div class="team-image">👩‍💻</div>
+          <h3 class="team-name">CTO - Ahoron</h3>
+          <p class="team-role">Tech Innovator<br>Building the future of education</p>
+        </div>
+        <div class="team-member">
+          <div class="team-image">👨‍🎓</div>
+          <h3 class="team-name">Academic Director</h3>
+          <p class="team-role">Curriculum Designer<br>SSC topper and education specialist</p>
+        </div>
+        <div class="team-member">
+          <div class="team-image">👩‍📚</div>
+          <h3 class="team-name">Content Manager</h3>
+          <p class="team-role">Quality Controller<br>Ensuring excellence in every lesson</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">What Students Say About Ahoron</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial">
+          <p class="testimonial-text">"Ahoron transformed my study habits completely. The personalized learning approach helped me score 95% in SSC!"</p>
+          <p class="testimonial-author">- Sarah Ahmed, SSC 2023 Topper</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"The interactive videos and practice tests made learning fun. I went from struggling to confident in just 2 months."</p>
+          <p class="testimonial-author">- Mohammad Rahman, SSC 2023</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"Ahoron's community support kept me motivated throughout my preparation. Highly recommend to all SSC students!"</p>
+          <p class="testimonial-author">- Fatima Khan, SSC 2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Contact Us</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <p>&copy; 2024 Ahoron. All rights reserved. | Empowering SSC Students Worldwide</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    }
+
+    // Animated Statistics Counter
+    function animateCounter(element, target) {
+      let current = 0;
+      const increment = target / 100;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target;
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current);
+        }
+      }, 30);
+    }
+
+    // Trigger counters when stats section is visible
+    const statsSection = document.querySelector('.stats');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const statNumbers = document.querySelectorAll('.stat-number');
+          statNumbers.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-target'));
+            animateCounter(stat, target);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+    observer.observe(statsSection);
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Contact form submission
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We\'ll get back to you soon.');
+      this.reset();
+    });
+
+    // Course enrollment buttons
+    document.querySelectorAll('.course-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        alert('Enrollment feature coming soon! Contact us for more information.');
+      });
+    });
+
+
+
+    // Add some interactive effects
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add parallax effect to slider
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const slider = document.querySelector('.slider');
+        if (slider) {
+          slider.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+      });
+
+      // Add glow effect on hover for service cards
+      document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.boxShadow = '0 15px 35px rgba(0, 255, 255, 0.4), 0 5px 15px rgba(255, 0, 255, 0.2)';
+        });
+        card.addEventListener('mouseleave', function() {
+          this.style.boxShadow = '0 15px 35px rgba(0, 255, 255, 0.3)';
+        });
+      });
+    });
+  </script>
+  <script src="https://backend.nordanai.com/public/widget.js" defer nordankey="AIPHWsp6mcylI"></script>
+
+
+</body>
+</html>

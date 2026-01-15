@@ -1,0 +1,66 @@
+{
+  "alias": "English — 2nd Paper (Demo)",
+  "paperId": "e2-demo-1",
+  "slots": [
+    [
+      { "id": "e2-q1-a", "text": "Choose the closest meaning of 'rapid'.", "options": ["slow", "quick", "late", "weak"] },
+      { "id": "e2-q1-b", "text": "Select the synonym of 'rapid'.", "options": ["gradual", "swift", "distant", "tiny"] },
+      { "id": "e2-q1-c", "text": "Which word means the same as 'rapid'?", "options": ["speedy", "steady", "rare", "fragile"] }
+    ],
+    [
+      { "id": "e2-q2-a", "text": "Choose the correct sentence.", "options": ["He don't like it.", "He doesn't like it.", "He didn't liked it.", "He not like it."] },
+      { "id": "e2-q2-b", "text": "Select the grammatically correct option.", "options": ["She were happy.", "She are happy.", "She is happy.", "She am happy."] }
+    ],
+    [
+      { "id": "e2-q3-a", "text": "What is the antonym of 'generous'?", "options": ["kind", "stingy", "giving", "charitable"] },
+      { "id": "e2-q3-b", "text": "Choose the opposite of 'generous'.", "options": ["selfish", "polite", "brave", "clever"] }
+    ],
+    [
+      { "id": "e2-q4-a", "text": "Fill in the blank: He _____ to school every day.", "options": ["go", "goes", "going", "gone"] },
+      { "id": "e2-q4-b", "text": "Choose the right form: My brother _____ football.", "options": ["play", "plays", "playing", "played"] }
+    ],
+    [
+      { "id": "e2-q5-a", "text": "Choose correct punctuation: 'Whats the time'", "options": ["Whats the time.", "What's the time?", "What s the time?", "Whats the time!"] },
+      { "id": "e2-q5-b", "text": "Select the rightly punctuated sentence.", "options": ["How are you", "How are you?", "How, are you?", "How are you!"] }
+    ],
+    [
+      { "id": "e2-q6-a", "text": "Choose the correct preposition: 'She is good ___ mathematics.'", "options": ["in", "at", "on", "for"] },
+      { "id": "e2-q6-b", "text": "Select the appropriate preposition: 'He arrived ___ Dhaka.'", "options": ["to", "in", "at", "on"] }
+    ],
+    [
+      { "id": "e2-q7-a", "text": "Select the correct passive form: 'People speak English all over the world.'", "options": ["English is spoken all over the world.", "English speaks all over the world.", "English are spoken all over the world.", "English spoken all over the world."] },
+      { "id": "e2-q7-b", "text": "Choose passive voice: 'They will finish the work tomorrow.'", "options": ["The work will be finished tomorrow.", "The work will finished tomorrow.", "The work is finished tomorrow.", "The work be finished tomorrow."] }
+    ]
+  ]
+}
+    [
+      { "id": "e2-q1-a", "text": "Choose the closest meaning of 'rapid'.", "options": ["slow", "quick", "late", "weak"], "answer": 1 },
+      { "id": "e2-q1-b", "text": "Select the synonym of 'rapid'.", "options": ["gradual", "swift", "distant", "tiny"], "answer": 1 },
+      { "id": "e2-q1-c", "text": "Which word means the same as 'rapid'?", "options": ["speedy", "steady", "rare", "fragile"], "answer": 0 }
+    ],
+    [
+      { "id": "e2-q2-a", "text": "Choose the correct sentence.", "options": ["He don't like it.", "He doesn't like it.", "He didn't liked it.", "He not like it."], "answer": 1 },
+      { "id": "e2-q2-b", "text": "Select the grammatically correct option.", "options": ["She were happy.", "She are happy.", "She is happy.", "She am happy."], "answer": 2 }
+    ],
+    [
+      { "id": "e2-q3-a", "text": "What is the antonym of 'generous'?", "options": ["kind", "stingy", "giving", "charitable"], "answer": 1 },
+      { "id": "e2-q3-b", "text": "Choose the opposite of 'generous'.", "options": ["selfish", "polite", "brave", "clever"], "answer": 0 }
+    ],
+    [
+      { "id": "e2-q4-a", "text": "Fill in the blank: " + "He _____ to school every day.", "options": ["go", "goes", "going", "gone"], "answer": 1 },
+      { "id": "e2-q4-b", "text": "Choose the right form: " + "My brother _____ football.", "options": ["play", "plays", "playing", "played"], "answer": 1 }
+    ],
+    [
+      { "id": "e2-q5-a", "text": "Choose correct punctuation: 'Whats the time'", "options": ["Whats the time.", "What's the time?", "What s the time?", "Whats the time!"], "answer": 1 },
+      { "id": "e2-q5-b", "text": "Select the rightly punctuated sentence.", "options": ["How are you", "How are you?", "How, are you?", "How are you!"], "answer": 1 }
+    ],
+    [
+      { "id": "e2-q6-a", "text": "Choose the correct preposition: 'She is good ___ mathematics.'", "options": ["in", "at", "on", "for"], "answer": 1 },
+      { "id": "e2-q6-b", "text": "Select the appropriate preposition: 'He arrived ___ Dhaka.'", "options": ["to", "in", "at", "on"], "answer": 1 }
+    ],
+    [
+      { "id": "e2-q7-a", "text": "Select the correct passive form: 'People speak English all over the world.'", "options": ["English is spoken all over the world.", "English speaks all over the world.", "English are spoken all over the world.", "English spoken all over the world."], "answer": 0 },
+      { "id": "e2-q7-b", "text": "Choose passive voice: 'They will finish the work tomorrow.'", "options": ["The work will be finished tomorrow.", "The work will finished tomorrow.", "The work is finished tomorrow.", "The work be finished tomorrow."], "answer": 0 }
+    ]
+  ]
+}
