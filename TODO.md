@@ -1,23 +1,39 @@
-# Exam Results Chart Update - TODO
+# TODO: Update Folder References from MonthlyQuizExam to mcq-tracker
 
-## Completed Tasks
-- [x] Add final exam data to half-yearly.html alongside existing half-yearly data
-- [x] Include final exam subjects in different order: Math, B1, B2, Rel, Phy, E1, E2, ICT, BGS, HM, Che, Bio
-- [x] Add data for Medha and Raiyan for final exams
-- [x] Use demo data for Sourav until real data is provided
-- [x] Implement toggle button to switch between Half-Yearly and Final exams
-- [x] Make the chart scrollable left to right for better viewing
-- [x] Ensure the chart is responsive on mobile devices
-- [x] Update page title to "Exam Results Chart"
-- [x] Add chart container with horizontal scrolling and mobile-specific styles
-- [x] Test the page by opening it in the browser
+## Step 1: Rename Folders
+- [ ] Rename public/MonthlyQuizExam to public/mcq-tracker
+- [ ] Rename public/Safety/MonthlyQuizExam to public/Safety/mcq-tracker
 
-## Pending Tasks
-- [ ] Update Sourav's final exam data when real data is provided
-- [ ] Further testing on different screen sizes if needed
+## Step 2: Update References in HTML Files
+- [ ] Update README.md
+- [ ] Update public/about.html
+- [ ] Update public/contact.html
+- [ ] Update public/courses.html
+- [ ] Update notices.html
+- [ ] Update public/community.html
+- [ ] Update public/index.html
+- [ ] Update public/instructors.html
+- [ ] Update public/notices.html
+- [ ] Update instructors.html
+- [x] Update index.html
+- [ ] Update courses.html
+- [ ] Update contact.html
+- [ ] Update community.html
+- [ ] Update about.html
 
-## Notes
-- The chart now displays cumulative mark differences for both exams.
-- Users can toggle between exams and between topper-based and lowest-based modes.
-- Horizontal scrolling is enabled for wide charts on smaller screens.
-- Mobile responsiveness includes adjusted padding, font sizes, and minimum canvas width.
+## Step 3: Update References in Other Files
+- [ ] Update build.cjs
+
+## Step 4: Update Content in Renamed Folders
+- [ ] Update public/mcq-tracker/index.html
+- [ ] Update public/mcq-tracker/main.js
+- [ ] Update public/Safety/mcq-tracker/index.html
+- [ ] Update public/Safety/mcq-tracker/main.js
+
+## Step 5: Commit and Push to GitHub
+- [ ] Add all changes to git
+- [ ] Commit with message "Update folder references from MonthlyQuizExam to mcq-tracker"
+- [ ] Push to GitHub
+
+## Step 6: Redeploy on Vercel
+- [ ] Trigger Vercel redeploy (if automatic, or manual)

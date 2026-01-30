@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile Quiz — Screenshots Viewer</title>
+  <style>
+    :root{ --accent:#0b69ff; --bg:#f7f8fb; --card:#ffffff }
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial; background:var(--bg); color:#111}
+    .wrap{max-width:420px;margin:18px auto;padding:14px}
+    header{display:flex;gap:12px;align-items:center}
+    header h1{font-size:18px;margin:0}
+    header p{margin:0;font-size:13px;color:#555}
+    .section{margin-top:14px}
+    .section h2{font-size:15px;margin:8px 0}
+    /* mobile-first: single column (1 per row) */
+    .grid{display:grid;grid-template-columns:1fr;gap:10px}
+    .thumb{background:var(--card);border-radius:10px;padding:6px;box-shadow:0 4px 14px rgba(12,18,36,0.06);display:block;overflow:hidden}
+    .thumb img{width:100%;height:220px;object-fit:cover;border-radius:8px}
+    .note{font-size:12px;color:#444;margin-top:8px}
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);z-index:999}
+    .modal.show{display:flex}
+    .modal img{max-width:92vw;max-height:92vh;box-shadow:0 20px 60px rgba(0,0,0,0.6);border-radius:10px}
+    .controls{position:fixed;left:0;right:0;top:18px;display:flex;justify-content:space-between;padding:0 16px;pointer-events:none}
+    .btn{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:#fff;padding:8px 10px;border-radius:8px;pointer-events:auto}
+    .nav-btn{position:fixed;top:50%;transform:translateY(-50%);background:transparent;border:none;color:#fff;font-size:28px;padding:12px;cursor:pointer}
+    .nav-btn.prev{left:6px}
+    .nav-btn.next{right:6px}
+    footer{margin-top:20px;font-size:12px;color:#666;text-align:center}
+    @media(min-width:600px){.wrap{max-width:720px}.grid{grid-template-columns:repeat(2,1fr)}.thumb img{height:180px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6bd4ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700">Q</div>
+      <div>
+        <h1>Question Paper — Mobile Screenshots</h1>
+        <p>MCQ (10) · CQ (8) · EQ (2) — tap a thumbnail to view full</p>
+      </div>
+    </header>
+
+    <div class="section" id="mcq-section">
+      <h2>MCQ — 10 screenshots</h2>
+      <div class="grid" id="mcq-grid"></div>
+      <div class="note">Images are loaded from local <code>images/</code> folder.</div>
+    </div>
+
+    <div class="section" id="cq-section">
+      <h2>CQ — 8 screenshots</h2>
+      <div class="grid" id="cq-grid"></div>
+      <div class="note">Images are loaded from local <code>images/</code> folder.</div>
+    </div>
+
+    <div class="section" id="eq-section">
+      <h2>EQ — 2 screenshots</h2>
+      <div class="grid" id="eq-grid"></div>
+      <div class="note">Images are loaded from local <code>images/</code> folder.</div>
+    </div>
+
+    <footer>Made for mobile preview • Images fetched from local folder</footer>
+  </div>
+
+  <div id="lightbox" class="modal" role="dialog" aria-hidden="true">
+    <div class="controls">
+      <button id="closeBtn" class="btn">Close ✕</button>
+    </div>
+    <button class="nav-btn prev" aria-label="previous" id="prevBtn">◀</button>
+    <img id="lightboxImg" src="" alt="Screenshot preview" />
+    <button class="nav-btn next" aria-label="next" id="nextBtn">▶</button>
+  </div>
+
+  <script>
+    const mcqCount = 10;
+    const cqCount = 8;
+    const eqCount = 2;
+
+    // folder-based image paths with actual filenames
+    const imageMap = {
+      'mcq-1': 'image/Screenshot 2026-01-20 191722.png',
+      'mcq-2': 'image/Screenshot 2026-01-20 191734.png',
+      'mcq-3': 'image/Screenshot 2026-01-20 191747.png',
+      'mcq-4': 'image/Screenshot 2026-01-20 191753.png',
+      'mcq-5': 'image/Screenshot 2026-01-20 191800.png',
+      'mcq-6': 'image/Screenshot 2026-01-20 191807.png',
+      'mcq-7': 'image/Screenshot 2026-01-20 191840.png',
+      'mcq-8': 'image/Screenshot 2026-01-20 191904.png',
+      'mcq-9': 'image/Screenshot 2026-01-20 191913.png',
+      'mcq-10': 'image/Screenshot 2026-01-20 191922.png',
+      'cq-1': 'image/Screenshot 2026-01-20 192210.png',
+      'cq-2': 'image/Screenshot 2026-01-20 192221.png',
+      'cq-3': 'image/Screenshot 2026-01-20 192227.png',
+      'cq-4': 'image/Screenshot 2026-01-20 192231.png',
+      'cq-5': 'image/Screenshot 2026-01-20 192237.png',
+      'cq-6': 'image/Screenshot 2026-01-20 192242.png',
+      'cq-7': 'image/Screenshot 2026-01-20 192248.png',
+      'cq-8': 'image/Screenshot 2026-01-20 192254.png',
+      'eq-1': 'image/Screenshot 2026-01-20 193224.png',
+      'eq-2': 'image/Screenshot 2026-01-20 193228.png'
+    };
+
+    function getImagePath(type, index){
+      return imageMap[`${type}-${index}`] || `image/${type}-${index}.png`;
+    }
+
+    function makeThumb(type, i){
+      const a = document.createElement('a');
+      a.href='#';
+      a.className='thumb';
+      const img = document.createElement('img');
+      img.src = getImagePath(type,i);
+      img.alt = `${type.toUpperCase()} screenshot ${i}`;
+      a.appendChild(img);
+      a.addEventListener('click',(e)=>{ e.preventDefault(); openLightbox(type, i-1); });
+      return a;
+    }
+
+    // populate grids
+    const mcqGrid = document.getElementById('mcq-grid');
+    for(let i=1;i<=mcqCount;i++) mcqGrid.appendChild(makeThumb('mcq',i));
+
+    const cqGrid = document.getElementById('cq-grid');
+    for(let i=1;i<=cqCount;i++) cqGrid.appendChild(makeThumb('cq',i));
+
+    const eqGrid = document.getElementById('eq-grid');
+    for(let i=1;i<=eqCount;i++) eqGrid.appendChild(makeThumb('eq',i));
+
+    // build navigation array
+    const items = [];
+    for(let i=1;i<=mcqCount;i++) items.push({type:'mcq',src:getImagePath('mcq',i)});
+    for(let i=1;i<=cqCount;i++) items.push({type:'cq',src:getImagePath('cq',i)});
+    for(let i=1;i<=eqCount;i++) items.push({type:'eq',src:getImagePath('eq',i)});
+
+    let currentIndex=0;
+    const lightbox=document.getElementById('lightbox');
+    const lightboxImg=document.getElementById('lightboxImg');
+    const closeBtn=document.getElementById('closeBtn');
+    const prevBtn=document.getElementById('prevBtn');
+    const nextBtn=document.getElementById('nextBtn');
+
+    function openLightbox(type, idxWithinType){
+      let start = 0;
+      if(type === 'mcq') start = 0;
+      else if(type === 'cq') start = mcqCount;
+      else if(type === 'eq') start = mcqCount + cqCount;
+      currentIndex = start + idxWithinType;
+      showImage();
+      lightbox.classList.add('show');
+      lightbox.setAttribute('aria-hidden','false');
+    }
+
+    function showImage(){
+      const it = items[currentIndex];
+      lightboxImg.src = it.src;
+      lightboxImg.alt = `${it.type.toUpperCase()} ${currentIndex+1}`;
+    }
+
+    function closeLightbox(){ lightbox.classList.remove('show'); lightbox.setAttribute('aria-hidden','true'); lightboxImg.src=''; }
+    prevBtn.addEventListener('click', ()=>{ currentIndex=(currentIndex-1+items.length)%items.length; showImage(); });
+    nextBtn.addEventListener('click', ()=>{ currentIndex=(currentIndex+1)%items.length; showImage(); });
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click',(e)=>{ if(e.target===lightbox) closeLightbox(); });
+
+    document.addEventListener('keydown',(e)=>{ if(!lightbox.classList.contains('show')) return; if(e.key==='ArrowLeft') prevBtn.click(); if(e.key==='ArrowRight') nextBtn.click(); if(e.key==='Escape') closeBtn.click(); });
+  </script>
+</body>
+</html>
